@@ -35,13 +35,13 @@ export default function ActionButton({
             data-tooltip-place={tooltip?.place}
             className={wrapperClassName}
         >
-            <button
-                type='button'
+            <div
+                role='button'
                 className={`${CN.button} ${CN.variants[variant]} ${className}`}
-                onClick={() => onClick}
+                onClick={onClick}
             >
                 {children}
-            </button>
+            </div>
         </div>
     );
 }
