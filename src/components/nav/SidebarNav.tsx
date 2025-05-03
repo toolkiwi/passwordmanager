@@ -20,6 +20,11 @@ export default function SidebarNav() {
     const App = useSelector((state: StoreState) => state.app);
 
     /**
+     * Retrieve the app version from the .env file
+     */
+    const APP_VERSION = import.meta.env.VITE_VERSION;
+
+    /**
      * Instance Dispatch hook
      */
     const dispatch = useDispatch<StoreDispatch>();
@@ -115,6 +120,7 @@ export default function SidebarNav() {
                     <LuLogOut className={CN.list_item_icon} size={18} />
                 </button>
             </div>
+            <div className={CN.footer_version}>{APP_VERSION}</div>
         </nav>
     );
 }
@@ -138,4 +144,6 @@ const CN = {
         ' !border-orange-500/50 !bg-orange-500/25 hover:!border-orange-500 hover:!bg-orange-500/40 active:!bg-orange-500/50',
     list_item_warning_icon: ' !text-orange-500',
     list_item_bottom: 'w-full flex flex-col items-center mb-5 gap-5',
+    footer_version:
+        'text-[10px] text-neutral-700 text-center border-t border-t-neutral-900 p-1',
 };
