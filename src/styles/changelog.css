@@ -2,35 +2,35 @@
 
 /* Color coding by list type */
 
-#changelog-container h3.list-type-added {
+#changelog-container section#articles h3.list-type-added {
     @apply bg-green-700;
 }
-#changelog-container h3.list-type-fixed {
+#changelog-container section#articles h3.list-type-fixed {
     @apply bg-orange-500;
 }
-#changelog-container h3.list-type-changed {
+#changelog-container section#articles h3.list-type-changed {
     @apply bg-blue-700;
 }
-#changelog-container h3.list-type-note {
+#changelog-container section#articles h3.list-type-note {
     @apply bg-black;
 }
-#changelog-container h3.list-type-removed {
+#changelog-container section#articles h3.list-type-removed {
     @apply bg-red-800;
 }
 
-#changelog-container ul.list-type-added li:before {
+#changelog-container section#articles ul.list-type-added li:before {
     @apply bg-green-700;
 }
-#changelog-container ul.list-type-fixed li:before {
+#changelog-container section#articles ul.list-type-fixed li:before {
     @apply bg-orange-500;
 }
-#changelog-container ul.list-type-changed li:before {
+#changelog-container section#articles ul.list-type-changed li:before {
     @apply bg-blue-700;
 }
-#changelog-container ul.list-type-note li:before {
+#changelog-container section#articles ul.list-type-note li:before {
     @apply bg-black;
 }
-#changelog-container ul.list-type-removed li:before {
+#changelog-container section#articles ul.list-type-removed li:before {
     @apply bg-red-800;
 }
 
@@ -40,22 +40,22 @@
     color: #fff; /* Global text color: white */
 }
 
-#changelog-container a {
+#changelog-container section#articles a {
     @apply text-blue-500 hover:border-b-2 hover:text-blue-600 hover:border-blue-600;
 }
 
 /* Headings styling */
 
-#changelog-container h2 {
+#changelog-container section#articles h2 {
     @apply font-bold items-center my-5 text-xl;
 }
 
-#changelog-container h3 {
+#changelog-container section#articles h3 {
     @apply font-bold items-center my-5 py-2 px-5 rounded-full inline-flex;
     /* Subtitles with pill-like background and spacing */
 }
 
-#changelog-container h3:first-child {
+#changelog-container section#articles h3:first-child {
     @apply mt-0;
     /* Remove top margin for the first section title */
 }
@@ -81,13 +81,13 @@
 
 /* List item layout and bullet styling */
 
-#changelog-container ul li {
+#changelog-container section#articles ul li {
     display: flex;
     align-items: center;
     padding-left: 30px;
 }
 
-#changelog-container ul li::before {
+#changelog-container section#articles ul li::before {
     content: '';
     position: relative;
     left: -15px;

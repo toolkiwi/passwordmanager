@@ -8,7 +8,7 @@ export default function RenderArticles({
     articles: ChangelogInterface.API.Article[];
 }) {
     return (
-        <section className={CN.section}>
+        <section className={CN.section} id='articles'>
             {articles?.map((item, index) => {
                 let localSection: string | null = null;
                 return (

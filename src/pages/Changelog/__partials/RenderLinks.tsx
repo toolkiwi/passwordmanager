@@ -1,0 +1,54 @@
+import { FaGithub, FaXTwitter } from 'react-icons/fa6';
+import { ReactElement } from 'react';
+
+/**
+ * Represents a social media link with an icon and a URL
+ * @typedef {Object} SocialLink
+ * @property {ReactElement} icon
+ * @property {string} link
+ */
+type SocialLink = {
+    icon: ReactElement;
+    link: string;
+};
+
+/**
+ * Render a list of external social media links with icons
+ * @returns {ReactElement}
+ */
+export default function RenderLinks(): ReactElement {
+    const links: SocialLink[] = [
+        {
+            icon: <FaGithub />,
+            link: 'https://github.com/toolkiwi/passwordmanager-web',
+        },
+        {
+            icon: <FaXTwitter />,
+            link: 'https://x.com/ToolKiwi',
+        },
+    ];
+
+    return (
+        <div>
+            <ul className={CN.list}>
+                {links.map((item, index) => (
+                    <li key={index} className='cursor-pointer'>
+                        <a
+                            href={item.link}
+                            target='_blank'
+                            rel='noreferrer'
+                            className={CN.item_a}
+                        >
+                            {item.icon}
+                        </a>
+                    </li>
+                ))}
+            </ul>
+        </div>
+    );
+}
+
+const CN = {
+    list: 'flex items-center justify-center flex-row gap-3',
+    item_a: 'p-3 block relative rounded-lg text-2xl border border-neutral-800 opacity-50 transition-all hover:opacity-100 hover:bg-neutral-900',
+};

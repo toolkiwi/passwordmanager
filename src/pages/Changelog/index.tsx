@@ -8,6 +8,7 @@ import CommonUtils from '@/utils/commonUtils';
 import RenderArticles from './__partials/RenderArticles';
 import Loading from '@/components/Loading';
 import RenderGoBack from './__partials/RenderGoBack';
+import RenderLinks from './__partials/RenderLinks';
 
 export default function ChangelogPage() {
     /**
@@ -52,6 +53,7 @@ export default function ChangelogPage() {
                             )}
                         </h1>
                     )}
+                    <RenderLinks />
                 </div>
                 {articles ? (
                     <RenderArticles articles={articles} />
