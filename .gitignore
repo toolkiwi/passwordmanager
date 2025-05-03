@@ -1,0 +1,43 @@
+# Logs
+# Ignore log files for various tools and frameworks
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Node modules
+# Ignore the node_modules directory (dependencies)
+node_modules/
+
+# Build output
+# Ignore build artifacts and directories generated during the build process
+build/
+*.local
+.vite/
+
+# Editor directories and files
+# Ignore editor-specific settings and directories (VSCode, JetBrains, etc.)
+.vscode/*                    # VSCode specific settings
+!.vscode/extensions.json     # Retain VSCode extension settings
+.idea/                       # JetBrains IDEs (e.g., IntelliJ, WebStorm, etc.)
+.DS_Store                    # macOS-specific file (for Finder)
+*.suo                        # Visual Studio solution user options
+*.ntvs*                       # Visual Studio code files
+*.njsproj                     # Visual Studio Node.js project files
+*.sln                        # Visual Studio solution files
+*.swp                        # Vim swap files
+*.swo                        # Vim swap files
+
+# Environment variable files
+# Ignore environment variable configuration files
+.env
+
+# Temporary files
+# Ignore temporary files created by IDEs and other editors
+*.tmp
+*.bak
+*.sw?
+
