@@ -1,4 +1,4 @@
-import { FaGithub, FaXTwitter } from 'react-icons/fa6';
+import { FaGithub, FaTrello, FaXTwitter } from 'react-icons/fa6';
 import { ReactElement } from 'react';
 
 /**
@@ -21,6 +21,10 @@ export default function RenderLinks(): ReactElement {
         {
             icon: <FaGithub />,
             link: 'https://github.com/toolkiwi/passwordmanager-web',
+        },
+        {
+            icon: <FaTrello />,
+            link: 'https://trello.com/b/WZc2CZZ8/password-manager',
         },
         {
             icon: <FaXTwitter />,
