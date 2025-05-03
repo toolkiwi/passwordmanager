@@ -70,5 +70,6 @@ export default function ListHeader({ onSearch, layout }: PropsComponent) {
 const CN = {
     container: 'p-5 border-b border-neutral-900',
     header: 'flex flex-row items-center',
-    add_button: 'aspect-square h-13 items-center justify-center flex mr-2',
+    add_button:
+        'h-[50px] aspect-square h-13 items-center justify-center flex mr-2',
 };
