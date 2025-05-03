@@ -1,0 +1,25 @@
+{
+    "titles": {
+        "dashboard": "Mijn wachtwoorden",
+        "trash": "Verwijderde wachtwoorden",
+        "create_password": "Nieuw wachtwoord aanmaken",
+        "settings": "Kluisinstellingen"
+    },
+    "settings": {
+        "change_icon": "Pictogram wijzigen",
+        "vault_title_desc": "Pas de titel van je kluis aan",
+        "password_master_desc": "Wanneer je kluis is ontgrendeld, kun je je master-wachtwoord op elk moment wijzigen"
+    },
+    "index": {
+        "default_vault_name": "Mijn kluis",
+        "password_manager": "Wachtwoordbeheerder",
+        "drag_ciphered_file": "Sleep je versleutelde bestand met wachtwoorden hierheen",
+        "or": "of",
+        "browse_files": "Bestanden doorzoeken",
+        "enter_master_vault": "Voer het master-wachtwoord van de kluis in",
+        "unlock_vault": "Kluis ontgrendelen",
+        "create_the_vault": "Kluis aanmaken",
+        "create_vault": "Een kluis aanmaken",
+        "rights_reserved": "Alle rechten voorbehouden."
+    }
+}

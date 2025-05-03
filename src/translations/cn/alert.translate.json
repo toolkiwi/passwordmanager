@@ -1,0 +1,8 @@
+{
+    "edit_success": "更改已保存",
+    "password": {
+        "created": "密码已创建！",
+        "confirm_delete": "您确定要删除此密码吗？",
+        "confirm_delete_sub": "该密码将被移入回收站"
+    }
+}

@@ -1,0 +1,25 @@
+{
+    "titles": {
+        "dashboard": "Mis contraseñas",
+        "trash": "Contraseñas eliminadas",
+        "create_password": "Crear una nueva contraseña",
+        "settings": "Configuraciones del cofre"
+    },
+    "settings": {
+        "change_icon": "Cambiar icono",
+        "vault_title_desc": "Personaliza el título de tu cofre",
+        "password_master_desc": "Cuando tu cofre esté desbloqueado, puedes cambiar tu contraseña maestra en cualquier momento"
+    },
+    "index": {
+        "default_vault_name": "Mi cofre",
+        "password_manager": "Gestor de contraseñas",
+        "drag_ciphered_file": "Arrastra tu archivo cifrado que contiene tus contraseñas",
+        "or": "o",
+        "browse_files": "Explorar archivos",
+        "enter_master_vault": "Ingresa la contraseña maestra del cofre",
+        "unlock_vault": "Desbloquear el cofre",
+        "create_the_vault": "Crear el cofre",
+        "create_vault": "Crear un cofre",
+        "rights_reserved": "Todos los derechos reservados."
+    }
+}

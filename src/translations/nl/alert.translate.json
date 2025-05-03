@@ -1,0 +1,8 @@
+{
+    "edit_success": "De wijzigingen zijn opgeslagen",
+    "password": {
+        "created": "Het wachtwoord is aangemaakt!",
+        "confirm_delete": "Weet je zeker dat je het wachtwoord wilt verwijderen?",
+        "confirm_delete_sub": "Het wachtwoord wordt naar je prullenbak verplaatst"
+    }
+}

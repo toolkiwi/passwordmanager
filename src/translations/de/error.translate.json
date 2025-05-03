@@ -1,0 +1,7 @@
+{
+    "upload": {
+        "error": "Fehler bei der Entschlüsselung.",
+        "format": "Die Datei ist leer oder hat ein falsches Format.",
+        "read": "Fehler beim Lesen der Datei."
+    }
+}

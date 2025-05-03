@@ -1,0 +1,25 @@
+{
+    "titles": {
+        "dashboard": "我的密码",
+        "trash": "已删除的密码",
+        "create_password": "创建新密码",
+        "settings": "保险库设置"
+    },
+    "settings": {
+        "change_icon": "更改图标",
+        "vault_title_desc": "自定义您的保险库标题",
+        "password_master_desc": "当您的保险库已解锁时，您可以随时更改主密码"
+    },
+    "index": {
+        "default_vault_name": "我的保险库",
+        "password_manager": "密码管理器",
+        "drag_ciphered_file": "拖动包含密码的加密文件",
+        "or": "或",
+        "browse_files": "浏览文件",
+        "enter_master_vault": "输入保险库主密码",
+        "unlock_vault": "解锁保险库",
+        "create_the_vault": "创建保险库",
+        "create_vault": "创建一个保险库",
+        "rights_reserved": "保留所有权利。"
+    }
+}

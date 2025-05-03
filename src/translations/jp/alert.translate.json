@@ -1,0 +1,8 @@
+{
+    "edit_success": "変更が保存されました",
+    "password": {
+        "created": "パスワードが作成されました！",
+        "confirm_delete": "本当にこのパスワードを削除しますか？",
+        "confirm_delete_sub": "パスワードはゴミ箱に移動されます"
+    }
+}

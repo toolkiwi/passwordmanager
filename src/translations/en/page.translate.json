@@ -1,0 +1,25 @@
+{
+    "titles": {
+        "dashboard": "My passwords",
+        "trash": "Deleted passwords",
+        "create_password": "Create a new password",
+        "settings": "Vault settings"
+    },
+    "settings": {
+        "change_icon": "Change icon",
+        "vault_title_desc": "Customize your vault's title",
+        "password_master_desc": "When your vault is unlocked, you can change your master password at any time"
+    },
+    "index": {
+        "default_vault_name": "My vault",
+        "password_manager": "Password manager",
+        "drag_ciphered_file": "Drag your encrypted file containing your passwords",
+        "or": "or",
+        "browse_files": "Browse files",
+        "enter_master_vault": "Enter the vault's master password",
+        "unlock_vault": "Unlock the vault",
+        "create_the_vault": "Create the vault",
+        "create_vault": "Create a vault",
+        "rights_reserved": "All rights reserved."
+    }
+}

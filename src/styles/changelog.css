@@ -1,0 +1,100 @@
+@import 'tailwindcss';
+
+/* Color coding by list type */
+
+#changelog-container h3.list-type-added {
+    @apply bg-green-700;
+}
+#changelog-container h3.list-type-fixed {
+    @apply bg-orange-500;
+}
+#changelog-container h3.list-type-changed {
+    @apply bg-blue-700;
+}
+#changelog-container h3.list-type-note {
+    @apply bg-black;
+}
+#changelog-container h3.list-type-removed {
+    @apply bg-red-800;
+}
+
+#changelog-container ul.list-type-added li:before {
+    @apply bg-green-700;
+}
+#changelog-container ul.list-type-fixed li:before {
+    @apply bg-orange-500;
+}
+#changelog-container ul.list-type-changed li:before {
+    @apply bg-blue-700;
+}
+#changelog-container ul.list-type-note li:before {
+    @apply bg-black;
+}
+#changelog-container ul.list-type-removed li:before {
+    @apply bg-red-800;
+}
+
+/* Base styling for the changelog container */
+
+#changelog-container {
+    color: #fff; /* Global text color: white */
+}
+
+#changelog-container a {
+    @apply text-blue-500 hover:border-b-2 hover:text-blue-600 hover:border-blue-600;
+}
+
+/* Headings styling */
+
+#changelog-container h2 {
+    @apply font-bold items-center my-5 text-xl;
+}
+
+#changelog-container h3 {
+    @apply font-bold items-center my-5 py-2 px-5 rounded-full inline-flex;
+    /* Subtitles with pill-like background and spacing */
+}
+
+#changelog-container h3:first-child {
+    @apply mt-0;
+    /* Remove top margin for the first section title */
+}
+
+#changelog-container .bg-changelog {
+    background-color: #000000;
+    background-image:
+        linear-gradient(#ffffff 4.2px, transparent 4.2px),
+        linear-gradient(90deg, #ffffff 4.2px, transparent 4.2px),
+        linear-gradient(#ffffff 2.1px, transparent 2.1px),
+        linear-gradient(90deg, #ffffff 2.1px, #000000 2.1px);
+    background-size:
+        105px 105px,
+        105px 105px,
+        21px 21px,
+        21px 21px;
+    background-position:
+        -4.2px -4.2px,
+        -4.2px -4.2px,
+        -2.1px -2.1px,
+        -2.1px -2.1px;
+}
+
+/* List item layout and bullet styling */
+
+#changelog-container ul li {
+    display: flex;
+    align-items: center;
+    padding-left: 30px;
+}
+
+#changelog-container ul li::before {
+    content: '';
+    position: relative;
+    left: -15px;
+    width: 15px;
+    min-width: 15px;
+    max-width: 15px;
+    height: 3px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50px;
+}

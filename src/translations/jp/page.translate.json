@@ -1,0 +1,25 @@
+{
+    "titles": {
+        "dashboard": "自分のパスワード",
+        "trash": "削除されたパスワード",
+        "create_password": "新しいパスワードを作成",
+        "settings": "ボールト設定"
+    },
+    "settings": {
+        "change_icon": "アイコンを変更",
+        "vault_title_desc": "ボールトのタイトルをカスタマイズ",
+        "password_master_desc": "ボールトがロック解除されているときに、マスターパスワードをいつでも変更できます"
+    },
+    "index": {
+        "default_vault_name": "自分のボールト",
+        "password_manager": "パスワードマネージャー",
+        "drag_ciphered_file": "暗号化されたパスワードファイルをドラッグしてください",
+        "or": "または",
+        "browse_files": "ファイルを選択",
+        "enter_master_vault": "ボールトのマスターパスワードを入力",
+        "unlock_vault": "ボールトをロック解除",
+        "create_the_vault": "ボールトを作成",
+        "create_vault": "ボールトを作成する",
+        "rights_reserved": "全著作権所有。"
+    }
+}

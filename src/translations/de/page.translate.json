@@ -1,0 +1,25 @@
+{
+    "titles": {
+        "dashboard": "Meine Passwörter",
+        "trash": "Gelöschte Passwörter",
+        "create_password": "Neues Passwort erstellen",
+        "settings": "Tresor-Einstellungen"
+    },
+    "settings": {
+        "change_icon": "Symbol ändern",
+        "vault_title_desc": "Passe den Titel deines Tresors an",
+        "password_master_desc": "Wenn dein Tresor entsperrt ist, kannst du dein Master-Passwort jederzeit ändern"
+    },
+    "index": {
+        "default_vault_name": "Mein Tresor",
+        "password_manager": "Passwort-Manager",
+        "drag_ciphered_file": "Ziehe deine verschlüsselte Datei mit den Passwörtern hierher",
+        "or": "oder",
+        "browse_files": "Dateien durchsuchen",
+        "enter_master_vault": "Master-Passwort für den Tresor eingeben",
+        "unlock_vault": "Tresor entsperren",
+        "create_the_vault": "Tresor erstellen",
+        "create_vault": "Einen Tresor erstellen",
+        "rights_reserved": "Alle Rechte vorbehalten."
+    }
+}

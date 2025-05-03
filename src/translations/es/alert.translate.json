@@ -1,0 +1,8 @@
+{
+    "edit_success": "Los cambios han sido guardados",
+    "password": {
+        "created": "¡La contraseña ha sido creada!",
+        "confirm_delete": "¿Estás seguro de que quieres eliminar la contraseña?",
+        "confirm_delete_sub": "La contraseña se moverá a la papelera"
+    }
+}
