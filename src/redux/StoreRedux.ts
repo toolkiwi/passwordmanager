@@ -1,16 +1,18 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { persistStore, persistReducer } from 'redux-persist';
-import storage from 'redux-persist/lib/storage';
 import vaultReducer from './features/vaultSlice';
 import appReducer from './features/appSlice';
 import VaultChangeMiddleware from './middlewares/VaultChangeMiddleware';
+
+//@ts-expect-error : No types found for this lib
+import storage from 'redux-persist-indexeddb-storage';
 
 /**
  * Configuration persistance
  */
 const persistConfig = {
     key: 'root',
-    storage,
+    storage: storage('ptk'),
 };
 
 /**
