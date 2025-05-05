@@ -54,7 +54,7 @@ class CommonUtils {
      * Generate a short unique identifier based on the current date and a random number
      * @returns {string} - Short UUID
      */
-    public static generateShortUUID(): string {
+    public static generateShortUUID(length: number = 22): string {
         /**
          * Get the current timestamp and convert it to base 36
          */
@@ -70,7 +70,7 @@ class CommonUtils {
         /**
          * Return
          */
-        return shortUUID.substring(0, 22);
+        return shortUUID.substring(0, length);
     }
 
     /**
