@@ -14,6 +14,7 @@ import { identicon } from '@dicebear/collection';
 import { useTranslation } from 'react-i18next';
 import CommonUtils from '@/utils/commonUtils';
 import ActionButton from '@/components/styled/ActionButton';
+import FormCN from '@/styles/CN/FormCN';
 
 interface FormInterface {
     name: string;
@@ -160,7 +161,7 @@ export default function Index() {
                 </div>
             )}
             <form
-                className={CN.form}
+                className={FormCN.form}
                 onSubmit={handleSubmit}
                 onReset={handleResetAll}
             >
@@ -198,11 +199,11 @@ export default function Index() {
                 </div>
                 <div className={CN.contentContainer}>
                     <div className={CN.contentWrapper}>
-                        <div className={CN.inputGroup}>
-                            <label className={CN.label}>
+                        <div className={FormCN.inputGroup}>
+                            <label className={FormCN.label}>
                                 {t('common:vault_title')}
                             </label>
-                            <p className={CN.description}>
+                            <p className={FormCN.sub_label}>
                                 {t('page:settings.vault_title_desc')}
                             </p>
                             <StyledInput
@@ -219,11 +220,11 @@ export default function Index() {
                                 }}
                             />
                         </div>
-                        <div className={CN.inputGroup}>
-                            <label className={CN.label}>
+                        <div className={FormCN.inputGroup}>
+                            <label className={FormCN.label}>
                                 {t('common:password_master')}
                             </label>
-                            <p className={CN.description}>
+                            <p className={FormCN.sub_label}>
                                 {t('page:settings.password_master_desc')}
                             </p>
                             <StyledInput
@@ -288,7 +289,6 @@ export default function Index() {
 const CN = {
     pageContainer: 'page-container',
     alertContainer: 'p-0',
-    form: 'w-full h-full flex flex-col flex-1',
     headerSection:
         'w-full min-h-[250px] flex flex-col items-center justify-center m-auto border-b border-neutral-900 py-10 gap-5 mb-3 relative overflow-hidden',
     backgroundPattern:
@@ -301,9 +301,6 @@ const CN = {
         'hover:text-white h-[50px] w-[50px] flex items-center justify-center',
     contentContainer: 'p-8 flex flex-col relative flex-1',
     contentWrapper: 'flex-1 flex flex-col gap-10',
-    inputGroup: 'flex flex-col',
-    label: 'text-white text-sm font-bold uppercase',
-    description: 'text-neutral-600 mt-1 mb-2 text-md',
     footer: 'mt-5 flex flex-row items-center gap-5 p-5 border-t border-neutral-900',
     buttonFlex: 'flex-1 p-3',
 };
