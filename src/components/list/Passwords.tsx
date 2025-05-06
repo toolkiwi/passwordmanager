@@ -12,6 +12,7 @@ import { useDispatch } from 'react-redux';
 import { StoreDispatch } from '@/redux/StoreRedux';
 import { trashRestorePassword } from '@/redux/features/vaultSlice';
 import { useTranslation } from 'react-i18next';
+import ListCN from '@/styles/CN/ListCN';
 
 /**
  * Interface for component props
@@ -105,7 +106,7 @@ export default function Passwords({
                                 role='button'
                                 key={virtualRow.key}
                                 ref={rowVirtualizer.measureElement}
-                                className={CN.list_item}
+                                className={ListCN.list_item}
                                 style={{
                                     position: 'absolute',
                                     top: 0,
@@ -119,7 +120,7 @@ export default function Passwords({
                                     && navigate('password/' + item.id)
                                 }
                             >
-                                <div className={CN.list_item_content}>
+                                <div className={ListCN.list_item_content}>
                                     <div className={CN.favicon_container}>
                                         <img
                                             alt='favicon url'
@@ -129,18 +130,26 @@ export default function Passwords({
                                             className={CN.favicon}
                                         />
                                     </div>
-                                    <div className={CN.text_container}>
-                                        <div className={CN.title}>
+                                    <div className={ListCN.text_container}>
+                                        <div className={ListCN.title}>
                                             {CommonUtils.limitTextLength(
                                                 item.title,
                                                 35,
                                             )}
                                         </div>
-                                        <div className={CN.login}>
-                                            {CommonUtils.limitTextLength(
-                                                item.login,
-                                                35,
-                                            )}
+                                        <div className='flex items-center gap-2'>
+                                            <div className={CN.login}>
+                                                {CommonUtils.limitTextLength(
+                                                    item.login,
+                                                    35,
+                                                )}
+                                            </div>
+                                            <div className='text-neutral-700 text-lg'>
+                                                ·
+                                            </div>
+                                            <div className='text-[10px] px-1 py-0.5 bg-green-700 rounded-md mr-1 text-white border border-white/20'>
+                                                ToolKiwi
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -183,12 +192,6 @@ export default function Passwords({
  * Custom style classnames object
  */
 const CN = {
-    list: 'mt-5 flex flex-col gap-4 p-5 pt-0',
-    list_item:
-        'cursor-pointer p-5 border border-neutral-900 hover:bg-neutral-900/50 rounded-xl flex flex-row items-center group/li active:bg-neutral-900',
-    list_item_content: 'flex-1 flex flex-row items-center',
-    text_container: 'flex-1 px-5',
-    title: 'text-neutral-200 font-semibold text-md',
     login: 'text-neutral-500 text-sm',
     favicon_container:
         'w-12 h-12 flex items-center justify-center bg-black/80 p-2 border-1 border-neutral-900 rounded-lg',
