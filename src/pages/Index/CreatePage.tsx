@@ -101,7 +101,7 @@ export const CreateVault = () => {
                         input={{
                             id: 'title',
                             type: 'text',
-                            placeholder: t('common:master_password'),
+                            placeholder: t('common:vault_title'),
                             maxLength: 25,
                             required: true,
                             onChange: (e) => onInputRegisterChange('title', e),
