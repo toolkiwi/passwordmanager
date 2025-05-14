@@ -199,7 +199,7 @@ export default function Index() {
                 </div>
                 <div className={CN.contentContainer}>
                     <div className={CN.contentWrapper}>
-                        <div className={FormCN.inputGroup}>
+                        <div className={FormCN.input_group}>
                             <label className={FormCN.label}>
                                 {t('common:vault_title')}
                             </label>
@@ -220,7 +220,7 @@ export default function Index() {
                                 }}
                             />
                         </div>
-                        <div className={FormCN.inputGroup}>
+                        <div className={FormCN.input_group}>
                             <label className={FormCN.label}>
                                 {t('common:password_master')}
                             </label>

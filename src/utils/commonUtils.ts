@@ -134,7 +134,7 @@ class CommonUtils {
     /**
      * Limit Text Length
      * @param {string} value
-     * @param {number} limit
+     * @param {number} limit (default 50 char.)
      * @returns {string} value
      */
     public static limitTextLength(value: string, limit: number = 50) {
@@ -148,6 +148,39 @@ class CommonUtils {
     public static DocumentTitle(title: string) {
         document.title = `ToolKiwi PM - ${title}`;
         return;
+    }
+
+    /**
+     * Determines if a hexadecimal color is considered "light" based on its luminance
+     *
+     * The luminance is calculated using the standard formula for perceived brightness:
+     * (0.299 * R + 0.587 * G + 0.114 * B) / 255
+     * A color is considered light if its luminance is greater than 0.6
+     *
+     * !Maybe the luminance threshold isn't accurate, since I'm basing it solely on how it looks on my own screen...
+     *
+     * @param {string} hexColor - A hex color string in the format "#RRGGBB"
+     * @returns {boolean} True if the color is light; otherwise, false
+     */
+    public static isColorLight(hexColor: string): boolean {
+        /**
+         * Ensure the color string starts with '#' and is in the proper format
+         */
+        if (!hexColor.startsWith('#') || hexColor.length !== 7) return false;
+        /**
+         * Extract red, green, and blue components from the hex string
+         */
+        const r: number = parseInt(hexColor.slice(1, 3), 16);
+        const g: number = parseInt(hexColor.slice(3, 5), 16);
+        const b: number = parseInt(hexColor.slice(5, 7), 16);
+        /**
+         * Calculate luminance using the formula for perceived brightness
+         */
+        const luminance: number = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+        /**
+         * Return
+         */
+        return luminance > 0.6;
     }
 }
 
