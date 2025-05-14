@@ -10,7 +10,7 @@ export default function ColorPicker({
     /**
      * Color choosed state
      */
-    const [color, setColor] = useState('');
+    const [color, setColor] = useState(form.color!);
 
     /**
      * Update color state
