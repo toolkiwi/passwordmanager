@@ -9,6 +9,7 @@ import { ReactElement } from 'react';
  */
 type SocialLink = {
     icon: ReactElement;
+    title: string;
     link: string;
 };
 
@@ -17,26 +18,41 @@ type SocialLink = {
  * @returns {ReactElement}
  */
 export default function RenderLinks(): ReactElement {
+    /**
+     * Array with all socials links
+     */
     const links: SocialLink[] = [
         {
             icon: <FaGithub />,
+            title: 'GitHub Repository (Open Source)',
             link: 'https://github.com/toolkiwi/passwordmanager-web',
         },
         {
             icon: <FaTrello />,
+            title: 'Follow the project on Trello!',
             link: 'https://trello.com/b/WZc2CZZ8/password-manager',
         },
         {
             icon: <FaXTwitter />,
+            title: 'Follow us on X!',
             link: 'https://x.com/ToolKiwi',
         },
     ];
-
+    /**
+     * Render JSX
+     */
     return (
         <div>
             <ul className={CN.list}>
                 {links.map((item, index) => (
-                    <li key={index} className='cursor-pointer'>
+                    <li
+                        key={index}
+                        className='cursor-pointer'
+                        data-tooltip-id='default-tooltip'
+                        data-tooltip-place='bottom'
+                        data-tooltip-content={item.title}
+                        data-tooltip-delay-show={250}
+                    >
                         <a
                             href={item.link}
                             target='_blank'
