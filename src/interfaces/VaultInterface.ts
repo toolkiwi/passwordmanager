@@ -16,6 +16,7 @@ export namespace VaultInterface {
         master: string;
         trash: Password[];
         passwords: Password[];
+        tags?: Tag[];
         created_at: number;
     }
 
@@ -29,6 +30,18 @@ export namespace VaultInterface {
         password: string;
         url: string;
         note: string;
+        tag_id?: VaultInterface.Tag['id'];
+        created_at: Date | number | string;
+        updated_at: Date | number | string;
+    }
+
+    /**
+     * Tag interface
+     */
+    export interface Tag {
+        id: string;
+        title: string;
+        color: string;
         created_at: Date | number | string;
         updated_at: Date | number | string;
     }
@@ -43,6 +56,11 @@ export namespace VaultInterface {
             password: string;
             url: string;
             note: string;
+            tag_id: VaultInterface.Tag['id'];
+        }
+        export interface Tag {
+            title: string;
+            color?: string;
         }
     }
 }

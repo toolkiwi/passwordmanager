@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { VaultInterface } from '../../interfaces/VaultInterface';
 import CommonUtils from '../../utils/commonUtils';
+import { getRandomTagColor } from '@/constants/TagColors';
 
 /**
  * Initial State
@@ -28,6 +29,7 @@ export const vaultSlice = createSlice({
                     algo: 'AES',
                     passwords: [],
                     trash: [],
+                    tags: [],
                     master: action.payload.master,
                     created_at: new Date().getTime() / 1000,
                 },
@@ -80,15 +82,15 @@ export const vaultSlice = createSlice({
             /**
              * Get the password index
              */
-            const _P_INDEX: number | undefined = state?._d?.passwords.findIndex(
+            const index: number | undefined = state?._d?.passwords.findIndex(
                 (e) => e.id === action.payload.id,
             );
             /**
              * If not exist return;
              */
-            if (_P_INDEX !== -1) {
-                state._d.passwords[_P_INDEX] = {
-                    ...state?._d?.passwords[_P_INDEX],
+            if (index !== -1) {
+                state._d.passwords[index] = {
+                    ...state?._d?.passwords[index],
                     updated_at: new Date().getDate(),
                     ...action.payload.data,
                 };
@@ -141,6 +143,85 @@ export const vaultSlice = createSlice({
             state._d.trash = [];
             return state;
         },
+        addTag: (
+            state: VaultInterface.State | null,
+            action: PayloadAction<VaultInterface.Form.Tag>,
+        ) => {
+            if (!state?._d || !action.payload.title) return;
+            /**
+             * Create the tags array in state if it doesn't exist yet
+             */
+            if (!state._d.tags) state._d.tags = [];
+            /**
+             * Tag schema
+             */
+            const payload: VaultInterface.Tag = {
+                title: action.payload.title,
+                color: action.payload.color ?? getRandomTagColor(),
+                id: CommonUtils.generateShortUUID(10),
+                created_at: new Date().getTime(),
+                updated_at: new Date().getDate(),
+            };
+            /**
+             * Add to state
+             */
+            state._d?.tags.unshift(payload);
+            return state;
+        },
+        setTag: (
+            state: VaultInterface.State | null,
+            action: PayloadAction<{
+                id: VaultInterface.Tag['id'];
+                data: VaultInterface.Form.Tag;
+            }>,
+        ) => {
+            if (!state || !state._d || !state._d.tags) return;
+            /**
+             * Get the tag index
+             */
+            const index: number | undefined = state?._d?.tags.findIndex(
+                (e) => e.id === action.payload.id,
+            );
+            /**
+             * If not exist return;
+             */
+            if (index !== -1) {
+                state._d.tags[index] = {
+                    ...state?._d?.tags[index],
+                    ...action.payload.data,
+                    updated_at: new Date().getDate(),
+                };
+            }
+
+            return state;
+        },
+        deleteTag: (
+            state: VaultInterface.State | null,
+            action: PayloadAction<VaultInterface.Tag['id']>,
+        ) => {
+            if (!state || !state._d || !state._d.tags) return;
+
+            const index = state._d.tags.findIndex(
+                (e) => e.id === action.payload,
+            );
+
+            if (index !== -1) {
+                /**
+                 * Remove tag_id for all passwords
+                 */
+                state._d.passwords.forEach((p) => {
+                    if (p.tag_id === action.payload) {
+                        delete p.tag_id;
+                    }
+                });
+                /**
+                 * Remove tag from state
+                 */
+                state._d.tags.splice(index, 1);
+            }
+
+            return state;
+        },
     },
 });
 
@@ -157,6 +238,9 @@ export const {
     deletePassword,
     trashRestorePassword,
     trashClearAll,
+    addTag,
+    setTag,
+    deleteTag,
 } = vaultSlice.actions;
 /**
  * Export reducer
