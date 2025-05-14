@@ -53,6 +53,12 @@ export default function Index() {
      * Render Password Form with the data
      */
     return (
-        data && <PasswordForm type='edit' default={data} password_id={uuid} />
+        data && (
+            <PasswordForm
+                type='edit'
+                default={data as VaultInterface.Form.Password}
+                password_id={uuid}
+            />
+        )
     );
 }

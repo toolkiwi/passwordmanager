@@ -1,18 +1,20 @@
+import { StoreState } from '@/redux/StoreRedux';
 import CommonUtils from '@/utils/commonUtils';
 import clsx from 'clsx';
-import { useCallback, type ReactNode } from 'react';
+import { type ReactElement, useCallback, type ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 import { TbLink } from 'react-icons/tb';
+import { useSelector } from 'react-redux';
 
 interface ComponentProps {
     label: string;
     emptyText?: string;
     rightAction?: ReactNode;
     value: string | null | undefined;
-    type?: 'url' | 'note'; // For custom style fields
+    type?: 'url' | 'note' | 'tag'; // For custom style fields
 }
 
-export default function RenderField(props: ComponentProps) {
+export default function RenderField(props: ComponentProps): ReactElement {
     /**
      * Checks if the value is either null, undefined, or an empty string.
      */
@@ -22,6 +24,51 @@ export default function RenderField(props: ComponentProps) {
      * Instance translation hook
      */
     const { t } = useTranslation();
+
+    /**
+     * Render tag field
+     */
+    const RenderTag = (): ReactElement | undefined => {
+        /**
+         * Get tags form vault data
+         */
+        const VaultTags = useSelector(
+            (state: StoreState) => state.vault._d?.tags,
+        );
+
+        /**
+         * Verifications and TagIndex
+         */
+        const TagIndex = VaultTags?.findIndex((i) => i.id === props.value);
+        if (!VaultTags || TagIndex === undefined || TagIndex === -1) return;
+
+        /**
+         * Render JSX
+         */
+        return (
+            <div
+                className={clsx([CN.field_value, CN.field_tag])}
+                style={{
+                    color: VaultTags[TagIndex].color,
+                }}
+            >
+                <div
+                    className={CN.field_tag_dot}
+                    style={{ backgroundColor: VaultTags[TagIndex].color }}
+                />
+                <div
+                    className={CN.field_tag_bg}
+                    style={{
+                        backgroundColor: VaultTags[TagIndex].color,
+                        border: VaultTags[TagIndex].color,
+                    }}
+                />
+                <div>
+                    {CommonUtils.limitTextLength(VaultTags[TagIndex].title)}
+                </div>
+            </div>
+        );
+    };
 
     /**
      * Render value by type
@@ -63,6 +110,9 @@ export default function RenderField(props: ComponentProps) {
                     </div>
                 );
             }
+
+            case 'tag':
+                return <RenderTag />;
             default:
                 return (
                     <div
@@ -110,5 +160,9 @@ const CN = {
     field_value_note:
         'text-neutral-400 font-normal! italic whitespace-break-spaces text-wrap',
     field_value_empty: 'text-neutral-600 font-normal!',
+    field_tag:
+        'inline-flex flex-row items-center rounded-xl relative w-fit p-1 px-2',
+    field_tag_bg: 'absolute w-full h-full top-0 left-0 rounded-lg opacity-10',
+    field_tag_dot: 'w-4 h-4 rounded-full border-2 p-1 mr-2 border-white/20',
     rightaction_wrapper: 'mx-5',
 };

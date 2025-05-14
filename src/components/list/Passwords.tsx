@@ -1,18 +1,21 @@
-import { useRef } from 'react';
+import { ReactElement, useRef } from 'react';
 import { useVirtualizer } from '@tanstack/react-virtual';
 import CopyAction from '@/components/CopyAction';
 import CommonUtils from '@/utils/commonUtils';
 
-import { useNavigate } from 'react-router';
-import { HiArrowUturnLeft, HiOutlineFolderOpen } from 'react-icons/hi2';
+import { useNavigate, useSearchParams } from 'react-router';
+import { HiArrowUturnLeft } from 'react-icons/hi2';
 
 import type { VaultInterface } from '@/interfaces/VaultInterface';
 import ActionButton from '../styled/ActionButton';
 import { useDispatch } from 'react-redux';
-import { StoreDispatch } from '@/redux/StoreRedux';
+import { StoreDispatch, StoreState } from '@/redux/StoreRedux';
 import { trashRestorePassword } from '@/redux/features/vaultSlice';
 import { useTranslation } from 'react-i18next';
 import ListCN from '@/styles/CN/ListCN';
+import FormCN from '@/styles/CN/FormCN';
+import EmptyList from './EmptyList';
+import { useSelector } from 'react-redux';
 
 /**
  * Interface for component props
@@ -27,14 +30,20 @@ export default function Passwords({
     layout = 'dashboard',
 }: PropsComponent) {
     /**
+     * Get tags from vault state data
+     */
+    const Tags = useSelector((state: StoreState) => state.vault._d?.tags);
+
+    /**
      * Instance of useNavigate hook
      */
     const navigate = useNavigate();
+
+    const SearchParams = useSearchParams();
     /**
      * Instance of dispatch hook
      */
     const dispatch = useDispatch<StoreDispatch>();
-
     /**
      * Instance translation hook
      */
@@ -51,7 +60,7 @@ export default function Passwords({
     const rowVirtualizer = useVirtualizer({
         count: data?.length ?? 0,
         getScrollElement: () => parentRef.current,
-        estimateSize: () => 100,
+        estimateSize: () => 115,
         overscan: 5,
     });
 
@@ -64,38 +73,61 @@ export default function Passwords({
     };
 
     /**
+     * Renders a small colored badge on the password element if it has an associated tag.
+     *
+     * @param {Object} props - Component props
+     * @param {VaultInterface.Password} props.password - The password object
+     * @returns {JSX.Element | undefined}
+     */
+    const RenderPasswordTag = ({
+        password,
+    }: {
+        password: VaultInterface.Password;
+    }): ReactElement | undefined => {
+        /**
+         *  Return nothing if Tags array is unavailable or the password has no tag ID
+         */
+        if (!Tags || !password.tag_id) return;
+        /**
+         * Get the object tag from the tags state
+         */
+        const Tag = Tags[Tags.findIndex((i) => i.id === password.tag_id)];
+        /**
+         * Render a colored circle based on the tag's color, positioned at the bottom-right
+         */
+        return (
+            <button
+                type='button'
+                className={CN.tag_wrapper}
+                data-tooltip-content={Tag.title}
+                data-tooltip-delay-show={150}
+                data-tooltip-offset={3}
+                data-tooltip-id='default-tooltip'
+            >
+                <div
+                    className={CN.tag}
+                    style={{
+                        backgroundColor: Tag.color,
+                    }}
+                />
+            </button>
+        );
+    };
+
+    /**
      * Render when empty or null
      */
     if (!data || data.length === 0) {
-        return (
-            <div className='flex-1 flex flex-col items-center justify-center mb-[95px]'>
-                <div className='w-24 h-24 bg-neutral-950 rounded-full flex items-center justify-center mb-5'>
-                    <HiOutlineFolderOpen
-                        size={50}
-                        className='text-neutral-700'
-                    />
-                </div>
-                <div className='text-lg font-semibold text-neutral-800'>
-                    {t('common:password_not_found')}
-                </div>
-            </div>
-        );
+        return <EmptyList title={t('common:password_not_found')} />;
     }
 
     return (
-        <div className='relative flex-1'>
-            <div
-                ref={parentRef}
-                className='p-5  overflow-auto flex-1'
-                style={{
-                    maxHeight: 'calc(100vh - 175px)',
-                    height: '100%',
-                }}
-            >
+        <div className={ListCN.container}>
+            <div ref={parentRef} className={ListCN.wrapper}>
                 <div
+                    className={ListCN.rows_virtualizer}
                     style={{
                         height: `${rowVirtualizer.getTotalSize()}px`,
-                        position: 'relative',
                     }}
                 >
                     {rowVirtualizer.getVirtualItems().map((virtualRow) => {
@@ -121,14 +153,15 @@ export default function Passwords({
                                 }
                             >
                                 <div className={ListCN.list_item_content}>
-                                    <div className={CN.favicon_container}>
+                                    <div className={FormCN.favicon_container}>
                                         <img
                                             alt='favicon url'
                                             src={CommonUtils.getWebsiteFavicon(
                                                 item,
                                             )}
-                                            className={CN.favicon}
+                                            className={FormCN.favicon}
                                         />
+                                        <RenderPasswordTag password={item} />
                                     </div>
                                     <div className={ListCN.text_container}>
                                         <div className={ListCN.title}>
@@ -138,24 +171,18 @@ export default function Passwords({
                                             )}
                                         </div>
                                         <div className='flex items-center gap-2'>
-                                            <div className={CN.login}>
+                                            <div className={FormCN.sub_label}>
                                                 {CommonUtils.limitTextLength(
                                                     item.login,
                                                     35,
                                                 )}
-                                            </div>
-                                            <div className='text-neutral-700 text-lg'>
-                                                ·
-                                            </div>
-                                            <div className='text-[10px] px-1 py-0.5 bg-green-700 rounded-md mr-1 text-white border border-white/20'>
-                                                ToolKiwi
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <button
                                     type='button'
-                                    className={CN.actions}
+                                    className={ListCN.actions}
                                     onClick={(e) => e.stopPropagation()}
                                 >
                                     {layout === 'dashboard' && (
@@ -188,13 +215,7 @@ export default function Passwords({
     );
 }
 
-/**
- * Custom style classnames object
- */
 const CN = {
-    login: 'text-neutral-500 text-sm',
-    favicon_container:
-        'w-12 h-12 flex items-center justify-center bg-black/80 p-2 border-1 border-neutral-900 rounded-lg',
-    favicon: 'w-full h-full rounded-md',
-    actions: 'flex flex-row items-center gap-5 z-10',
+    tag_wrapper: 'absolute -bottom-0.5 -right-0.5',
+    tag: 'w-4 h-4 rounded-full border-3 border-black transition-all hover:scale-120',
 };

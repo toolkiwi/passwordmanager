@@ -1,9 +1,8 @@
-import { StoreDispatch, StoreState } from '@/redux/StoreRedux';
+import { StoreDispatch, type StoreState } from '@/redux/StoreRedux';
 import { useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router';
-import { useEffect, useState } from 'react';
+import { type ReactElement, useEffect, useState } from 'react';
 import PageHead from '@/components/PageHead';
-import { VaultInterface } from '@/interfaces/VaultInterface';
 import CommonUtils from '@/utils/commonUtils';
 import RenderField from './__partials/RenderField';
 import ActionButton from '@/components/styled/ActionButton';
@@ -14,8 +13,9 @@ import Modal from '@/components/Modal';
 import { useDispatch } from 'react-redux';
 import { deletePassword } from '@/redux/features/vaultSlice';
 import { useTranslation } from 'react-i18next';
+import type { VaultInterface } from '@/interfaces/VaultInterface';
 
-export default function Index() {
+export default function Index(): ReactElement | null {
     /**
      * Password data state;
      */
@@ -145,6 +145,13 @@ export default function Index() {
                             value={password.url}
                             rightAction={<CopyAction value={password.url} />}
                         />
+                        {password.tag_id && (
+                            <RenderField
+                                label={t('common:tag')}
+                                type='tag'
+                                value={password.tag_id}
+                            />
+                        )}
                         <RenderField
                             label={t('common:note')}
                             value={password.note}

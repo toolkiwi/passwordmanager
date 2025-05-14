@@ -4,18 +4,34 @@ import StyledButton from '@/components/styled/StyledButton';
 import { useNavigate } from 'react-router';
 import { HiPlus } from 'react-icons/hi2';
 import { useTranslation } from 'react-i18next';
+import { VaultInterface } from '@/interfaces/VaultInterface';
+import TagSelect from '../tags/TagSelect';
+import { useSelector } from 'react-redux';
+import { StoreState } from '@/redux/StoreRedux';
 
 interface PropsComponent {
     onSearch: React.Dispatch<React.SetStateAction<string>>;
-    layout?: 'dashboard';
+    onFilterTag?: React.Dispatch<VaultInterface.Tag['id']>;
+    filterTag?: VaultInterface.Tag['id'] | undefined;
+    searchPlaceholder?: string;
+    layout?: 'dashboard' | 'tags';
 }
 
-export default function ListHeader({ onSearch, layout }: PropsComponent) {
+export default function ListHeader({
+    onSearch,
+    onFilterTag,
+    filterTag,
+    layout,
+    searchPlaceholder,
+}: PropsComponent) {
     /**
      * Instance of useNavigate hook
      */
     const navigate = useNavigate();
-
+    /**
+     * Instance vault data
+     */
+    const Vault = useSelector((state: StoreState) => state.vault._d);
     /**
      * Instance translation hook
      */
@@ -28,6 +44,20 @@ export default function ListHeader({ onSearch, layout }: PropsComponent) {
         switch (layout) {
             default:
                 return;
+            case 'tags':
+                return (
+                    <StyledButton
+                        variant='secondary'
+                        button={{
+                            'data-tooltip-content': t('common:add_password'),
+                            'data-tooltip-place': 'bottom',
+                            className: CN.add_button,
+                            onClick: () => navigate('create'),
+                        }}
+                    >
+                        <HiPlus size={22} color='inherit' />
+                    </StyledButton>
+                );
             case 'dashboard':
                 return (
                     <StyledButton
@@ -46,6 +76,28 @@ export default function ListHeader({ onSearch, layout }: PropsComponent) {
     }, [layout, navigate]);
 
     /**
+     * Renders the right-side button
+     */
+    const RenderRight = useCallback(() => {
+        switch (layout) {
+            default:
+                return;
+            case 'dashboard':
+                return (
+                    Vault?.tags
+                    && Vault.tags.length > 0 && (
+                        <div className='flex-[0.5] ml-3'>
+                            <TagSelect
+                                value={filterTag}
+                                onChange={(tag) => onFilterTag!(tag)}
+                            />
+                        </div>
+                    )
+                );
+        }
+    }, [layout, navigate, filterTag, onFilterTag]);
+
+    /**
      * Render Header
      */
     return (
@@ -54,11 +106,12 @@ export default function ListHeader({ onSearch, layout }: PropsComponent) {
                 <RenderLeft />
                 <StyledInput
                     input={{
-                        placeholder: t('common:search'),
+                        placeholder: searchPlaceholder ?? t('common:search'),
                         onChange: (e: React.ChangeEvent<HTMLInputElement>) =>
                             onSearch(e.currentTarget.value),
                     }}
                 />
+                <RenderRight />
             </div>
         </div>
     );
