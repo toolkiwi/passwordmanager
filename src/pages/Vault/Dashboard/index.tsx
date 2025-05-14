@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 import { StoreDispatch, StoreState } from '@/redux/StoreRedux';
 import PageHead from '@/components/PageHead';
-import { Fragment, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import ListHeader from '@/components/list/Header';
 import ListPasswords from '@/components/list/Passwords';
 import { useTranslation } from 'react-i18next';
@@ -11,12 +11,24 @@ import { TbDatabaseExclamation } from 'react-icons/tb';
 import { useDispatch } from 'react-redux';
 import { setUnsaved } from '@/redux/features/appSlice';
 import CommonUtils from '@/utils/commonUtils';
+import { VaultInterface } from '@/interfaces/VaultInterface';
+import { useSearchParams } from 'react-router';
 
 export default function VaultPage() {
+    /**
+     * Retrieves URL parameters
+     * Used to check if the URL contains a `tag_id` parameter
+     */
+    const [searchParams, setSearchParams] = useSearchParams();
+
     /**
      * Text search to filter passwords
      */
     const [search, setSearch] = useState<string>('');
+
+    const [filterTag, setFilterTag] = useState<
+        VaultInterface.Tag['id'] | undefined
+    >(undefined);
     /**
      * Get password from vault state
      */
@@ -33,15 +45,18 @@ export default function VaultPage() {
      * Instance of dispatch hook
      */
     const dispatch = useDispatch<StoreDispatch>();
+
     /**
      * Filter passwords by string
      */
     const SearchFilter =
-        Vault._d?.passwords?.filter((i) =>
-            [i.title, i.password, i.login, i.note].some((v) =>
-                v.toLowerCase().includes(search.trim().toLowerCase()),
-            ),
-        ) || [];
+        Vault._d?.passwords
+            ?.filter((i) => (filterTag ? i.tag_id === filterTag : true))
+            .filter((i) =>
+                [i.title, i.password, i.login, i.note].some((v) =>
+                    v.toLowerCase().includes(search.trim().toLowerCase()),
+                ),
+            ) || [];
 
     /**
      * Set document title
@@ -51,13 +66,34 @@ export default function VaultPage() {
     );
 
     /**
-     * On user press download button
-     * Export vault file
+     * When the user presses the download button,
+     * export the vault file.
      */
     const handleDownloadVaultFile = () => {
         FileUtils.download(Vault);
         dispatch(setUnsaved(false));
     };
+
+    /**
+     * On load, if there is a tag_id in the query parameters, apply filter
+     */
+    useEffect(() => {
+        const tag_id = searchParams.get('tag_id');
+        if (tag_id) {
+            setFilterTag(tag_id);
+        }
+    }, []);
+
+    /**
+     * When the tag filter changes, update the URL query parameters accordingly
+     */
+    useEffect(() => {
+        if (filterTag) {
+            setSearchParams({ tag_id: filterTag });
+        } else {
+            setSearchParams();
+        }
+    }, [setFilterTag, filterTag]);
 
     return (
         <div className={CN.page_container}>
@@ -95,7 +131,12 @@ export default function VaultPage() {
                     </Fragment>
                 }
             />
-            <ListHeader onSearch={setSearch} layout='dashboard' />
+            <ListHeader
+                onSearch={setSearch}
+                onFilterTag={setFilterTag}
+                filterTag={filterTag}
+                layout='dashboard'
+            />
             <ListPasswords data={SearchFilter} />
         </div>
     );

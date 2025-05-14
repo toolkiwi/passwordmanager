@@ -1,18 +1,20 @@
 import { TbArrowsShuffle2 } from 'react-icons/tb';
-import { useState } from 'react';
+import { type ReactElement, useState } from 'react';
 import ActionButton from '@/components/styled/ActionButton';
 import PageHead from '@/components/PageHead';
 import StyledInput from '@/components/styled/form/StyledInput';
 import StyledTextArea from '@/components/styled/form/StyledTextArea';
-import { StoreDispatch } from '@/redux/StoreRedux';
+import { StoreDispatch, StoreState } from '@/redux/StoreRedux';
 import { useDispatch } from 'react-redux';
-import { VaultInterface } from '@/interfaces/VaultInterface';
 import StyledButton from '@/components/styled/StyledButton';
 import { addPassword, setPassword } from '@/redux/features/vaultSlice';
 import Alert from '@/components/Alert';
 import CommonUtils from '@/utils/commonUtils';
 import { useNavigate } from 'react-router';
 import { useTranslation } from 'react-i18next';
+import TagSelect from './tags/TagSelect';
+import type { VaultInterface } from '@/interfaces/VaultInterface';
+import { useSelector } from 'react-redux';
 
 interface PropsComponent {
     default?: VaultInterface.Form.Password;
@@ -20,7 +22,7 @@ interface PropsComponent {
     password_id?: VaultInterface.Password['id'];
 }
 
-export default function PasswordForm(props: PropsComponent) {
+export default function PasswordForm(props: PropsComponent): ReactElement {
     /**
      * Form default settings
      */
@@ -31,6 +33,7 @@ export default function PasswordForm(props: PropsComponent) {
             password: '',
             url: '',
             note: '',
+            tag_id: '',
         };
 
     /**
@@ -43,6 +46,11 @@ export default function PasswordForm(props: PropsComponent) {
     const [form, setForm] = useState<VaultInterface.Form.Password>(
         FORM_DEFAULT_SETTINGS,
     );
+
+    /**
+     * Get tags from vault data state
+     */
+    const VaultTags = useSelector((state: StoreState) => state.vault._d?.tags);
 
     /**
      * Disable the save button in the form until all required fields are filled
@@ -225,6 +233,16 @@ export default function PasswordForm(props: PropsComponent) {
                             value: form.url,
                         }}
                     />
+
+                    {VaultTags && VaultTags.length > 0 && (
+                        <TagSelect
+                            value={form.tag_id}
+                            onChange={(tag_id: VaultInterface.Tag['id']) =>
+                                FormFieldUpdate('tag_id', tag_id)
+                            }
+                        />
+                    )}
+
                     <StyledTextArea
                         textarea={{
                             onChange: (e) =>

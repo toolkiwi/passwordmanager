@@ -3,7 +3,8 @@
         "dashboard": "自分のパスワード",
         "trash": "削除されたパスワード",
         "create_password": "新しいパスワードを作成",
-        "settings": "ボールト設定"
+        "settings": "ボールト設定",
+        "tags": "自分のタグ"
     },
     "settings": {
         "change_icon": "アイコンを変更",
@@ -21,5 +22,11 @@
         "create_the_vault": "ボールトを作成",
         "create_vault": "ボールトを作成する",
         "rights_reserved": "全著作権所有。"
+    },
+    "tags": {
+        "search_placeholder": "タグを検索...",
+        "create_tag": "新しいタグを作成",
+        "create_introduction": "タグを作成して、パスワードを簡単に検索・整理しましょう。タグのタイトルと色を選択してください。",
+        "delete_tag": "このタグを削除してもよろしいですか？（この操作は元に戻せません）"
     }
 }

@@ -30,5 +30,9 @@
     "vault_title": "保管庫のタイトル",
     "vault_unsaved": "保管庫に変更が加えられました。<br/>変更を失わないように保存をお忘れなく",
     "logout_vault_unsaved": "保存されていない変更があります。保存せずにログアウトしてもよろしいですか？",
-    "goback": "戻る"
+    "goback": "戻る",
+    "tag": "タグ",
+    "choose_tag": "タグを選択",
+    "no_tag": "タグなし",
+    "tag_not_found": "タグが見つかりません"
 }

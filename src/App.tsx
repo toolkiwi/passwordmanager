@@ -4,6 +4,9 @@ import IndexPage from './pages/Index';
 
 import VaultDashboardPage from './pages/Vault/Dashboard';
 import VaultTrashPage from './pages/Vault/Trash';
+import VaultTagsPage from './pages/Vault/Tags';
+import VaiultTagCreatePage from './pages/Vault/Tags/create';
+import VaiultTagEditPage from './pages/Vault/Tags/edit';
 import VaultCreatePage from './pages/Vault/Create';
 import VaultSettingsPage from './pages/Vault/Settings';
 import VaultPasswordPage from './pages/Vault/Password';
@@ -28,6 +31,15 @@ function App() {
                 <Route
                     path='vault/password/:uuid/edit'
                     element={<VaultPasswordEditPage />}
+                />
+                <Route path='vault/tags' element={<VaultTagsPage />} />
+                <Route
+                    path='vault/tags/create'
+                    element={<VaiultTagCreatePage />}
+                />
+                <Route
+                    path='vault/tags/:uuid/edit'
+                    element={<VaiultTagEditPage />}
                 />
             </Route>
             <Route path='changelog' element={<ChangelogPage />} />

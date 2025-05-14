@@ -3,7 +3,8 @@
         "dashboard": "Meine Passwörter",
         "trash": "Gelöschte Passwörter",
         "create_password": "Neues Passwort erstellen",
-        "settings": "Tresor-Einstellungen"
+        "settings": "Tresor-Einstellungen",
+        "tags": "Meine Etiketten"
     },
     "settings": {
         "change_icon": "Symbol ändern",
@@ -21,5 +22,11 @@
         "create_the_vault": "Tresor erstellen",
         "create_vault": "Einen Tresor erstellen",
         "rights_reserved": "Alle Rechte vorbehalten."
+    },
+    "tags": {
+        "search_placeholder": "Etikett suchen...",
+        "create_tag": "Neues Etikett erstellen",
+        "create_introduction": "Erstellen Sie ein Etikett, um Ihre Passwörter einfach zu durchsuchen und zu organisieren. Wählen Sie einen Titel und eine Farbe für das Etikett.",
+        "delete_tag": "Sind Sie sicher, dass Sie dieses Etikett löschen möchten? (diese Aktion ist endgültig)"
     }
 }

@@ -30,5 +30,10 @@
     "vault_title": "Kluis titel",
     "vault_unsaved": "Er zijn wijzigingen aangebracht in je kluis.<br/>Vergeet niet op te slaan om te voorkomen dat je wijzigingen verloren gaan",
     "logout_vault_unsaved": "Je hebt niet-opgeslagen wijzigingen. Wil je echt uitloggen zonder op te slaan?",
-    "goback": "Terug"
+    "goback": "Terug",
+    "tag_created": "Label succesvol aangemaakt",
+    "tag": "Label",
+    "choose_tag": "Kies een label",
+    "no_tag": "Geen label",
+    "tag_not_found": "Label niet gevonden"
 }

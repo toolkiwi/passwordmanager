@@ -30,5 +30,9 @@
     "vault_title": "保管库标题",
     "vault_unsaved": "您的保管库已进行更改。<br/>请记得保存，以免丢失您的更改",
     "logout_vault_unsaved": "您有未保存的更改。您确定要退出而不保存吗？",
-    "goback": "返回"
+    "goback": "返回",
+    "tag": "标签",
+    "choose_tag": "选择一个标签",
+    "no_tag": "没有标签",
+    "tag_not_found": "未找到标签"
 }

@@ -1,4 +1,10 @@
-import { LuFileText, LuKeyRound, LuLogOut, LuTrash2 } from 'react-icons/lu';
+import {
+    LuFileText,
+    LuKeyRound,
+    LuLogOut,
+    LuTags,
+    LuTrash2,
+} from 'react-icons/lu';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';
 import CommonUtils from '@/utils/commonUtils';
@@ -52,9 +58,9 @@ export default function SidebarNav() {
             : undefined;
         if (App.unsaved === true && !ask) return;
 
-        dispatch(setUnlocked(false));
         dispatch(resetVault());
         dispatch(setUnsaved(false));
+        dispatch(setUnlocked(false));
     };
 
     /**
@@ -87,6 +93,15 @@ export default function SidebarNav() {
                     data-tooltip-content={t('page:titles.dashboard')}
                 >
                     <LuKeyRound className={CN.list_item_icon} size={18} />
+                </button>
+                <button
+                    type='button'
+                    className={CN.list_item}
+                    onClick={() => navigate('/vault/tags')}
+                    data-tooltip-id='default-tooltip'
+                    data-tooltip-content={t('page:titles.tags')}
+                >
+                    <LuTags className={CN.list_item_icon} size={18} />
                 </button>
                 <button
                     type='button'

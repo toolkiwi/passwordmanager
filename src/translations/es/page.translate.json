@@ -3,7 +3,8 @@
         "dashboard": "Mis contraseñas",
         "trash": "Contraseñas eliminadas",
         "create_password": "Crear una nueva contraseña",
-        "settings": "Configuraciones del cofre"
+        "settings": "Configuraciones del cofre",
+        "tags": "Mis etiquetas"
     },
     "settings": {
         "change_icon": "Cambiar icono",
@@ -21,5 +22,11 @@
         "create_the_vault": "Crear el cofre",
         "create_vault": "Crear un cofre",
         "rights_reserved": "Todos los derechos reservados."
+    },
+    "tags": {
+        "search_placeholder": "Buscar una etiqueta...",
+        "create_tag": "Crear una nueva etiqueta",
+        "create_introduction": "Cree una etiqueta para buscar y organizar fácilmente sus contraseñas. Elija un título y un color para su etiqueta.",
+        "delete_tag": "¿Está seguro de que desea eliminar esta etiqueta? (acción definitiva)"
     }
 }
