@@ -6,7 +6,7 @@ import {
     LuTrash2,
 } from 'react-icons/lu';
 import { useSelector } from 'react-redux';
-import { useNavigate } from 'react-router';
+import { NavLink, useNavigate } from 'react-router';
 import CommonUtils from '@/utils/commonUtils';
 
 import type { StoreDispatch, StoreState } from '@/redux/StoreRedux';
@@ -14,6 +14,8 @@ import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
 import { resetVault } from '@/redux/features/vaultSlice';
 import { setUnlocked, setUnsaved } from '@/redux/features/appSlice';
+import useOnlineStatus from '@/hooks/useOnlineStatus';
+import clsx from 'clsx';
 
 export default function SidebarNav() {
     /**
@@ -29,7 +31,10 @@ export default function SidebarNav() {
      * Retrieve the app version from the .env file
      */
     const APP_VERSION = import.meta.env.VITE_VERSION;
-
+    /**
+     * Instance useOnlineStatus hook to track the current online status of the user
+     */
+    const isUserOnline = useOnlineStatus();
     /**
      * Instance Dispatch hook
      */
@@ -85,45 +90,63 @@ export default function SidebarNav() {
                 </button>
             </div>
             <div className={CN.list}>
-                <button
-                    type='button'
-                    className={CN.list_item}
-                    onClick={() => navigate('/vault')}
+                <NavLink
+                    to='/vault/passwords'
+                    className={({ isActive }: { isActive: boolean }) =>
+                        clsx([
+                            CN.list_item,
+                            isActive ? CN.list_item_active : '',
+                        ])
+                    }
+                    preventScrollReset
                     data-tooltip-id='default-tooltip'
                     data-tooltip-content={t('page:titles.dashboard')}
+                    data-tooltip-place='right'
+                    caseSensitive={true}
                 >
                     <LuKeyRound className={CN.list_item_icon} size={18} />
-                </button>
-                <button
-                    type='button'
-                    className={CN.list_item}
-                    onClick={() => navigate('/vault/tags')}
+                </NavLink>
+                <NavLink
+                    className={({ isActive }: { isActive: boolean }) =>
+                        clsx([
+                            CN.list_item,
+                            isActive ? CN.list_item_active : '',
+                        ])
+                    }
+                    to='/vault/tags'
                     data-tooltip-id='default-tooltip'
+                    data-tooltip-place='right'
                     data-tooltip-content={t('page:titles.tags')}
                 >
                     <LuTags className={CN.list_item_icon} size={18} />
-                </button>
-                <button
-                    type='button'
-                    className={CN.list_item}
-                    onClick={() => navigate('/vault/trash')}
+                </NavLink>
+                <NavLink
+                    className={({ isActive }: { isActive: boolean }) =>
+                        clsx([
+                            CN.list_item,
+                            isActive ? CN.list_item_active : '',
+                        ])
+                    }
+                    to='/vault/trash'
                     data-tooltip-id='default-tooltip'
                     data-tooltip-content={t('page:titles.trash')}
-                >
-                    <LuTrash2 className={CN.list_item_icon} size={18} />
-                </button>
-            </div>
-            <div className={CN.list_item_bottom}>
-                <button
-                    type='button'
-                    className={CN.list_item}
-                    onClick={() => navigate('/changelog')}
-                    data-tooltip-id='default-tooltip'
-                    data-tooltip-content='Changelog'
                     data-tooltip-place='right'
                 >
-                    <LuFileText className={CN.list_item_icon} size={18} />
-                </button>
+                    <LuTrash2 className={CN.list_item_icon} size={18} />
+                </NavLink>
+            </div>
+            <div className={CN.list_item_bottom}>
+                {isUserOnline && (
+                    <NavLink
+                        className={CN.list_item}
+                        to='/changelog'
+                        data-tooltip-id='default-tooltip'
+                        data-tooltip-content='Changelog'
+                        data-tooltip-place='right'
+                    >
+                        <LuFileText className={CN.list_item_icon} size={18} />
+                    </NavLink>
+                )}
                 <button
                     type='button'
                     className={CN.list_item}
@@ -153,12 +176,13 @@ const CN = {
     sidebar_h_img: 'w-full h-full rounded-xl bg-neutral-950',
     list: 'w-full flex flex-col items-center flex-1 gap-5',
     list_item:
-        'w-12 h-12 rounded-xl hover:bg-white/5 active:bg-white/10 cursor-pointer flex flex-row items-center justify-center border border-white/5 transition-all group',
+        'w-12 h-12 rounded-xl hover:bg-white/5 cursor-pointer flex flex-row items-center justify-center border border-white/5 transition-all group',
+    list_item_active: 'bg-white/10 border-white/10',
     list_item_icon: 'text-neutral-300 group-hover:text-white',
     list_item_warning:
         ' !border-orange-500/50 !bg-orange-500/25 hover:!border-orange-500 hover:!bg-orange-500/40 active:!bg-orange-500/50',
     list_item_warning_icon: ' !text-orange-500',
     list_item_bottom: 'w-full flex flex-col items-center mb-5 gap-5',
     footer_version:
-        'text-[10px] text-neutral-700 text-center border-t border-t-neutral-900 p-1',
+        'text-[10px] text-neutral-700 text-center bg-neutral-950 border-t border-neutral-900 p-1 transition-all hover:text-neutral-500 hover:bg-neutral-900',
 };
