@@ -3,7 +3,7 @@ import { useVirtualizer } from '@tanstack/react-virtual';
 import CopyAction from '@/components/CopyAction';
 import CommonUtils from '@/utils/commonUtils';
 
-import { useNavigate, useSearchParams } from 'react-router';
+import { useNavigate } from 'react-router';
 import { HiArrowUturnLeft } from 'react-icons/hi2';
 
 import type { VaultInterface } from '@/interfaces/VaultInterface';
@@ -39,7 +39,6 @@ export default function Passwords({
      */
     const navigate = useNavigate();
 
-    const SearchParams = useSearchParams();
     /**
      * Instance of dispatch hook
      */
@@ -148,8 +147,7 @@ export default function Passwords({
                                 }}
                                 data-index={'P-' + virtualRow.index}
                                 onClick={() =>
-                                    layout === 'dashboard'
-                                    && navigate('password/' + item.id)
+                                    layout === 'dashboard' && navigate(item.id)
                                 }
                             >
                                 <div className={ListCN.list_item_content}>

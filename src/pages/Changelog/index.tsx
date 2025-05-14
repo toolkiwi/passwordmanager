@@ -9,6 +9,8 @@ import RenderArticles from './__partials/RenderArticles';
 import Loading from '@/components/Loading';
 import RenderGoBack from './__partials/RenderGoBack';
 import RenderLinks from './__partials/RenderLinks';
+import useOnlineStatus from '@/hooks/useOnlineStatus';
+import Alert from '@/components/Alert';
 
 export default function ChangelogPage() {
     /**
@@ -16,7 +18,10 @@ export default function ChangelogPage() {
      */
     const [articles, setArticles] =
         useState<ChangelogInterface.API.Article[]>();
-
+    /**
+     * Instance useOnlineStatus hook to track the current online status of the user
+     */
+    const isUserOnline = useOnlineStatus();
     /**
      * Retrieves last articles from endpoint
      */
@@ -54,6 +59,12 @@ export default function ChangelogPage() {
                         </h1>
                     )}
                     <RenderLinks />
+                    {!isUserOnline && (
+                        <Alert
+                            type='ERROR'
+                            text='You are not connected to the internet. Please check your connection and try again.'
+                        />
+                    )}
                 </div>
                 {articles ? (
                     <RenderArticles articles={articles} />
@@ -66,10 +77,11 @@ export default function ChangelogPage() {
             {articles && (
                 <div className={CN.footer}>
                     <div className={CN.footer_text}>
-                        Made by ToolKiwi with{' '}
+                        Made with{' '}
                         <span className={CN.footer_text_span}>
                             <TbHeartFilled size={15} />
-                        </span>
+                        </span>{' '}
+                        by ToolKiwi
                     </div>
                     <div className={CN.footer_mail}>contact@toolkiwi.com</div>
                 </div>
@@ -90,7 +102,7 @@ const CN = {
     footer: 'text-center py-5 uppercase text-sm opacity-50 hover:opacity-100 group transition-all',
     footer_text: 'flex items-center justify-center',
     footer_mail: 'text-xs text-neutral-500 p-2',
-    footer_text_span: 'text-red-600 ml-2 group-hover:scale-130 transition-all',
+    footer_text_span: 'text-red-600 mx-2 group-hover:scale-130 transition-all',
     goback: 'inline-flex flex-row items-center py-4 px-5 -ml-5 my-3 rounded-full hover:bg-neutral-800/35 cursor-pointer select-none',
     goback_text: 'text-lg text-white font-semibold ml-3',
 };
