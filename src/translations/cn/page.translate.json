@@ -3,7 +3,8 @@
         "dashboard": "我的密码",
         "trash": "已删除的密码",
         "create_password": "创建新密码",
-        "settings": "保险库设置"
+        "settings": "保险库设置",
+        "tags": "我的标签"
     },
     "settings": {
         "change_icon": "更改图标",
@@ -21,5 +22,11 @@
         "create_the_vault": "创建保险库",
         "create_vault": "创建一个保险库",
         "rights_reserved": "保留所有权利。"
+    },
+    "tags": {
+        "search_placeholder": "搜索标签...",
+        "create_tag": "创建新标签",
+        "create_introduction": "创建一个标签，以便轻松搜索和整理您的密码。请选择一个标题和颜色。",
+        "delete_tag": "您确定要删除此标签吗？（此操作无法撤销）"
     }
 }

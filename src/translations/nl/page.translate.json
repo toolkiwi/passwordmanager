@@ -3,7 +3,8 @@
         "dashboard": "Mijn wachtwoorden",
         "trash": "Verwijderde wachtwoorden",
         "create_password": "Nieuw wachtwoord aanmaken",
-        "settings": "Kluisinstellingen"
+        "settings": "Kluisinstellingen",
+        "tags": "Mijn labels"
     },
     "settings": {
         "change_icon": "Pictogram wijzigen",
@@ -21,5 +22,11 @@
         "create_the_vault": "Kluis aanmaken",
         "create_vault": "Een kluis aanmaken",
         "rights_reserved": "Alle rechten voorbehouden."
+    },
+    "tags": {
+        "search_placeholder": "Zoek een label...",
+        "create_tag": "Nieuw label aanmaken",
+        "create_introduction": "Maak een label aan om je wachtwoorden gemakkelijk te zoeken en te organiseren. Kies een titel en een kleur voor je label.",
+        "delete_tag": "Weet je zeker dat je dit label wilt verwijderen? (deze actie is definitief)"
     }
 }

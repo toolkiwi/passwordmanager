@@ -1,25 +1,32 @@
 {
     "titles": {
-        "dashboard": "Mes mot de passes",
+        "dashboard": "Mes mots de passe",
         "trash": "Mots de passe supprimés",
         "create_password": "Créer un nouveau mot de passe",
-        "settings": "Paramètres du vault"
+        "settings": "Paramètres du coffre-fort",
+        "tags": "Mes étiquettes"
     },
     "settings": {
-        "change_icon": "Changer d'icône",
+        "change_icon": "Changer d’icône",
         "vault_title_desc": "Personnalisez le titre de votre coffre-fort",
-        "password_master_desc": "Lorsque votre coffre-fort est déverrouillé, vous pouvez modifier votre mot de passe maître à tout moment"
+        "password_master_desc": "Lorsque votre coffre-fort est déverrouillé, vous pouvez modifier votre mot de passe maître à tout moment."
     },
     "index": {
         "default_vault_name": "Mon coffre-fort",
-        "password_manager": "Gestionnaire de mot de passe",
-        "drag_ciphered_file": "Faites glisser votre fichier chiffré contenant vos mot de passes",
+        "password_manager": "Gestionnaire de mots de passe",
+        "drag_ciphered_file": "Faites glisser votre fichier chiffré contenant vos mots de passe",
         "or": "ou",
         "browse_files": "Parcourir les fichiers",
-        "enter_master_vault": "Saisir le mot de passe du coffre-fort",
+        "enter_master_vault": "Saisir le mot de passe maître du coffre-fort",
         "unlock_vault": "Déverrouiller le coffre-fort",
         "create_the_vault": "Créer le coffre-fort",
         "create_vault": "Créer un coffre-fort",
         "rights_reserved": "Tous droits réservés."
+    },
+    "tags": {
+        "search_placeholder": "Rechercher une étiquette...",
+        "create_tag": "Créer une nouvelle étiquette",
+        "create_introduction": "Créez une étiquette pour rechercher et organiser facilement vos mots de passe. Choisissez un titre et une couleur pour votre étiquette.",
+        "delete_tag": "Êtes-vous sûr de vouloir supprimer cette étiquette ? (action définitive)"
     }
 }

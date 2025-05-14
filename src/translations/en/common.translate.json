@@ -30,5 +30,9 @@
     "vault_title": "Vault title",
     "vault_unsaved": "Changes have been made to your vault.<br/>Don't forget to save to avoid losing your changes",
     "logout_vault_unsaved": "You have unsaved changes. Do you really want to log out without saving?",
-    "goback": "Go back"
+    "goback": "Go back",
+    "tag": "Tag",
+    "choose_tag": "Choose a tag",
+    "no_tag": "No tag",
+    "tag_not_found": "Tag not found"
 }

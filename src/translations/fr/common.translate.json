@@ -30,5 +30,9 @@
     "vault_title": "Titre du coffre-fort",
     "vault_unsaved": "Des modifications ont été apportées à votre vault.<br/>N'oubliez pas de sauvegarder pour ne pas perdre vos changements",
     "logout_vault_unsaved": "Vous avez des modifications non sauvegardées. Voulez-vous vraiment quitter sans sauvegarder ?",
-    "goback": "Revenir en arrière"
+    "goback": "Revenir en arrière",
+    "tag": "Étiquette",
+    "choose_tag": "Choisir une étiquette",
+    "no_tag": "Aucune étiquette",
+    "tag_not_found": "Aucune étiquette n’a été trouvée"
 }

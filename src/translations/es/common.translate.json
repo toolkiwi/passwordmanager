@@ -30,5 +30,9 @@
     "vault_title": "Título del cofre",
     "vault_unsaved": "Se han realizado cambios en tu cofre.<br/>No olvides guardar para evitar perder tus cambios",
     "logout_vault_unsaved": "Tienes cambios no guardados. ¿Realmente quieres cerrar sesión sin guardar?",
-    "goback": "Regresar"
+    "goback": "Regresar",
+    "tag": "Etiqueta",
+    "choose_tag": "Elegir una etiqueta",
+    "no_tag": "Sin etiqueta",
+    "tag_not_found": "Etiqueta no encontrada"
 }

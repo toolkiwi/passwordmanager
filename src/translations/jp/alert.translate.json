@@ -4,5 +4,6 @@
         "created": "パスワードが作成されました！",
         "confirm_delete": "本当にこのパスワードを削除しますか？",
         "confirm_delete_sub": "パスワードはゴミ箱に移動されます"
-    }
+    },
+    "tag_created": "タグが正常に作成されました"
 }

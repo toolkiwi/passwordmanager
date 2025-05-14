@@ -30,5 +30,9 @@
     "vault_title": "Tresor-Titel",
     "vault_unsaved": "Es wurden Änderungen an Ihrem Tresor vorgenommen.<br/>Vergessen Sie nicht zu speichern, um den Verlust Ihrer Änderungen zu vermeiden",
     "logout_vault_unsaved": "Sie haben ungespeicherte Änderungen. Möchten Sie sich wirklich abmelden, ohne zu speichern?",
-    "goback": "Zurück"
+    "goback": "Zurück",
+    "tag": "Etikett",
+    "choose_tag": "Etikett auswählen",
+    "no_tag": "Kein Etikett",
+    "tag_not_found": "Kein Etikett gefunden"
 }

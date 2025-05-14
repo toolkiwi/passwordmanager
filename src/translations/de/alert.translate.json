@@ -4,5 +4,6 @@
         "created": "Das Passwort wurde erstellt!",
         "confirm_delete": "Möchten Sie das Passwort wirklich löschen?",
         "confirm_delete_sub": "Das Passwort wird in den Papierkorb verschoben"
-    }
+    },
+    "tag_created": "Etikett erfolgreich erstellt"
 }

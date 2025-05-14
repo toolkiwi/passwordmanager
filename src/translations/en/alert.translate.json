@@ -4,5 +4,6 @@
         "created": "The password has been created!",
         "confirm_delete": "Are you sure you want to delete the password?",
         "confirm_delete_sub": "The password will be moved to your trash"
-    }
+    },
+    "tag_created": "Tag created successfully"
 }

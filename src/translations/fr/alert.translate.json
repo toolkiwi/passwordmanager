@@ -4,5 +4,6 @@
         "created": "Le mot de passe a été créé !",
         "confirm_delete": "Êtes-vous sûr de vouloir supprimer le mot de passe ?",
         "confirm_delete_sub": "Le mot de passe sera déplacé dans votre corbeille"
-    }
+    },
+    "tag_created": "Étiquette créée avec succès"
 }
