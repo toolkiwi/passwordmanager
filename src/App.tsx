@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router';
+import { Navigate, Route, Routes } from 'react-router';
 
 import IndexPage from './pages/Index';
 
@@ -20,18 +20,28 @@ function App() {
         <Routes>
             <Route index element={<IndexPage />} />
             <Route element={<DefaultLayout />}>
-                <Route path='vault' element={<VaultDashboardPage />} />
-                <Route path='vault/trash' element={<VaultTrashPage />} />
-                <Route path='vault/create' element={<VaultCreatePage />} />
-                <Route path='vault/settings' element={<VaultSettingsPage />} />
                 <Route
-                    path='vault/password/:uuid'
+                    path='vault/'
+                    element={<Navigate to='/vault/passwords' replace />}
+                />
+                <Route
+                    path='vault/passwords'
+                    element={<VaultDashboardPage />}
+                />
+                <Route
+                    path='vault/passwords/create'
+                    element={<VaultCreatePage />}
+                />
+                <Route
+                    path='vault/passwords/:uuid'
                     element={<VaultPasswordPage />}
                 />
                 <Route
-                    path='vault/password/:uuid/edit'
+                    path='vault/passwords/:uuid/edit'
                     element={<VaultPasswordEditPage />}
                 />
+                <Route path='vault/trash' element={<VaultTrashPage />} />
+                <Route path='vault/settings' element={<VaultSettingsPage />} />
                 <Route path='vault/tags' element={<VaultTagsPage />} />
                 <Route
                     path='vault/tags/create'

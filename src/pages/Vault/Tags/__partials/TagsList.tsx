@@ -79,7 +79,9 @@ export default function TagsList(props: PropsComponent): ReactElement {
                                 }}
                                 data-index={'T-' + virtualRow.index}
                                 onClick={() =>
-                                    navigate(`/vault?tag_id=${item.id}`)
+                                    navigate(
+                                        `/vault/passwords?tag_id=${item.id}`,
+                                    )
                                 }
                             >
                                 <div className={ListCN.list_item_content}>

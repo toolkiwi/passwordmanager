@@ -30,7 +30,7 @@ export default function IndexPage() {
      */
     useEffect(() => {
         if (Vault._d) {
-            navigate('/vault', { replace: true });
+            navigate('/vault/passwords', { replace: true });
         }
     }, []);
 
