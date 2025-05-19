@@ -117,7 +117,7 @@ export default function TagSelect(
 
 const CN = {
     wrapper: 'relative',
-    button: 'grid w-full cursor-default grid-cols-1 rounded-lg px-3.5 h-[50px] text-left text-gray-900 outline-1 -outline-offset-1 outline-neutral-900 focus:-outline-offset focus:outline-neutral-800 focus:bg-neutral-900 sm:text-sm/6',
+    button: 'flex flex-row items-center justify-between w-full cursor-default grid-cols-1 rounded-lg px-3.5 h-[50px] text-left text-gray-900 outline-1 -outline-offset-1 outline-neutral-900 focus:-outline-offset focus:outline-neutral-800 focus:bg-neutral-900 sm:text-sm/6',
     button_content: 'col-start-1 row-start-1 flex items-center gap-2',
     tag_icon: 'w-4 h-4 rounded-full border-2 border-white/10',
     selected_title: 'block truncate text-white',
