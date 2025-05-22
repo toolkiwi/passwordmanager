@@ -1,4 +1,4 @@
-import { FaGithub, FaTrello, FaXTwitter } from 'react-icons/fa6';
+import { FaGithub, FaMastodon, FaTrello, FaXTwitter } from 'react-icons/fa6';
 import { ReactElement } from 'react';
 
 /**
@@ -36,6 +36,11 @@ export default function RenderLinks(): ReactElement {
             icon: <FaXTwitter />,
             title: 'Follow us on X!',
             link: 'https://x.com/ToolKiwi',
+        },
+        {
+            icon: <FaMastodon />,
+            title: 'Follow us on Mastodon!',
+            link: 'https://mastodon.social/@toolkiwi',
         },
     ];
     /**
