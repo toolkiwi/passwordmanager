@@ -86,7 +86,7 @@ export default function ListHeader({
                 return (
                     Vault?.tags
                     && Vault.tags.length > 0 && (
-                        <div className='flex-[0.5] ml-3'>
+                        <div className='flex-row items-center w-full sm:flex-[0.5]'>
                             <TagSelect
                                 value={filterTag}
                                 onChange={(tag) => onFilterTag!(tag)}
@@ -122,7 +122,6 @@ export default function ListHeader({
  */
 const CN = {
     container: 'p-5 border-b border-neutral-900',
-    header: 'flex flex-row items-center',
-    add_button:
-        'h-[50px] aspect-square h-13 items-center justify-center flex mr-2',
+    header: 'flex flex-row items-center flex-wrap gap-2',
+    add_button: 'flex items-center justify-center h-13 aspect-square',
 };
