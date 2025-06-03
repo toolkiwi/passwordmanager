@@ -1,4 +1,4 @@
-import { type ReactElement, useRef } from 'react';
+import { type ReactElement, useEffect, useRef } from 'react';
 import ActionButton from '@/components/styled/ActionButton';
 import { VaultInterface } from '@/interfaces/VaultInterface';
 import { deleteTag } from '@/redux/features/vaultSlice';
@@ -10,6 +10,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router';
 import { StoreDispatch } from '@/redux/StoreRedux';
 import { useTranslation } from 'react-i18next';
+import useIsMobile from '@/hooks/useIsMobile';
 
 interface PropsComponent {
     SearchFilter: VaultInterface.Tag[];
@@ -31,6 +32,10 @@ export default function TagsList(props: PropsComponent): ReactElement {
      * Ref for virtualizer
      */
     const parentRef = useRef<HTMLDivElement>(null);
+    /**
+     * Instance useIsMobile hook
+     */
+    const isMobile = useIsMobile();
 
     /**
      * Virtualize Row
@@ -38,7 +43,7 @@ export default function TagsList(props: PropsComponent): ReactElement {
     const rowVirtualizer = useVirtualizer({
         count: props.SearchFilter.length ?? 0,
         getScrollElement: () => parentRef.current,
-        estimateSize: () => 115,
+        estimateSize: () => (isMobile ? 100 : 115),
         overscan: 5,
     });
 
@@ -51,6 +56,13 @@ export default function TagsList(props: PropsComponent): ReactElement {
 
         return;
     };
+
+    /**
+     * Re-measure row sizes and update virtualizer when the mobile state changes.
+     */
+    useEffect(() => {
+        rowVirtualizer.measure();
+    }, [isMobile]);
 
     return (
         <div className={ListCN.container}>
