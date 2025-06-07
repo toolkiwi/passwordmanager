@@ -123,5 +123,6 @@ export default function ListHeader({
 const CN = {
     container: 'p-5 border-b border-neutral-900',
     header: 'flex flex-row items-center flex-wrap gap-2',
-    add_button: 'flex items-center justify-center h-13 aspect-square',
+    add_button:
+        'flex items-center justify-center h-13 max-sm:h-[45px] aspect-square',
 };

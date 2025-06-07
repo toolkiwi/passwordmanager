@@ -242,7 +242,7 @@ export default function Index() {
                                 }}
                                 rightElement={
                                     <ActionButton
-                                        wrapperClassName='mr-1.5'
+                                        wrapperClassName='mr-1.5 max-sm:mr-[3.5px]'
                                         onClick={() =>
                                             setShowPassword((state) => !state)
                                         }

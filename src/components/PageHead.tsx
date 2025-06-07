@@ -85,7 +85,7 @@ export default function PageHead({
                 </button>
             )}
             {beforeTitle && beforeTitle}
-            <h2 className='text-neutral-300 font-semibold text-lg max-sm:text-base flex-1 truncate!'>
+            <h2 className='text-neutral-300 font-semibold text-lg max-sm:text-base flex-1 truncate! pr-2'>
                 {CommonUtils.limitTextLength(title, 35)}
             </h2>
             {afterTitle && afterTitle}
