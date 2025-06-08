@@ -102,9 +102,12 @@ export default function RenderField(props: ComponentProps): ReactElement {
                             href={props.value as string}
                             target='_blank'
                             rel='noopener noreferrer'
-                            className='border-b-[3px] pr-1 hover:border-neutral-800 border-transparent hover:text-white hover:bg-neutral inline-flex flex-row items-center gap-1 max-sm:white truncate!'
+                            className='border-b-[3px] pr-1 hover:border-neutral-800 border-transparent hover:text-white hover:bg-neutral inline-flex flex-row items-center gap-1 max-sm:block truncate!'
                         >
-                            <TbLink size={16} />
+                            <TbLink
+                                size={16}
+                                className='max-sm:inline-block max-sm:mr-1'
+                            />
                             {CommonUtils.limitTextLength(format_value)}
                         </a>
                     </div>
