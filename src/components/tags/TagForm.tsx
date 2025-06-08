@@ -13,7 +13,6 @@ import { TagFormInterface } from '@/interfaces/TagFormInterface';
 import ColorPicker from '@/components/tags/TagColorPicker';
 import FormCN from '@/styles/CN/FormCN';
 import ListCN from '@/styles/CN/ListCN';
-import clsx from 'clsx';
 
 interface PropsComponent {
     default?: VaultInterface.Form.Tag;
