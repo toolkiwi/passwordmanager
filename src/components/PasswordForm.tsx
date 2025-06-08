@@ -15,7 +15,7 @@ import { useTranslation } from 'react-i18next';
 import TagSelect from './tags/TagSelect';
 import type { VaultInterface } from '@/interfaces/VaultInterface';
 import { useSelector } from 'react-redux';
-import ListCN from '@/styles/CN/ListCN';
+import FormCN from '@/styles/CN/FormCN';
 
 interface PropsComponent {
     default?: VaultInterface.Form.Password;
@@ -255,7 +255,7 @@ export default function PasswordForm(props: PropsComponent): ReactElement {
                         }}
                     />
                 </div>
-                <div className={ListCN.footer}>
+                <div className={FormCN.footer}>
                     <StyledButton
                         button={{
                             type: 'reset',

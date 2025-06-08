@@ -10,5 +10,5 @@ export default {
     favicon: 'w-full h-full rounded-md',
     label: 'text-white text-sm font-bold uppercase',
     sub_label: 'text-neutral-600 text-md max-sm:text-[15px] truncate',
-    footer: 'p-5 flex flex-row items-center gap-5',
+    footer: 'p-5 flex flex-row items-center gap-5 max-sm:flex-col max-sm:gap-2.5',
 };

@@ -14,6 +14,7 @@ import { useDispatch } from 'react-redux';
 import { deletePassword } from '@/redux/features/vaultSlice';
 import { useTranslation } from 'react-i18next';
 import type { VaultInterface } from '@/interfaces/VaultInterface';
+import ListCN from '@/styles/CN/ListCN';
 
 export default function Index(): ReactElement | null {
     /**
@@ -108,7 +109,7 @@ export default function Index(): ReactElement | null {
                     }
                     goBack
                 />
-                <section className='p-5 flex flex-1 flex-col'>
+                <section className='p-5 flex flex-1 flex-col max-sm:p-3'>
                     <div className='flex-1'>
                         <RenderField
                             label={t('common:login')}
@@ -158,10 +159,10 @@ export default function Index(): ReactElement | null {
                             type='note'
                         />
                     </div>
-                    <div className='mt-5 flex flex-row items-center gap-5'>
+                    <div className={ListCN.footer}>
                         <StyledButton
                             button={{
-                                className: 'flex-1 p-3',
+                                className: 'flex-1 p-3 w-full max-sm:order-1',
                                 onClick: () => setModalDelete(true),
                             }}
                             variant='danger'
@@ -170,7 +171,7 @@ export default function Index(): ReactElement | null {
                         </StyledButton>
                         <StyledButton
                             button={{
-                                className: 'flex-1 p-3',
+                                className: 'flex-1 p-3 w-full max-sm:order-0',
                                 onClick: () => navigate('edit'),
                             }}
                         >

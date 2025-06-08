@@ -97,12 +97,12 @@ export default function RenderField(props: ComponentProps): ReactElement {
                 }
 
                 return (
-                    <div className={CN.field_value}>
+                    <div className={clsx(CN.field_value)}>
                         <a
                             href={props.value as string}
                             target='_blank'
                             rel='noopener noreferrer'
-                            className='border-b-[3px] pr-1 hover:border-neutral-800 border-transparent hover:text-white hover:bg-neutral inline-flex flex-row items-center gap-1'
+                            className='border-b-[3px] pr-1 hover:border-neutral-800 border-transparent hover:text-white hover:bg-neutral inline-flex flex-row items-center gap-1 max-sm:white truncate!'
                         >
                             <TbLink size={16} />
                             {CommonUtils.limitTextLength(format_value)}
@@ -143,7 +143,9 @@ export default function RenderField(props: ComponentProps): ReactElement {
                 <RenderValue />
             </div>
             {props.rightAction && !isValueEmpty && (
-                <div className='rightaction_wrapper'>{props.rightAction}</div>
+                <div className={CN.rightaction_wrapper}>
+                    {props.rightAction}
+                </div>
             )}
         </div>
     );
@@ -153,10 +155,10 @@ export default function RenderField(props: ComponentProps): ReactElement {
  * Custon style classnames object
  */
 const CN = {
-    field: 'p-5 border-b border-neutral-900 flex flex-row items-center',
-    field_main: 'flex-1 flex flex-col gap-1.5',
-    field_label: 'text-xs uppercase font-semibold text-neutral-500',
-    field_value: 'text-neutral-200 font-semibold flex-1',
+    field: 'p-5 border-b border-neutral-900 flex flex-row items-center relative max-sm:flex-col w-full max-sm:p-4',
+    field_main: 'flex-1 flex flex-col gap-1.5 relative w-full',
+    field_label: 'text-xs uppercase font-semibold text-neutral-500 truncate!',
+    field_value: 'text-neutral-200 font-semibold flex-1 truncate!',
     field_value_note:
         'text-neutral-400 font-normal! italic whitespace-break-spaces text-wrap',
     field_value_empty: 'text-neutral-600 font-normal!',
@@ -164,5 +166,5 @@ const CN = {
         'inline-flex flex-row items-center rounded-xl relative w-fit p-1 px-2',
     field_tag_bg: 'absolute w-full h-full top-0 left-0 rounded-lg opacity-10',
     field_tag_dot: 'w-4 h-4 rounded-full border-2 p-1 mr-2 border-white/20',
-    rightaction_wrapper: 'mx-5',
+    rightaction_wrapper: 'mx-5 max-sm:self-start max-sm:mt-2.5 max-sm:mx-0',
 };
