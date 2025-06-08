@@ -91,14 +91,14 @@ export default function ChangelogPage() {
 }
 
 const CN = {
-    page_wrapper: 'h-screen overflow-auto',
+    page_wrapper: 'h-screen overflow-auto max-sm:p-2',
     page_background:
         'bg-changelog absolute top-0 left-0 w-full h-full opacity-1 -z-10',
     page_content: 'max-w-[650px] m-auto relative',
     header: 'flex flex-col gap-4 pt-10',
-    header_title: 'font-bold text-5xl text-white text-center',
+    header_title: 'font-bold text-5xl text-white text-center max-sm:text-4xl',
     header_sub:
-        'font-semibold text-xl text-neutral-600 flex flex-row items-center gap-2 justify-center',
+        'font-semibold text-xl text-neutral-600 flex flex-row items-center gap-2 justify-center max-sm:text-lg',
     footer: 'text-center py-5 uppercase text-sm opacity-50 hover:opacity-100 group transition-all',
     footer_text: 'flex items-center justify-center',
     footer_mail: 'text-xs text-neutral-500 p-2',
