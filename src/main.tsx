@@ -6,7 +6,6 @@ import { Provider } from 'react-redux';
 import ReduxStore, { StorePersistor } from './redux/StoreRedux.ts';
 import { BrowserRouter } from 'react-router';
 import '@/translations/Translate.ts';
-import { Tooltip } from 'react-tooltip';
 import DevToolWarning from './components/DevtoolWarning.tsx';
 import { PersistGate } from 'redux-persist/integration/react';
 
@@ -19,12 +18,7 @@ createRoot(document.getElementById('root')!).render(
                 </BrowserRouter>
             </PersistGate>
         </Provider>
-        <Tooltip
-            id='default-tooltip'
-            noArrow
-            style={{ borderRadius: 8, zIndex: 10000 }}
-            delayShow={400}
-        />
+
         <DevToolWarning />
     </StrictMode>,
 );

@@ -1,9 +1,11 @@
 import { Outlet, useNavigate } from 'react-router';
 import SidebarNav from '../components/nav/SidebarNav';
 import { useSelector } from 'react-redux';
-import { StoreState } from '@/redux/StoreRedux';
-import { ReactElement, useEffect } from 'react';
+import { type StoreState } from '@/redux/StoreRedux';
+import { type ReactElement, useEffect } from 'react';
 import ConsoleCommandUtils from '@/utils/consoleCommandUtils';
+import { Tooltip } from 'react-tooltip';
+import useIsMobile from '@/hooks/useIsMobile';
 
 /**
  * Provides the main dashboard structure including sidebar navigation
@@ -22,6 +24,10 @@ export default function DashboardLayout(): ReactElement | null {
      * Instance of useNavigate hook
      */
     const navigate = useNavigate();
+    /**
+     * Insatance of useIsMobile hook
+     */
+    const isMobile = useIsMobile();
 
     /**
      * On App.unlocked update
@@ -49,6 +55,13 @@ export default function DashboardLayout(): ReactElement | null {
             <div className='max-w-[1250px] w-full mx-auto relative h-screen overflow-auto border-l border-r border-neutral-900 lg:max-w-[800px] md:max-w-[600px] max-md:border-0'>
                 <Outlet />
             </div>
+            <Tooltip
+                id='default-tooltip'
+                hidden={isMobile}
+                noArrow
+                style={{ borderRadius: 8, zIndex: 10000 }}
+                delayShow={400}
+            />
         </main>
     );
 }
