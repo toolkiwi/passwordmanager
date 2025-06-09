@@ -91,7 +91,7 @@ export default function ChangelogPage() {
 }
 
 const CN = {
-    page_wrapper: 'h-screen overflow-auto max-sm:p-2',
+    page_wrapper: 'h-full overflow-auto max-sm:p-2',
     page_background:
         'bg-changelog absolute top-0 left-0 w-full h-full opacity-1 -z-10',
     page_content: 'max-w-[650px] m-auto relative',
