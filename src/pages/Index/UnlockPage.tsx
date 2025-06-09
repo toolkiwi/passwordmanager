@@ -177,9 +177,9 @@ export const UnlockVault = () => {
                 </Fragment>
             ) : (
                 <form onSubmit={handleUnlockVault}>
-                    <div className='p-10 border border-solid border-neutral-900 mb-5 rounded-lg max-sm:p-5'>
+                    <div className='p-10 border border-solid  mb-5 rounded-lg max-sm:p-5'>
                         <label
-                            className='text-white font-semibold'
+                            className='text-foreground font-semibold'
                             htmlFor='vault-master'
                         >
                             {t('page:index.enter_master_vault')}
@@ -210,14 +210,14 @@ export const UnlockVault = () => {
 
 const CN = {
     dropzone:
-        'px-12 h-full border-[3px] border-dashed border-white/10 hover:bg-white/10 rounded-lg flex flex-col items-center justify-center text-white/30 cursor-pointer',
+        'px-12 h-full border-[3px] border-dashed border-white/10 hover:bg-white/10 rounded-lg flex flex-col items-center justify-center text-foreground/30 cursor-pointer',
     dropzone_dragover: 'bg-white/10',
     dropzone_meta: 'flex flex-col items-center justify-center mt-5',
     dropzone_meta_title:
-        'text-white font-bold text-xl text-center normal-case max-sm:text-lg',
+        'text-foreground font-bold text-xl text-center normal-case max-sm:text-lg',
     dropzone_meta_title_span: 'opacity-50',
     dropzone_meta_icon: 'mb-1',
-    dropzone_meta_icon_svg: 'text-white size-16 opacity-25 max-sm:size-12',
+    dropzone_meta_icon_svg: 'text-foreground size-16 opacity-25 max-sm:size-12',
     dropzone_or:
         'py-8 relative w-full text-center uppercase flex flex-row items-center max-sm:py-5',
     dropzone_or_span: 'px-3 z-10',

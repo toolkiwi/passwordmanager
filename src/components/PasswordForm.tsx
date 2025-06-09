@@ -220,7 +220,7 @@ export default function PasswordForm(props: PropsComponent): ReactElement {
                                 >
                                     <TbArrowsShuffle2
                                         size={18}
-                                        className='text-neutral-800 group-hover/copy:text-neutral-300'
+                                        className='text-foreground/10 group-hover/copy:text-foreground/80 '
                                     />
                                 </ActionButton>
                             }

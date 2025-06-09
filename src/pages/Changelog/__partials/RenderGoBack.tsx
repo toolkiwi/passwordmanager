@@ -36,5 +36,5 @@ export default function RenderGoBack() {
 
 const CN = {
     goback: 'inline-flex flex-row items-center py-4 px-5 -ml-5 my-3 rounded-full hover:bg-neutral-800/35 cursor-pointer select-none max-sm:ml-2',
-    goback_text: 'text-lg text-white font-semibold ml-3',
+    goback_text: 'text-lg text-foreground font-semibold ml-3',
 };

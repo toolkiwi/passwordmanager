@@ -50,7 +50,7 @@ export default function Modal(props: PropsComponent) {
                                 {props.title ?? 'Error'}
                             </h2>
                             {props.subtitle && (
-                                <p className='text-md text-neutral-600 text-center'>
+                                <p className='text-md text-foreground/25 text-center'>
                                     {props.subtitle}
                                 </p>
                             )}
@@ -88,5 +88,5 @@ const CN = {
     modal: 'flex flex-col h-full w-full',
     header: 'flex-1 justify-center items-center self-center content-center leading-13',
     footer: 'flex flex-row items-center justify-center gap-5',
-    title: 'text-2xl font-bold text-white text-center',
+    title: 'text-2xl font-bold text-foreground text-center',
 };

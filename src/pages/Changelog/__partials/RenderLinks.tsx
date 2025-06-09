@@ -75,5 +75,5 @@ export default function RenderLinks(): ReactElement {
 
 const CN = {
     list: 'flex items-center justify-center flex-row gap-3',
-    item_a: 'p-3 block relative rounded-lg text-2xl border border-neutral-800 opacity-50 transition-all hover:opacity-100 hover:bg-neutral-900',
+    item_a: 'p-3 block relative rounded-lg text-2xl border border-foreground/10! opacity-50 transition-all hover:opacity-100 hover:bg-neutral-900',
 };

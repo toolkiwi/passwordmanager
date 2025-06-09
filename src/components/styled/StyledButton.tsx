@@ -49,9 +49,9 @@ const CN = {
     button: 'cursor-pointer border rounded-lg  active:outline-4',
     variants: {
         default:
-            'border-neutral-800 bg-neutral-900 text-neutral-600 outline-white/20 hover:bg-neutral-800 hover:border-neutral-700 hover:text-neutral-500',
-        danger: 'border-neutral-900 text-neutral-600 hover:border-red-900 hover:bg-red-600/10 hover:text-red-500 outline-red-500',
+            'bg-foreground/2 text-neutral-600 outline-white/20 hover:bg-foreground/5 hover:border-foreground/10! hover:text-neutral-500',
+        danger: 'border-foreground/5! text-neutral-600 hover:border-red-900! hover:bg-red-600/10 hover:text-red-500 outline-red-500!',
         secondary:
-            'border-neutral-900 text-neutral-600 outline-white/5 hover:text-neutral-400 hover:bg-neutral-900/35',
+            'border-neutral-900 text-neutral-600 outline-white/5 hover:text-neutral-400 hover:bg-foreground/2',
     },
 };

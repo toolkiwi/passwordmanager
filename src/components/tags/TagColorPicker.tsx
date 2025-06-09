@@ -58,7 +58,7 @@ export default function ColorPicker({
 
 const CN = {
     wrapper:
-        'mt-3 p-5 bg-neutral-950 rounded-lg border border-neutral-800 flex flex-row items-center flex-wrap gap-3 place-content-center',
+        'mt-3 p-5 bg-foreground/5 rounded-lg border border-neutral-800 flex flex-row items-center flex-wrap gap-3 place-content-center',
     colorOption:
         'w-10 h-10 rounded-full border-2 p-1 cursor-pointer transition-all hover:opacity-100!',
     colorInner: 'w-full h-full rounded-full flex items-center justify-center',

@@ -102,7 +102,7 @@ export default function RenderField(props: ComponentProps): ReactElement {
                             href={props.value as string}
                             target='_blank'
                             rel='noopener noreferrer'
-                            className='border-b-[3px] pr-1 hover:border-neutral-800 border-transparent hover:text-white hover:bg-neutral inline-flex flex-row items-center gap-1 max-sm:block truncate!'
+                            className='border-b-[3px] pr-1 hover:border-foreground/5! border-transparent! hover:text-foreground hover:bg-neutral inline-flex flex-row items-center gap-1 max-sm:block truncate!'
                         >
                             <TbLink
                                 size={16}
@@ -158,13 +158,13 @@ export default function RenderField(props: ComponentProps): ReactElement {
  * Custon style classnames object
  */
 const CN = {
-    field: 'p-5 border-b border-neutral-900 flex flex-row items-center relative max-sm:flex-col w-full max-sm:p-4',
+    field: 'p-5 border-b flex flex-row items-center relative max-sm:flex-col w-full max-sm:p-4',
     field_main: 'flex-1 flex flex-col gap-1.5 relative w-full',
     field_label: 'text-xs uppercase font-semibold text-neutral-500 truncate!',
-    field_value: 'text-neutral-200 font-semibold flex-1 truncate!',
+    field_value: 'text-foreground/80 font-semibold flex-1 truncate!',
     field_value_note:
-        'text-neutral-400 font-normal! italic whitespace-break-spaces text-wrap',
-    field_value_empty: 'text-neutral-600 font-normal!',
+        'text-foreground/50 font-normal! italic whitespace-break-spaces text-wrap',
+    field_value_empty: 'text-foreground/25! font-normal!',
     field_tag:
         'inline-flex flex-row items-center rounded-xl relative w-fit p-1 px-2',
     field_tag_bg: 'absolute w-full h-full top-0 left-0 rounded-lg opacity-10',

@@ -31,7 +31,7 @@ export default function StyledTextArea(props: ComponentProps): ReactElement {
  */
 const CN = {
     wrapper:
-        'h-full border border-neutral-900 rounded-xl group focus-within:bg-neutral-900 focus-within:border-neutral-800 transition flex flex-1 items-center',
+        'h-full border  rounded-xl group focus-within:bg-foreground/5 focus-within:border-foreground/5! transition flex flex-1 items-center',
     textarea:
-        'h-full w-full p-5 outline-0 text-neutral-300 bg-transparent min-h-[65px] max-sm:min-h-[40px]! placeholder:text-neutral-600',
+        'h-full w-full p-5 outline-0 text-foreground/80 bg-transparent min-h-[65px] max-sm:min-h-[40px]! placeholder:text-foreground/25',
 };

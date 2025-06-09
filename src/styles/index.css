@@ -1,5 +1,20 @@
 @import 'tailwindcss';
 
+:root {
+  --background: hsl(0, 0%, 11%);
+  --border: hsl(0, 0%, 16%);
+  --foreground: hsl(0, 0%, 100%);
+  --muted: hsl(0, 0%, 0%);
+
+}
+
+@theme {
+    --color-background: var(--background);
+    --color-border: var(--border);
+    --color-foreground: var(--foreground);
+    --color-muted: var(--muted);
+}
+
 html,
 body {
     position: relative;
@@ -8,7 +23,6 @@ body {
     padding: 0;
     margin: 0;
     @apply bg-background;
-    filter: contrast(0.9);
 }
 
 #root {
@@ -16,11 +30,6 @@ body {
     width: 100svw;
     height: 100svh;
 
-}
-
-@theme {
-    --color-background: rgb(5, 5, 5);
-    --color-primary: '#FFF';
 }
 
 button.b-1 {
@@ -126,4 +135,7 @@ button.b-1 {
 
 * {
     scrollbar-color: #555 rgba(255, 255, 255, 0.05);
+    border-color: var(--color-border);
+    outline-color: var(--color-border);
 }
+

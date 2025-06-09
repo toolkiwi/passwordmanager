@@ -52,7 +52,7 @@ export default function DashboardLayout(): ReactElement | null {
     return (
         <main className='relative h-full w-full flex flex-row items-start overflow-auto'>
             <SidebarNav />
-            <div className='max-w-[1250px] w-full mx-auto relative h-full overflow-auto border-l border-r border-neutral-900 lg:max-w-[800px] md:max-w-[600px] max-md:border-0'>
+            <div className='max-w-[1250px] w-full mx-auto relative h-full overflow-auto border-l border-r lg:max-w-[800px] md:max-w-[600px] max-md:border-0'>
                 <Outlet />
             </div>
             <Tooltip

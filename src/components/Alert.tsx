@@ -75,7 +75,7 @@ export default function Alert({
         >
             <div
                 className={clsx(CN.icon, {
-                    'bg-white/25 text-white': type === 'DEFAULT',
+                    'bg-white/25 text-foreground': type === 'DEFAULT',
                     'bg-green-500/25 text-green-500': type === 'SUCCESS',
                     'bg-red-500/25 text-red-500': type === 'ERROR',
                     'bg-orange-500/25 text-orange-500': type === 'WARNING',
@@ -85,7 +85,7 @@ export default function Alert({
             </div>
             <div
                 className={clsx(CN.text, {
-                    'text-white': type === 'DEFAULT',
+                    'text-foreground': type === 'DEFAULT',
                     'text-green-500': type === 'SUCCESS',
                     'text-red-500': type === 'ERROR',
                     'text-orange-500': type === 'WARNING',
@@ -98,7 +98,7 @@ export default function Alert({
                     type='button'
                     onClick={onClose}
                     className={clsx(CN.close, {
-                        'text-white hover:bg-white/10': type === 'DEFAULT',
+                        'text-foreground hover:bg-white/10': type === 'DEFAULT',
                         'text-green-500 hover:bg-green-500/10':
                             type === 'SUCCESS',
                         'text-red-500 hover:bg-red-500/10': type === 'ERROR',

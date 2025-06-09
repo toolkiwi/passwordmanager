@@ -43,57 +43,62 @@ export default function ChangelogPage() {
     }, []);
 
     return (
-        <div className={CN.page_wrapper} id='changelog-container'>
+        <div className={CN.page_container} id='changelog-container'>
             <div className={CN.page_background} />
-            <div className={CN.page_content}>
-                <RenderGoBack />
-                <div className={CN.header}>
-                    <h1 className={CN.header_title}>Changelog</h1>
-                    {articles && (
-                        <h1 className={CN.header_sub}>
-                            <LuClock size={20} />
-                            Last update{' '}
-                            {dayjs(articles[0].created_at).format(
-                                'DD MMM YYYY',
-                            )}
-                        </h1>
-                    )}
-                    <RenderLinks />
-                    {!isUserOnline && (
-                        <Alert
-                            type='ERROR'
-                            text='You are not connected to the internet. Please check your connection and try again.'
-                        />
+            <div className={CN.page_wrapper}>
+                <div className={CN.page_content}>
+                    <RenderGoBack />
+                    <div className={CN.header}>
+                        <h1 className={CN.header_title}>Changelog</h1>
+                        {articles && (
+                            <h1 className={CN.header_sub}>
+                                <LuClock size={20} />
+                                Last update{' '}
+                                {dayjs(articles[0].created_at).format(
+                                    'DD MMM YYYY',
+                                )}
+                            </h1>
+                        )}
+                        <RenderLinks />
+                        {!isUserOnline && (
+                            <Alert
+                                type='ERROR'
+                                text='You are not connected to the internet. Please check your connection and try again.'
+                            />
+                        )}
+                    </div>
+                    {articles ? (
+                        <RenderArticles articles={articles} />
+                    ) : (
+                        <div className='pt-20'>
+                            <Loading />
+                        </div>
                     )}
                 </div>
-                {articles ? (
-                    <RenderArticles articles={articles} />
-                ) : (
-                    <div className='pt-20'>
-                        <Loading />
+                {articles && (
+                    <div className={CN.footer}>
+                        <div className={CN.footer_text}>
+                            Made with{' '}
+                            <span className={CN.footer_text_span}>
+                                <TbHeartFilled size={15} />
+                            </span>{' '}
+                            by ToolKiwi
+                        </div>
+                        <div className={CN.footer_mail}>
+                            contact@toolkiwi.com
+                        </div>
                     </div>
                 )}
             </div>
-            {articles && (
-                <div className={CN.footer}>
-                    <div className={CN.footer_text}>
-                        Made with{' '}
-                        <span className={CN.footer_text_span}>
-                            <TbHeartFilled size={15} />
-                        </span>{' '}
-                        by ToolKiwi
-                    </div>
-                    <div className={CN.footer_mail}>contact@toolkiwi.com</div>
-                </div>
-            )}
         </div>
     );
 }
 
 const CN = {
-    page_wrapper: 'h-full overflow-auto max-sm:p-2',
+    page_container: 'h-screen overflow-auto max-sm:p-2',
+    page_wrapper: 'z-10 relative',
     page_background:
-        'bg-changelog absolute top-0 left-0 w-full h-full opacity-1 -z-10',
+        'bg-changelog absolute top-0 left-0 w-full h-full opacity-1 z-1 user-none',
     page_content: 'max-w-[650px] m-auto relative',
     header: 'flex flex-col gap-4 pt-10',
     header_title: 'font-bold text-5xl text-white text-center max-sm:text-4xl',

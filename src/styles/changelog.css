@@ -62,6 +62,7 @@
 
 #changelog-container .bg-changelog {
     background-color: #000000;
+    
     background-image:
         linear-gradient(#ffffff 4.2px, transparent 4.2px),
         linear-gradient(90deg, #ffffff 4.2px, transparent 4.2px),

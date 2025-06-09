@@ -250,12 +250,12 @@ export default function Index() {
                                         {showPassword ? (
                                             <TbEyeClosed
                                                 size={18}
-                                                className='text-neutral-800 group-hover/copy:text-neutral-300'
+                                                className='text-neutral-800 group-hover/copy:text-foreground/80'
                                             />
                                         ) : (
                                             <TbEye
                                                 size={18}
-                                                className='text-neutral-800 group-hover/copy:text-neutral-300'
+                                                className='text-neutral-800 group-hover/copy:text-foreground/80'
                                             />
                                         )}
                                     </ActionButton>
@@ -290,17 +290,17 @@ const CN = {
     pageContainer: 'page-container',
     alertContainer: 'p-0',
     headerSection:
-        'w-full min-h-[250px] flex flex-col items-center justify-center m-auto border-b border-neutral-900 py-10 gap-5 mb-3 relative overflow-hidden',
+        'w-full min-h-[250px] flex flex-col items-center justify-center m-auto border-b  py-10 gap-5 mb-3 relative overflow-hidden',
     backgroundPattern:
         'absolute -top-10 left-0 w-full h-[120%] overflow-hidden bg-pattern-1',
-    iconContainer: 'border border-neutral-900 p-2.5 rounded-3xl z-10',
+    iconContainer: 'border  p-2.5 rounded-3xl z-10',
     iconWrapper: 'w-20 h-20 bg-white/5 rounded-xl overflow-hidden',
     buttonGroup: 'flex flex-row items-center justify-center gap-2 z-10',
-    button: 'p-3 hover:text-white h-[50px]',
+    button: 'p-3 hover:text-foreground h-[50px]',
     iconButton:
-        'hover:text-white h-[50px] w-[50px] flex items-center justify-center',
+        'hover:text-foreground h-[50px] w-[50px] flex items-center justify-center',
     contentContainer: 'p-8 flex flex-col relative flex-1',
     contentWrapper: 'flex-1 flex flex-col gap-10',
-    footer: 'mt-5 flex flex-row items-center gap-5 p-5 border-t border-neutral-900',
+    footer: 'mt-5 flex flex-row items-center gap-5 p-5 border-t ',
     buttonFlex: 'flex-1 p-3',
 };

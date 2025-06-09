@@ -147,8 +147,8 @@ export default function VaultPage() {
  */
 const CN = {
     page_container: 'page-container',
-    header_separator: 'p-5 border-b border-neutral-900',
+    header_separator: 'p-5 border-b ',
     header: 'flex flex-row items-center',
     unsaved_button:
-        'w-9 h-9 flex items-center transition-opacity opacity-60 justify-center bg-yellow-500/10 rounded-full mr-3 border border-yellow-500/25 hover:opacity-100',
+        'w-9 h-9 flex items-center transition-opacity opacity-60 justify-center bg-yellow-500/10 rounded-full mr-3 border border-yellow-500/25! hover:opacity-100',
 };

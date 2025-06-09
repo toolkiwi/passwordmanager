@@ -47,11 +47,11 @@ export default function ActionButton({
 }
 
 const CN = {
-    button: 'w-10 h-10 border flex items-center active:outline-3 outline-white/10 justify-center rounded-md group/copy relative cursor-pointer',
+    button: 'w-10 h-10 border flex items-center active:outline-3 outline-white/15 justify-center rounded-md group/copy relative cursor-pointer',
     variants: {
         default:
-            'border-neutral-900 text-neutral-800 hover:bg-neutral-900 hover:border-neutral-700 hover:text-neutral-300',
-        success: 'bg-neutral-800 border-neutral-700 text-white',
-        danger: 'border-red-600 text-red-600 hover:bg-red-600 hover:border-red-500 hover:text-white',
+            'dark:text-neutral-700 hover:bg-foreground/10 hover:border-foreground/5! hover:text-foreground/80!',
+        success: 'bg-neutral-800 hover:border-foreground/5! text-foreground',
+        danger: 'border-red-600 text-red-600 hover:bg-red-600 hover:border-red-500 hover:text-foreground!',
     },
 };

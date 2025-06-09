@@ -86,6 +86,6 @@ export default function TrashPage() {
  */
 const CN = {
     page_container: 'page-container',
-    header_separator: 'p-5 border-b border-neutral-900',
+    header_separator: 'p-5 border-b ',
     header: 'flex flex-row items-center',
 };

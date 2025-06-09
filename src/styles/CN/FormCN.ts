@@ -6,9 +6,9 @@ export default {
     input_group: 'flex flex-col',
     container: 'p-5 flex flex-col gap-5',
     favicon_container:
-        'relative w-12 h-12 flex items-center justify-center bg-black/80 p-2 border-1 border-neutral-900 rounded-lg max-sm:w-10 max-sm:h-10',
+        'relative w-12 h-12 flex items-center justify-center bg-muted/10 p-2 border-1 rounded-lg max-sm:w-10 max-sm:h-10',
     favicon: 'w-full h-full rounded-md',
-    label: 'text-white text-sm font-bold uppercase',
-    sub_label: 'text-neutral-600 text-md max-sm:text-[15px] truncate',
+    label: 'text-foreground text-sm font-bold uppercase',
+    sub_label: 'text-foreground/25 text-md max-sm:text-[15px] truncate',
     footer: 'p-5 flex flex-row items-center gap-5 max-sm:flex-col max-sm:gap-2.5',
 };

@@ -79,13 +79,13 @@ export default function PageHead({
                 <button
                     type='button'
                     onClick={() => handleBack()}
-                    className='w-10 h-10 aspect-square cursor-pointer rounded-lg border border-neutral-800 text-neutral-700 flex items-center justify-center hover:bg-neutral-900/80 mr-5'
+                    className='w-10 h-10 aspect-square cursor-pointer rounded-lg border border-neutral-800 text-foreground/20 flex items-center justify-center hover:bg-neutral-900/80 mr-5'
                 >
                     <GoChevronLeft size={22} color='inherite' />
                 </button>
             )}
             {beforeTitle && beforeTitle}
-            <h2 className='text-neutral-300 font-semibold text-lg max-sm:text-base flex-1 truncate! pr-2'>
+            <h2 className='text-foreground/80 font-semibold text-lg max-sm:text-base flex-1 truncate! pr-2'>
                 {CommonUtils.limitTextLength(title, 35)}
             </h2>
             {afterTitle && afterTitle}

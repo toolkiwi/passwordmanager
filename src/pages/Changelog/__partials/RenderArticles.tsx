@@ -98,17 +98,17 @@ const CN = {
     section: 'mt-10',
     article_wrapper: 'mb-5 relative w-full',
     version_badge:
-        'relative top-4 left-2 py-2 pb-5 px-5 bg-black rounded-lg border border-neutral-900 uppercase text-xs text-neutral-600 inline-block',
-    version_text: 'text-neutral-400 font-semibold',
+        'relative top-4 left-2 py-2 pb-5 px-5 bg-neutral-950 rounded-lg  uppercase text-xs text-foreground/25 inline-block',
+    version_text: 'text-foreground/50 font-semibold',
     article_card:
-        'border border-neutral-800 overflow-hidden bg-neutral-900 rounded-lg relative',
+        'border border-foreground/8 ! overflow-hidden bg-neutral-800 rounded-lg relative',
     article_header:
         'px-8 py-5 flex items-center border-b border-neutral-800/50',
     article_title: 'text-2xl font-semibold flex-1 max-sm:text-xl',
-    article_date: 'text-neutral-600 text-sm max-sm:text-xs',
+    article_date: 'text-foreground/25 text-sm max-sm:text-xs',
     article_markdown: 'px-8 py-5 max-sm:text-sm',
     article_footer:
-        'px-8 h-16 flex items-end pb-4 bg-black relative -top-4 rounded-lg -z-10 rounded border border-neutral-900 justify-between',
+        'px-8 h-16 flex items-end pb-4 bg-neutral-950 relative -top-4 rounded-lg -z-10 rounded  justify-between',
     article_footer_text: 'text-[10px] uppercase font-bold text-neutral-500',
     list_type_added: 'list-type-added',
     list_type_fixed: 'list-type-fixed',

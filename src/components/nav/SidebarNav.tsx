@@ -206,19 +206,19 @@ const CN = {
     sidebar:
         'w-[90px] h-full relative flex flex-col top-0 border-r border-solid border-neutral-900 max-sm:absolute top-0 left-0 z-100 bg-background transition-transform duration-250',
     sidebar_h_wrapper:
-        'h-[80px] flex items-center justify-center border-b border-neutral-900 mb-5',
+        'h-[80px] flex items-center justify-center border-b  mb-5',
     sidebar_h:
-        'self-center flex items-center justify-center w-13 h-13 rounded-2xl cursor-pointer hover:brightness-[125%] border-1 border-neutral-900 p-1 rounded-2xl overflow-hidden my-5',
-    sidebar_h_img: 'w-full h-full rounded-xl bg-neutral-950',
+        'self-center flex items-center justify-center w-13 h-13 rounded-2xl cursor-pointer hover:brightness-[125%] border-1  p-1 rounded-2xl overflow-hidden my-5',
+    sidebar_h_img: 'w-full h-full rounded-xl bg-foreground/5',
     list: 'w-full flex flex-col items-center flex-1 gap-5',
     list_item:
-        'w-12 h-12 rounded-xl hover:bg-white/5 cursor-pointer flex flex-row items-center justify-center border border-white/5 transition-all group',
-    list_item_active: 'bg-white/10 border-white/10',
-    list_item_icon: 'text-neutral-300 group-hover:text-white',
+        'w-12 h-12 rounded-xl hover:bg-foreground/5 cursor-pointer flex flex-row items-center justify-center border border-foreground/5! transition-all group',
+    list_item_active: 'bg-foreground/10! border-foreground/10!',
+    list_item_icon: 'text-foreground/80 group-hover:text-foreground',
     list_item_warning:
         ' !border-orange-500/50 !bg-orange-500/25 hover:!border-orange-500 hover:!bg-orange-500/40 active:!bg-orange-500/50',
     list_item_warning_icon: ' !text-orange-500',
     list_item_bottom: 'w-full flex flex-col items-center mb-5 gap-5',
     footer_version:
-        'text-[10px] text-neutral-700 text-center bg-neutral-950 border-t border-neutral-900 p-1 transition-all hover:text-neutral-500 hover:bg-neutral-900',
+        'text-[10px] text-foreground/20 text-center bg-foreground/1 border-t  p-1 transition-all hover:text-neutral-500 hover:bg-foreground/3',
 };

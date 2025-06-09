@@ -11,7 +11,7 @@ export default {
     list_item_content: 'flex-1 flex flex-row items-center overflow-hidden',
     text_container: 'flex-1 px-5 max-sm:px-4 truncate',
     favicon_container:
-        'w-12 h-12 flex items-center justify-center bg-black/80 p-2 border-1 border-neutral-900 rounded-lg min-w-10 min-h-10',
+        'w-12 h-12 flex items-center justify-center bg-muted/10 p-2 border-1 border-neutral-900 rounded-lg min-w-10 min-h-10',
     favicon: 'w-full h-full rounded-md',
     title: 'text-neutral-200 font-semibold text-md max-sm:text-[15px] truncate',
     actions: 'flex flex-row items-center gap-2.5 z-10 ',

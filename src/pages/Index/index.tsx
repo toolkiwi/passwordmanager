@@ -81,14 +81,14 @@ export default function IndexPage() {
 const CN = {
     main: 'relative h-full items-center flex flex-col justify-center max-w-[450px] m-auto max-sm:p-4',
     container: 'w-full mb-5',
-    title: 'text-4xl text-white text-center max-sm:text-3xl',
-    subtitle: 'text-2xl text-white mt-2 text-center max-sm:text-xl',
+    title: 'text-4xl text-foreground text-center max-sm:text-3xl',
+    subtitle: 'text-2xl text-foreground mt-2 text-center max-sm:text-xl',
     tabs_wrapper:
         'mt-8 border border-neutral-900 rounded-lg flex flex-row items-center p-2 max-sm:mt-4',
-    tab: 'flex-1 text-white p-3 text-center rounded-md cursor-pointer max-sm:p-2! truncate',
-    active_tab: 'bg-neutral-900',
+    tab: 'flex-1 text-foreground p-3 text-center rounded-md cursor-pointer max-sm:p-2! truncate',
+    active_tab: 'bg-foreground/5',
     content_wrapper: 'mt-10 w-full max-sm:mt-5',
     footer: 'mt-5',
-    footer_text: 'text-[12px] font-semibold text-white/20 text-center',
-    footer_strong: 'font-bold text-neutral-600',
+    footer_text: 'text-[12px] font-semibold text-foreground/20 text-center',
+    footer_strong: 'font-bold text-foreground/25',
 };
