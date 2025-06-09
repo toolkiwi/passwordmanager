@@ -119,7 +119,7 @@ export default function VaultPage() {
                         <StyledButton
                             variant='secondary'
                             button={{
-                                className: 'p-3 text-sm',
+                                className: 'p-3 max-sm:p-2.5 text-sm',
                                 'data-tooltip-content': t(
                                     'common:save_vault_tp',
                                 ),

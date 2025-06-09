@@ -31,6 +31,6 @@ export default function StyledInput(props: ComponentProps): ReactElement {
  */
 const CN = {
     wrapper:
-        'h-full border border-neutral-900 rounded-lg group focus-within:bg-neutral-900 focus-within:border-neutral-800 transition flex flex-1 items-center',
-    input: 'h-full w-full p-3.5 outline-0 text-neutral-300 bg-transparent placeholder:text-neutral-600',
+        'h-full w-full border border-neutral-900 rounded-lg group focus-within:bg-neutral-900 focus-within:border-neutral-800 transition flex flex-1 items-center',
+    input: 'w-full h-[50px] max-sm:h-[45px] px-3.5 outline-0 text-neutral-300 bg-transparent placeholder:text-neutral-600',
 };

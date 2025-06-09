@@ -13,7 +13,6 @@ import { TagFormInterface } from '@/interfaces/TagFormInterface';
 import ColorPicker from '@/components/tags/TagColorPicker';
 import FormCN from '@/styles/CN/FormCN';
 import ListCN from '@/styles/CN/ListCN';
-import clsx from 'clsx';
 
 interface PropsComponent {
     default?: VaultInterface.Form.Tag;
@@ -152,7 +151,7 @@ export default function TagForm(props: PropsComponent) {
 
                     {props.type === 'create' && (
                         <div className='py-3'>
-                            <p className={clsx(ListCN.sub_title)}>
+                            <p className={ListCN.sub_title}>
                                 {t('page:tags.create_introduction')}
                             </p>
                         </div>
@@ -176,7 +175,7 @@ export default function TagForm(props: PropsComponent) {
                     <StyledButton
                         button={{
                             type: 'reset',
-                            className: 'p-3 w-full',
+                            className: 'p-3 w-full max-sm:order-1',
                         }}
                         variant='secondary'
                     >
@@ -185,7 +184,7 @@ export default function TagForm(props: PropsComponent) {
                     <StyledButton
                         button={{
                             type: 'submit',
-                            className: 'p-3 w-full',
+                            className: 'p-3 w-full max-sm:order-0',
                         }}
                         disabled={IS_SAVE_BUTTON_DISABLED}
                     >

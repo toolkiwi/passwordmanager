@@ -16,6 +16,9 @@ import { resetVault } from '@/redux/features/vaultSlice';
 import { setUnlocked, setUnsaved } from '@/redux/features/appSlice';
 import useOnlineStatus from '@/hooks/useOnlineStatus';
 import clsx from 'clsx';
+import useIsMobile from '@/hooks/useIsMobile';
+import { setShowSidebar } from '@/redux/features/tempSlice';
+import { useEffect } from 'react';
 
 export default function SidebarNav() {
     /**
@@ -26,7 +29,10 @@ export default function SidebarNav() {
      * Instance of App state
      */
     const App = useSelector((state: StoreState) => state.app);
-
+    /**
+     * Instance of Temp state
+     */
+    const Temp = useSelector((state: StoreState) => state.temp);
     /**
      * Retrieve the app version from the .env file
      */
@@ -35,6 +41,10 @@ export default function SidebarNav() {
      * Instance useOnlineStatus hook to track the current online status of the user
      */
     const isUserOnline = useOnlineStatus();
+    /**
+     * Instance useIsMobile hook
+     */
+    const isMobile = useIsMobile();
     /**
      * Instance Dispatch hook
      */
@@ -68,98 +78,124 @@ export default function SidebarNav() {
         dispatch(setUnlocked(false));
     };
 
+    useEffect(() => {}, []);
+
     /**
      * Render JSX
      */
     return (
-        <nav className={CN.sidebar}>
-            <div className={CN.sidebar_h_wrapper}>
-                <button
-                    type='button'
-                    className={CN.sidebar_h}
-                    onClick={() => navigate('/vault/settings')}
-                    data-tooltip-id='default-tooltip'
-                    data-tooltip-content={Vault?.name}
-                    data-tooltip-place='right'
-                >
-                    <img
-                        alt='Vault icon'
-                        src={CommonUtils.VaultIcon(Vault!.logo) ?? ''}
-                        className={CN.sidebar_h_img}
-                    />
-                </button>
-            </div>
-            <div className={CN.list}>
-                <NavLink
-                    to='/vault/passwords'
-                    className={({ isActive }: { isActive: boolean }) =>
-                        clsx([
-                            CN.list_item,
-                            isActive ? CN.list_item_active : '',
-                        ])
-                    }
-                    preventScrollReset
-                    data-tooltip-id='default-tooltip'
-                    data-tooltip-content={t('page:titles.dashboard')}
-                    data-tooltip-place='right'
-                    caseSensitive={true}
-                >
-                    <LuKeyRound className={CN.list_item_icon} size={18} />
-                </NavLink>
-                <NavLink
-                    className={({ isActive }: { isActive: boolean }) =>
-                        clsx([
-                            CN.list_item,
-                            isActive ? CN.list_item_active : '',
-                        ])
-                    }
-                    to='/vault/tags'
-                    data-tooltip-id='default-tooltip'
-                    data-tooltip-place='right'
-                    data-tooltip-content={t('page:titles.tags')}
-                >
-                    <LuTags className={CN.list_item_icon} size={18} />
-                </NavLink>
-                <NavLink
-                    className={({ isActive }: { isActive: boolean }) =>
-                        clsx([
-                            CN.list_item,
-                            isActive ? CN.list_item_active : '',
-                        ])
-                    }
-                    to='/vault/trash'
-                    data-tooltip-id='default-tooltip'
-                    data-tooltip-content={t('page:titles.trash')}
-                    data-tooltip-place='right'
-                >
-                    <LuTrash2 className={CN.list_item_icon} size={18} />
-                </NavLink>
-            </div>
-            <div className={CN.list_item_bottom}>
-                {isUserOnline && (
-                    <NavLink
-                        className={CN.list_item}
-                        to='/changelog'
+        <>
+            <nav
+                className={clsx(
+                    CN.sidebar,
+                    isMobile && !Temp.show_sidebar && '-translate-x-[90px]',
+                    isMobile && Temp.show_sidebar && 'translate-x-0',
+                )}
+            >
+                <div className={CN.sidebar_h_wrapper}>
+                    <button
+                        type='button'
+                        className={CN.sidebar_h}
+                        onClick={() => {
+                            navigate('/vault/settings');
+                            dispatch(setShowSidebar(false));
+                        }}
                         data-tooltip-id='default-tooltip'
-                        data-tooltip-content='Changelog'
+                        data-tooltip-content={Vault?.name}
                         data-tooltip-place='right'
                     >
-                        <LuFileText className={CN.list_item_icon} size={18} />
+                        <img
+                            alt='Vault icon'
+                            src={CommonUtils.VaultIcon(Vault!.logo) ?? ''}
+                            className={CN.sidebar_h_img}
+                        />
+                    </button>
+                </div>
+                <div className={CN.list}>
+                    <NavLink
+                        to='/vault/passwords'
+                        className={({ isActive }: { isActive: boolean }) =>
+                            clsx([
+                                CN.list_item,
+                                isActive ? CN.list_item_active : '',
+                            ])
+                        }
+                        preventScrollReset
+                        data-tooltip-id='default-tooltip'
+                        data-tooltip-content={t('page:titles.dashboard')}
+                        data-tooltip-place='right'
+                        caseSensitive={true}
+                        onClick={() => dispatch(setShowSidebar(false))}
+                    >
+                        <LuKeyRound className={CN.list_item_icon} size={18} />
                     </NavLink>
-                )}
-                <button
-                    type='button'
-                    className={CN.list_item}
-                    onClick={() => handleLogout()}
-                    data-tooltip-id='default-tooltip'
-                    data-tooltip-content={t('common:close_vault')}
-                    data-tooltip-place='right'
-                >
-                    <LuLogOut className={CN.list_item_icon} size={18} />
-                </button>
-            </div>
-            <div className={CN.footer_version}>{APP_VERSION}</div>
-        </nav>
+                    <NavLink
+                        className={({ isActive }: { isActive: boolean }) =>
+                            clsx([
+                                CN.list_item,
+                                isActive ? CN.list_item_active : '',
+                            ])
+                        }
+                        to='/vault/tags'
+                        data-tooltip-id='default-tooltip'
+                        data-tooltip-place='right'
+                        data-tooltip-content={t('page:titles.tags')}
+                        onClick={() => dispatch(setShowSidebar(false))}
+                    >
+                        <LuTags className={CN.list_item_icon} size={18} />
+                    </NavLink>
+                    <NavLink
+                        className={({ isActive }: { isActive: boolean }) =>
+                            clsx([
+                                CN.list_item,
+                                isActive ? CN.list_item_active : '',
+                            ])
+                        }
+                        to='/vault/trash'
+                        data-tooltip-id='default-tooltip'
+                        data-tooltip-content={t('page:titles.trash')}
+                        data-tooltip-place='right'
+                        onClick={() => dispatch(setShowSidebar(false))}
+                    >
+                        <LuTrash2 className={CN.list_item_icon} size={18} />
+                    </NavLink>
+                </div>
+                <div className={CN.list_item_bottom}>
+                    {isUserOnline && (
+                        <NavLink
+                            className={CN.list_item}
+                            to='/changelog'
+                            data-tooltip-id='default-tooltip'
+                            data-tooltip-content='Changelog'
+                            data-tooltip-place='right'
+                            onClick={() => dispatch(setShowSidebar(false))}
+                        >
+                            <LuFileText
+                                className={CN.list_item_icon}
+                                size={18}
+                            />
+                        </NavLink>
+                    )}
+                    <button
+                        type='button'
+                        className={CN.list_item}
+                        onClick={() => handleLogout()}
+                        data-tooltip-id='default-tooltip'
+                        data-tooltip-content={t('common:close_vault')}
+                        data-tooltip-place='right'
+                    >
+                        <LuLogOut className={CN.list_item_icon} size={18} />
+                    </button>
+                </div>
+                <div className={CN.footer_version}>{APP_VERSION}</div>
+            </nav>
+            {isMobile && Temp.show_sidebar && (
+                <div
+                    className='absolute top-0 left-0 w-full h-full bg-black/90 z-50'
+                    onClick={() => dispatch(setShowSidebar(false))}
+                />
+            )}
+        </>
     );
 }
 
@@ -168,7 +204,7 @@ export default function SidebarNav() {
  */
 const CN = {
     sidebar:
-        'w-[90px] h-full relative flex flex-col top-0 border-r border-solid border-neutral-900',
+        'w-[90px] h-full relative flex flex-col top-0 border-r border-solid border-neutral-900 max-sm:absolute top-0 left-0 z-100 bg-background transition-transform duration-250',
     sidebar_h_wrapper:
         'h-[80px] flex items-center justify-center border-b border-neutral-900 mb-5',
     sidebar_h:

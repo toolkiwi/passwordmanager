@@ -139,9 +139,10 @@ export const CreateVault = () => {
 };
 
 const CN = {
-    error_box: 'p-3 bg-red-500 text-white text-center rounded-md mb-5',
+    error_box:
+        'p-3 bg-red-500 text-white text-center rounded-md mb-5 max-sm:p-1!',
     error_text: 'font-bold',
-    form: 'p-8 border border-solid border-neutral-900 mb-5 rounded-lg',
+    form: 'p-8 border border-solid border-neutral-900 mb-5 rounded-lg max-sm:p-5',
     form_group: 'mb-8 gap-3 flex flex-col',
     label: 'text-white font-semibold',
     required: 'text-red-600',

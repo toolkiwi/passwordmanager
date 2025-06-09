@@ -1,4 +1,4 @@
-import { ReactElement, useRef } from 'react';
+import { ReactElement, useEffect, useRef } from 'react';
 import { useVirtualizer } from '@tanstack/react-virtual';
 import CopyAction from '@/components/CopyAction';
 import CommonUtils from '@/utils/commonUtils';
@@ -16,6 +16,7 @@ import ListCN from '@/styles/CN/ListCN';
 import FormCN from '@/styles/CN/FormCN';
 import EmptyList from './EmptyList';
 import { useSelector } from 'react-redux';
+import useIsMobile from '@/hooks/useIsMobile.ts';
 
 /**
  * Interface for component props
@@ -47,7 +48,10 @@ export default function Passwords({
      * Instance translation hook
      */
     const { t } = useTranslation();
-
+    /**
+     * Instance of useIsMobile hook
+     */
+    const isMobile = useIsMobile();
     /**
      * Ref for virtualizer
      */
@@ -59,7 +63,7 @@ export default function Passwords({
     const rowVirtualizer = useVirtualizer({
         count: data?.length ?? 0,
         getScrollElement: () => parentRef.current,
-        estimateSize: () => 115,
+        estimateSize: () => (isMobile ? 100 : 115),
         overscan: 5,
     });
 
@@ -113,6 +117,12 @@ export default function Passwords({
         );
     };
 
+    /**
+     * Re-measure row sizes and update virtualizer when the mobile state changes.
+     */
+    useEffect(() => {
+        rowVirtualizer.measure();
+    }, [isMobile]);
     /**
      * Render when empty or null
      */
@@ -168,7 +178,7 @@ export default function Passwords({
                                                 35,
                                             )}
                                         </div>
-                                        <div className='flex items-center gap-2'>
+                                        <div className='flex items-center'>
                                             <div className={FormCN.sub_label}>
                                                 {CommonUtils.limitTextLength(
                                                     item.login,

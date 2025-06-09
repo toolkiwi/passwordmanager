@@ -104,9 +104,9 @@ const CN = {
         'border border-neutral-800 overflow-hidden bg-neutral-900 rounded-lg relative',
     article_header:
         'px-8 py-5 flex items-center border-b border-neutral-800/50',
-    article_title: 'text-2xl font-semibold flex-1',
-    article_date: 'text-neutral-600 text-sm',
-    article_markdown: 'px-8 py-5',
+    article_title: 'text-2xl font-semibold flex-1 max-sm:text-xl',
+    article_date: 'text-neutral-600 text-sm max-sm:text-xs',
+    article_markdown: 'px-8 py-5 max-sm:text-sm',
     article_footer:
         'px-8 h-16 flex items-end pb-4 bg-black relative -top-4 rounded-lg -z-10 rounded border border-neutral-900 justify-between',
     article_footer_text: 'text-[10px] uppercase font-bold text-neutral-500',

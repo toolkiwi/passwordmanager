@@ -15,6 +15,7 @@ import { useTranslation } from 'react-i18next';
 import TagSelect from './tags/TagSelect';
 import type { VaultInterface } from '@/interfaces/VaultInterface';
 import { useSelector } from 'react-redux';
+import FormCN from '@/styles/CN/FormCN';
 
 interface PropsComponent {
     default?: VaultInterface.Form.Password;
@@ -187,7 +188,7 @@ export default function PasswordForm(props: PropsComponent): ReactElement {
                             value: form.title,
                         }}
                     />
-                    <div className='flex flex-row items-center gap-3'>
+                    <div className='flex flex-row items-center gap-3 max-sm:flex-col! max-sm:gap-5'>
                         <StyledInput
                             input={{
                                 placeholder: t('common:login'),
@@ -211,7 +212,7 @@ export default function PasswordForm(props: PropsComponent): ReactElement {
                             }}
                             rightElement={
                                 <ActionButton
-                                    wrapperClassName='mr-1.5'
+                                    wrapperClassName='mr-1.5 max-sm:mr-[3.5px]'
                                     onClick={() => handleRandomPassword()}
                                     tooltip={{
                                         content: t('common:generate_password'),
@@ -254,11 +255,11 @@ export default function PasswordForm(props: PropsComponent): ReactElement {
                         }}
                     />
                 </div>
-                <div className='p-5 flex flex-row items-center gap-5'>
+                <div className={FormCN.footer}>
                     <StyledButton
                         button={{
                             type: 'reset',
-                            className: 'p-3 w-full',
+                            className: 'p-3 w-full max-sm:order-1',
                         }}
                         variant='secondary'
                     >
@@ -267,7 +268,7 @@ export default function PasswordForm(props: PropsComponent): ReactElement {
                     <StyledButton
                         button={{
                             type: 'submit',
-                            className: 'p-3 w-full',
+                            className: 'p-3 w-full max-sm:order-0',
                         }}
                         disabled={IS_SAVE_BUTTON_DISABLED}
                     >

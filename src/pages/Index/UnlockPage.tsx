@@ -177,7 +177,7 @@ export const UnlockVault = () => {
                 </Fragment>
             ) : (
                 <form onSubmit={handleUnlockVault}>
-                    <div className='p-10 border border-solid border-neutral-900 mb-5 rounded-lg'>
+                    <div className='p-10 border border-solid border-neutral-900 mb-5 rounded-lg max-sm:p-5'>
                         <label
                             className='text-white font-semibold'
                             htmlFor='vault-master'
@@ -213,12 +213,13 @@ const CN = {
         'px-12 h-full border-[3px] border-dashed border-white/10 hover:bg-white/10 rounded-lg flex flex-col items-center justify-center text-white/30 cursor-pointer',
     dropzone_dragover: 'bg-white/10',
     dropzone_meta: 'flex flex-col items-center justify-center mt-5',
-    dropzone_meta_title: 'text-white font-bold text-xl text-center normal-case',
+    dropzone_meta_title:
+        'text-white font-bold text-xl text-center normal-case max-sm:text-lg',
     dropzone_meta_title_span: 'opacity-50',
     dropzone_meta_icon: 'mb-1',
-    dropzone_meta_icon_svg: 'text-white size-16 opacity-25',
+    dropzone_meta_icon_svg: 'text-white size-16 opacity-25 max-sm:size-12',
     dropzone_or:
-        'py-8 relative w-full text-center uppercase flex flex-row items-center',
+        'py-8 relative w-full text-center uppercase flex flex-row items-center max-sm:py-5',
     dropzone_or_span: 'px-3 z-10',
     dropzone_or_separator: 'flex-1 h-[1px] bg-white/10',
     dropzone_browse: 'mb-5',
