@@ -15,6 +15,7 @@ import { deletePassword } from '@/redux/features/vaultSlice';
 import { useTranslation } from 'react-i18next';
 import type { VaultInterface } from '@/interfaces/VaultInterface';
 import ListCN from '@/styles/CN/ListCN';
+import SmartFavicon from '@/components/SmartFavicon';
 
 export default function Index(): ReactElement | null {
     /**
@@ -100,10 +101,10 @@ export default function Index(): ReactElement | null {
                     title={password.title}
                     beforeTitle={
                         <div className='w-8 h-8 fex items-center justify-center mr-3'>
-                            <img
-                                alt='favicon url'
-                                src={CommonUtils.getWebsiteFavicon(password)}
-                                className='w-full h-full rounded-lg'
+                            <SmartFavicon
+                                url={password.url}
+                                title={password.title}
+                                className={ListCN.favicon}
                             />
                         </div>
                     }

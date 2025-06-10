@@ -17,6 +17,7 @@ import FormCN from '@/styles/CN/FormCN';
 import EmptyList from './EmptyList';
 import { useSelector } from 'react-redux';
 import useIsMobile from '@/hooks/useIsMobile.ts';
+import SmartFavicon from '../SmartFavicon';
 
 /**
  * Interface for component props
@@ -162,11 +163,9 @@ export default function Passwords({
                             >
                                 <div className={ListCN.list_item_content}>
                                     <div className={FormCN.favicon_container}>
-                                        <img
-                                            alt='favicon url'
-                                            src={CommonUtils.getWebsiteFavicon(
-                                                item,
-                                            )}
+                                        <SmartFavicon
+                                            url={item.url}
+                                            title={item.title}
                                             className={FormCN.favicon}
                                         />
                                         <RenderPasswordTag password={item} />
