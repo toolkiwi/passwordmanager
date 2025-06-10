@@ -14,7 +14,6 @@ import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
 import { resetVault } from '@/redux/features/vaultSlice';
 import { setUnlocked, setUnsaved } from '@/redux/features/appSlice';
-import useOnlineStatus from '@/hooks/useOnlineStatus';
 import clsx from 'clsx';
 import useIsMobile from '@/hooks/useIsMobile';
 import { setShowSidebar } from '@/redux/features/tempSlice';
@@ -37,10 +36,6 @@ export default function SidebarNav() {
      * Retrieve the app version from the .env file
      */
     const APP_VERSION = import.meta.env.VITE_VERSION;
-    /**
-     * Instance useOnlineStatus hook to track the current online status of the user
-     */
-    const isUserOnline = useOnlineStatus();
     /**
      * Instance useIsMobile hook
      */
@@ -161,21 +156,6 @@ export default function SidebarNav() {
                     </NavLink>
                 </div>
                 <div className={CN.list_item_bottom}>
-                    {isUserOnline && (
-                        <NavLink
-                            className={CN.list_item}
-                            to='/changelog'
-                            data-tooltip-id='default-tooltip'
-                            data-tooltip-content='Changelog'
-                            data-tooltip-place='right'
-                            onClick={() => dispatch(setShowSidebar(false))}
-                        >
-                            <LuFileText
-                                className={CN.list_item_icon}
-                                size={18}
-                            />
-                        </NavLink>
-                    )}
                     <button
                         type='button'
                         className={CN.list_item}
@@ -187,7 +167,15 @@ export default function SidebarNav() {
                         <LuLogOut className={CN.list_item_icon} size={18} />
                     </button>
                 </div>
-                <div className={CN.footer_version}>{APP_VERSION}</div>
+                <a
+                    className={CN.footer_version}
+                    href={import.meta.env.VITE_CHANGELOG_URL}
+                    target='_blank'
+                    rel='noreferrer'
+                >
+                    <LuFileText size={10} />
+                    <div className={CN.footer_version_text}>{APP_VERSION}</div>
+                </a>
             </nav>
             {isMobile && Temp.show_sidebar && (
                 <div
@@ -220,5 +208,6 @@ const CN = {
     list_item_warning_icon: ' !text-orange-500',
     list_item_bottom: 'w-full flex flex-col items-center mb-5 gap-5',
     footer_version:
-        'text-[10px] text-foreground/20 text-center bg-foreground/1 border-t  p-1 transition-all hover:text-neutral-500 hover:bg-foreground/3',
+        'flex flex-row items-center gap-[2px] justify-center bg-foreground/1 border-t  p-1 transition-all hover:text-white hover:bg-foreground/3 text-foreground/20 cursor-pointer',
+    footer_version_text: 'text-[11px] text-center',
 };

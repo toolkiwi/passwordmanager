@@ -11,7 +11,6 @@ import VaultCreatePage from './pages/Vault/Create';
 import VaultSettingsPage from './pages/Vault/Settings';
 import VaultPasswordPage from './pages/Vault/Password';
 import VaultPasswordEditPage from './pages/Vault/Password/edit';
-import ChangelogPage from './pages/Changelog';
 
 import DefaultLayout from './layouts/DefaultLayout';
 
@@ -52,7 +51,6 @@ function App() {
                     element={<VaiultTagEditPage />}
                 />
             </Route>
-            <Route path='changelog' element={<ChangelogPage />} />
         </Routes>
     );
 }
