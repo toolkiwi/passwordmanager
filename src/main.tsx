@@ -18,7 +18,6 @@ createRoot(document.getElementById('root')!).render(
                 </BrowserRouter>
             </PersistGate>
         </Provider>
-
         <DevToolWarning />
     </StrictMode>,
 );
