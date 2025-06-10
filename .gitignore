@@ -31,10 +31,6 @@ build/
 *.swp                        # Vim swap files
 *.swo                        # Vim swap files
 
-# Environment variable files
-# Ignore environment variable configuration files
-.env
-
 # Temporary files
 # Ignore temporary files created by IDEs and other editors
 *.tmp
