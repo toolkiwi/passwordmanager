@@ -121,7 +121,7 @@ export default function TagSelect(
 const CN = {
     wrapper: 'relative',
     button: 'flex flex-row items-center justify-between w-full cursor-default grid-cols-1 rounded-lg px-3.5 h-[50px] max-sm:h-[45px] text-left text-foreground/80 outline-1 sm:text-sm/6',
-    button_content: 'col-start-1 row-start-1 flex items-center gap-2',
+    button_content: 'col-start-1 row-start-1 flex items-center gap-2 truncate',
     tag_icon: 'w-4 h-4 rounded-full border-2 border-white/10',
     selected_title: 'block truncate text-foreground',
     chevron_icon:
