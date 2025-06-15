@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router';
 import { useSelector } from 'react-redux';
 import { StoreState } from '@/redux/StoreRedux';
+import RenderFooterLinks from './__partials/RenderFooterLinks';
 
 export default function IndexPage() {
     /**
@@ -74,6 +75,7 @@ export default function IndexPage() {
                     {t('page:index.rights_reserved')}
                 </p>
             </div>
+            <RenderFooterLinks />
         </main>
     );
 }
