@@ -18,7 +18,11 @@ export default function RenderFooterLinks() {
                     <FaGithub size={18} className={CN.button_github} />
                 </StyledButton>
             </a>
-            <a href='https://toolkiwi.com' target='_blank' rel='noreferrer'>
+            <a
+                href={import.meta.env.VITE_TOOLKIWI_URL}
+                target='_blank'
+                rel='noreferrer'
+            >
                 <StyledButton
                     button={{
                         className: CN.button,
