@@ -11,8 +11,6 @@ interface ComponentProps {
 
 /**
  * Styled input component used in forms
- * @param {ComponentProps} props
- * @returns {ReactElement}
  */
 export default function StyledInput(props: ComponentProps): ReactElement {
     return (

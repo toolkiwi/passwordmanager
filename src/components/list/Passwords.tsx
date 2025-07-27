@@ -78,10 +78,6 @@ export default function Passwords({
 
     /**
      * Renders a small colored badge on the password element if it has an associated tag.
-     *
-     * @param {Object} props - Component props
-     * @param {VaultInterface.Password} props.password - The password object
-     * @returns {JSX.Element | undefined}
      */
     const RenderPasswordTag = ({
         password,
@@ -124,7 +120,8 @@ export default function Passwords({
     useEffect(() => {
         rowVirtualizer.measure();
     }, [isMobile]);
-    /**09 Jun 2025
+
+    /**
      * Render when empty or null
      */
     if (!data || data.length === 0) {

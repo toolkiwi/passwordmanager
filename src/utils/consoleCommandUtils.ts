@@ -10,11 +10,6 @@ class ConsoleCommandUtils {
     /**
      * Registers a console command `GetVaultDetails` to print vault information
      * and `GetVaultSize` to get current localStorage usage
-     *
-     * @param {VaultInterface.State} Vault - The current state of the vault from Redux
-     * @param {AppInterface.State} App - The current application state from Redux
-     *
-     * @returns {void}
      */
     public static RegisterVaultInformations(
         Vault: VaultInterface.State,

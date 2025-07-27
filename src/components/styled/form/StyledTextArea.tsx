@@ -11,8 +11,6 @@ interface ComponentProps {
 
 /**
  * Styled textarea component used in forms
- * @param {ComponentProps} props
- * @returns {ReactElement}
  */
 export default function StyledTextArea(props: ComponentProps): ReactElement {
     return (

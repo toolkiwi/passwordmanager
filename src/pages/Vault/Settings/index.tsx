@@ -68,8 +68,6 @@ export default function Index() {
 
     /**
      * Update field inside form state with provided custom value
-     * @param field
-     * @param value
      */
     const handleUpdateField = (field: keyof FormInterface, value: string) => {
         setForm((state: FormInterface) => {
@@ -79,7 +77,6 @@ export default function Index() {
 
     /**
      * On form submit
-     * @param e
      */
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();

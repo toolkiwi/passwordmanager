@@ -2,8 +2,6 @@ import { useEffect, useState } from 'react';
 
 /**
  * Custom hook to track the user's online status.
- *
- * @returns {boolean}
  */
 function useOnlineStatus(): boolean {
     /**

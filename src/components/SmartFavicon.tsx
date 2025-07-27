@@ -14,9 +14,6 @@ type SmartFaviconProps = {
 /**
  * SmartFavicon component tries to load the favicon from a given URL
  * If it detects a generic 16x16 favicon, it falls back to a version based on the title only
- *
- * @param {SmartFaviconProps} props
- * @returns {JSX.Element | null}
  */
 export default function SmartFavicon({
     title,

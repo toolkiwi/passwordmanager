@@ -10,8 +10,6 @@ import useIsMobile from '@/hooks/useIsMobile';
 /**
  * Provides the main dashboard structure including sidebar navigation
  * and secured access based on app unlocking state.
- *
- * @returns {ReactElement | null} The dashboard layout if unlocked, otherwise null.
  */
 export default function DashboardLayout(): ReactElement | null {
     /**

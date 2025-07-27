@@ -7,7 +7,6 @@ import { t } from 'i18next';
 class FileUtils {
     /**
      * Download Vault file
-     * @param Vault
      */
     public static download(Vault: VaultInterface.State) {
         saveAs(
@@ -28,8 +27,6 @@ class FileUtils {
     /**
      * On file upload
      * Try to decrypt the file content
-     * @param file
-     * @param masterPassword
      */
     public static async upload(file: File, masterPassword: string) {
         return new Promise((resolve, reject) => {

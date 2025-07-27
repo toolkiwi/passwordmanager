@@ -43,7 +43,6 @@ export const UnlockVault = () => {
 
     /**
      * On File load
-     * @param event
      */
     const handleFileChange = async (
         event: React.ChangeEvent<HTMLInputElement>,
@@ -62,7 +61,6 @@ export const UnlockVault = () => {
 
     /**
      * On File load
-     * @param event
      */
     const handleDrop = async (event: React.DragEvent<HTMLLabelElement>) => {
         event.preventDefault();
@@ -81,7 +79,6 @@ export const UnlockVault = () => {
 
     /**
      * On Drag Over
-     * @param event
      */
     const handleDragOver = (event: React.DragEvent<HTMLLabelElement>) => {
         event.preventDefault();
@@ -91,7 +88,6 @@ export const UnlockVault = () => {
 
     /**
      * On drag Leave
-     * @param event
      */
     const handleDragLeave = (event: React.DragEvent<HTMLLabelElement>) => {
         event.preventDefault();
@@ -101,7 +97,6 @@ export const UnlockVault = () => {
 
     /**
      * On unlock volt
-     * @param e
      */
     const handleUnlockVault = async (
         e: React.ChangeEvent<HTMLFormElement>,

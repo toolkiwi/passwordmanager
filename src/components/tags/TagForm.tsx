@@ -81,7 +81,6 @@ export default function TagForm(props: PropsComponent) {
     /**
      * Add the new password to the vault
      * On submit form
-     * @param {React.FormEvent<HTMLFormElement>} e
      */
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         /**
@@ -118,7 +117,6 @@ export default function TagForm(props: PropsComponent) {
 
     /**
      * Set default form on reset
-     * @param {React.FormEvent<HTMLFormElement>} e
      */
     const handleReset = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();

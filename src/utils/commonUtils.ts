@@ -5,8 +5,6 @@ import { VaultInterface } from '@/interfaces/VaultInterface';
 class CommonUtils {
     /**
      * Function to generate a random password with a specific length
-     * @param length
-     * @returns {string} - Password
      */
     public static generateRandomPassword(length: number): string {
         const charSets: string[] = [
@@ -52,7 +50,6 @@ class CommonUtils {
 
     /**
      * Generate a short unique identifier based on the current date and a random number
-     * @returns {string} - Short UUID
      */
     public static generateShortUUID(length: number = 22): string {
         /**
@@ -75,8 +72,6 @@ class CommonUtils {
 
     /**
      * Return a custom avatar icon or website favicon
-     * @param item
-     * @returns
      */
     public static getWebsiteFavicon(item: {
         url?: string;
@@ -99,8 +94,6 @@ class CommonUtils {
 
     /**
      * Format a given URL to ensure it includes "https://" if no valid prefix is provided
-     * @param url The URL to be formatted
-     * @returns A properly formatted URL
      */
     public static formatUrl(url: string): string {
         if (url.length === 0) return '';
@@ -116,8 +109,6 @@ class CommonUtils {
 
     /**
      * Generate VaultIcon with defined seed
-     * @param {VaultInterface.Data["logo"]} VaultLogo
-     * @returns {string|null}
      */
     public static VaultIcon(
         VaultLogo: VaultInterface.Data['logo'],
@@ -133,9 +124,6 @@ class CommonUtils {
     }
     /**
      * Limit Text Length
-     * @param {string} value
-     * @param {number} limit (default 50 char.)
-     * @returns {string} value
      */
     public static limitTextLength(value: string, limit: number = 50) {
         return value.length > limit ? value.slice(0, limit) + '...' : value;
@@ -143,7 +131,6 @@ class CommonUtils {
 
     /**
      * Set document title with a static prefix
-     * @param {string} title
      */
     public static DocumentTitle(title: string) {
         document.title = `ToolKiwi PM - ${title}`;
@@ -159,8 +146,6 @@ class CommonUtils {
      *
      * !Maybe the luminance threshold isn't accurate, since I'm basing it solely on how it looks on my own screen...
      *
-     * @param {string} hexColor - A hex color string in the format "#RRGGBB"
-     * @returns {boolean} True if the color is light; otherwise, false
      */
     public static isColorLight(hexColor: string): boolean {
         /**

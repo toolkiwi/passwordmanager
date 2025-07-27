@@ -14,8 +14,6 @@ interface ComponentProps {
 
 /**
  * Styled button component
- * @param {ComponentProps} props
- * @returns {ReactElement}
  */
 export default function StyledButton({
     button,

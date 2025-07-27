@@ -43,7 +43,6 @@ export const CreateVault = () => {
 
     /**
      * On form submit (create vault)
-     * @param e
      */
     const handleCreateVault = (e: React.ChangeEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -72,8 +71,6 @@ export const CreateVault = () => {
 
     /**
      * On update field input value
-     * @param field
-     * @param event
      */
     const onInputRegisterChange = (
         field: keyof RegisterFormInputs,

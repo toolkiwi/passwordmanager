@@ -14,7 +14,6 @@ export default function ColorPicker({
 
     /**
      * Update color state
-     * @param {string} color
      */
     const handleColorChange = (color: string) => {
         setColor(color);

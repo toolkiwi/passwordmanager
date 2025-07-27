@@ -17,8 +17,6 @@ interface ComponentProps {
 
 /**
  * Action Button
- * @param {ComponentProps} props
- * @returns {ReactElement}
  */
 export default function ActionButton({
     children,

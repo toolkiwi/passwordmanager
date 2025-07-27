@@ -17,7 +17,6 @@ export const TAG_COLORS = [
 
 /**
  * Pick random color inside the array
- * @returns {string} Color
  */
 export const getRandomTagColor = () =>
     TAG_COLORS[Math.floor(Math.random() * TAG_COLORS.length)];
