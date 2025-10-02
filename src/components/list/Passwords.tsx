@@ -64,7 +64,8 @@ export default function Passwords({
     const rowVirtualizer = useVirtualizer({
         count: data?.length ?? 0,
         getScrollElement: () => parentRef.current,
-        estimateSize: () => (isMobile ? 100 : 115),
+        estimateSize: () => (isMobile ? 85 : 100),
+        gap: isMobile ? 10 : 15,
         overscan: 5,
     });
 
