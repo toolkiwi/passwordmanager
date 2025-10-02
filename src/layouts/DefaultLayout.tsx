@@ -6,6 +6,7 @@ import { type ReactElement, useEffect } from 'react';
 import ConsoleCommandUtils from '@/utils/consoleCommandUtils';
 import { Tooltip } from 'react-tooltip';
 import useIsMobile from '@/hooks/useIsMobile';
+import clsx from 'clsx';
 
 /**
  * Provides the main dashboard structure including sidebar navigation
@@ -48,11 +49,38 @@ export default function DashboardLayout(): ReactElement | null {
      * Render layout
      */
     return (
-        <main className='relative h-full w-full flex flex-row items-start overflow-auto'>
+        <main className='relative h-full w-full flex flex-row items-start overflow-auto bg-muted/30 max-sm:bg-background max-sm:p-0'>
             <SidebarNav />
-            <div className='max-w-[1250px] w-full mx-auto relative h-full overflow-auto border-l border-r lg:max-w-[800px] md:max-w-[600px] max-md:border-0'>
-                <Outlet />
-            </div>
+            <section
+                className={clsx(
+                    'overflow-hidden p-3 w-full h-full relative',
+                    'max-sm:p-0',
+                )}
+            >
+                <div
+                    className={clsx(
+                        'relative h-full w-full bg-foreground/3 rounded-2xl',
+                        'max-sm:bg-transparent max-sm:rounded-none',
+                    )}
+                >
+                    <div
+                        className={clsx(
+                            'max-w-[1250px] w-full mx-auto relative h-full overflow-hidden lg:max-w-[800px] md:max-w-[600px] max-md:border-0 p-3',
+                            'max-sm:max-w-none max-sm:p-0 max-sm:mx-0',
+                        )}
+                    >
+                        <div
+                            className={clsx(
+                                'overflow-auto rounded-2xl border h-full',
+                                'max-sm:rounded-none max-sm:border-0',
+                            )}
+                        >
+                            <Outlet />
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <Tooltip
                 id='default-tooltip'
                 hidden={isMobile}
