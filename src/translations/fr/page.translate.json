@@ -1,7 +1,7 @@
 {
     "titles": {
         "dashboard": "Mes mots de passe",
-        "trash": "Mots de passe supprimés",
+        "trash": "Corbeille",
         "create_password": "Créer un nouveau mot de passe",
         "settings": "Paramètres du coffre-fort",
         "tags": "Mes étiquettes"
