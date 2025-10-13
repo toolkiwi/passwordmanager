@@ -1,4 +1,4 @@
-import type { ReactElement } from 'react';
+import type { ReactElement, Ref } from 'react';
 
 /**
  * Interface for props components
@@ -7,6 +7,7 @@ interface ComponentProps {
     input: React.InputHTMLAttributes<HTMLInputElement>;
     wrapperClassName?: React.HTMLAttributes<HTMLDivElement>['className'];
     rightElement?: ReactElement;
+    inputRef?: Ref<HTMLInputElement>;
 }
 
 /**
@@ -16,6 +17,7 @@ export default function StyledInput(props: ComponentProps): ReactElement {
     return (
         <div className={`${CN.wrapper} ${props.wrapperClassName}`}>
             <input
+                ref={props.inputRef}
                 {...props.input}
                 className={`${CN.input} ${props.input.className}`}
             />

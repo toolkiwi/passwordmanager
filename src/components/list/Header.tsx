@@ -14,16 +14,10 @@ interface PropsComponent {
     onFilterTag?: React.Dispatch<VaultInterface.Tag['id']>;
     filterTag?: VaultInterface.Tag['id'] | undefined;
     searchPlaceholder?: string;
-    layout?: 'dashboard' | 'tags';
+    settings?: ['create'];
 }
 
-export default function ListHeader({
-    onSearch,
-    onFilterTag,
-    filterTag,
-    layout,
-    searchPlaceholder,
-}: PropsComponent) {
+export default function ListHeader({ onSearch, onFilterTag, filterTag, settings, searchPlaceholder }: PropsComponent) {
     /**
      * Instance of useNavigate hook
      */
@@ -41,61 +35,41 @@ export default function ListHeader({
      * Renders the left-side button
      */
     const RenderLeft = useCallback(() => {
-        switch (layout) {
-            default:
-                return;
-            case 'tags':
-                return (
-                    <StyledButton
-                        variant='secondary'
-                        button={{
-                            'data-tooltip-content': t('common:add_password'),
-                            'data-tooltip-place': 'bottom',
-                            className: CN.add_button,
-                            onClick: () => navigate('create'),
-                        }}
-                    >
-                        <HiPlus size={22} color='inherit' />
-                    </StyledButton>
-                );
-            case 'dashboard':
-                return (
-                    <StyledButton
-                        variant='secondary'
-                        button={{
-                            'data-tooltip-content': t('common:add_password'),
-                            'data-tooltip-place': 'bottom',
-                            className: CN.add_button,
-                            onClick: () => navigate('create'),
-                        }}
-                    >
-                        <HiPlus size={22} color='inherit' />
-                    </StyledButton>
-                );
+        if (settings?.includes('create')) {
+            return (
+                <StyledButton
+                    variant='secondary'
+                    button={{
+                        'data-tooltip-content': t('common:add_password'),
+                        'data-tooltip-place': 'bottom',
+                        className: CN.add_button,
+                        onClick: () => navigate('create'),
+                    }}
+                >
+                    <HiPlus size={22} color='inherit' />
+                </StyledButton>
+            );
         }
-    }, [layout, navigate]);
+    }, [settings, navigate]);
 
     /**
      * Renders the right-side button
      */
     const RenderRight = useCallback(() => {
-        switch (layout) {
-            default:
-                return;
-            case 'dashboard':
-                return (
-                    Vault?.tags
-                    && Vault.tags.length > 0 && (
-                        <div className='flex-row items-center w-full sm:flex-[0.5]'>
-                            <TagSelect
-                                value={filterTag}
-                                onChange={(tag) => onFilterTag!(tag)}
-                            />
-                        </div>
-                    )
-                );
+        /**
+         * Show filtertag selector when is props is setup
+         */
+        if (onFilterTag) {
+            return (
+                Vault?.tags
+                && Vault.tags.length > 0 && (
+                    <div className='flex-row items-center w-full sm:flex-[0.5]'>
+                        <TagSelect value={filterTag} onChange={(tag) => onFilterTag!(tag)} />
+                    </div>
+                )
+            );
         }
-    }, [layout, navigate, filterTag, onFilterTag]);
+    }, []);
 
     /**
      * Render Header
@@ -107,8 +81,7 @@ export default function ListHeader({
                 <StyledInput
                     input={{
                         placeholder: searchPlaceholder ?? t('common:search'),
-                        onChange: (e: React.ChangeEvent<HTMLInputElement>) =>
-                            onSearch(e.currentTarget.value),
+                        onChange: (e: React.ChangeEvent<HTMLInputElement>) => onSearch(e.currentTarget.value),
                     }}
                 />
                 <RenderRight />
@@ -123,6 +96,5 @@ export default function ListHeader({
 const CN = {
     container: 'p-5 border-b',
     header: 'flex flex-row items-center flex-wrap gap-2',
-    add_button:
-        'flex items-center justify-center h-13 max-sm:h-[45px] aspect-square',
+    add_button: 'flex items-center justify-center h-13 max-sm:h-[45px] aspect-square',
 };
