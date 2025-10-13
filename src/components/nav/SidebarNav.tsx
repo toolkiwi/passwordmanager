@@ -240,7 +240,7 @@ export default function SidebarNav() {
                 <StyledButton
                     button={{
                         className: isCompact
-                            ? 'w-14 h-14 flex items-center justify-center aspect-ratio'
+                            ? 'w-14 h-14 aspect-ratio flex items-center justify-center aspect-square'
                             : 'p-3 max-sm:p-2.5 text-sm flex-1',
                         onClick: () => handleDownloadVaultFile(),
                     }}
