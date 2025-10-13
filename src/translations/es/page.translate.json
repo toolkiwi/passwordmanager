@@ -4,7 +4,8 @@
         "trash": "Contraseñas eliminadas",
         "create_password": "Crear una nueva contraseña",
         "settings": "Configuraciones del cofre",
-        "tags": "Mis etiquetas"
+        "tags": "Mis etiquetas",
+        "totp": "Mis códigos TOTP"
     },
     "settings": {
         "change_icon": "Cambiar icono",
@@ -28,5 +29,14 @@
         "create_tag": "Crear una nueva etiqueta",
         "create_introduction": "Cree una etiqueta para buscar y organizar fácilmente sus contraseñas. Elija un título y un color para su etiqueta.",
         "delete_tag": "¿Está seguro de que desea eliminar esta etiqueta? (acción definitiva)"
+    },
+    "form": {
+        "enable_totp": "Activar TOTP",
+        "enable_totp_subtitle": "Agregar autenticación de dos factores a esta contraseña.",
+        "totp_secret": "Clave secreta TOTP",
+        "totp_digits": "Dígitos TOTP",
+        "totp_duration": "Duración TOTP (segundos)",
+        "totp_algorithm": "Algoritmo TOTP",
+        "totp_default_info": "Si tienes dudas, mantén la configuración predeterminada."
     }
 }

@@ -18,6 +18,7 @@ import EmptyList from './EmptyList';
 import { useSelector } from 'react-redux';
 import useIsMobile from '@/hooks/useIsMobile.ts';
 import SmartFavicon from '../SmartFavicon';
+import RenderTOTPBadge from '../RenderTOTPBadge';
 
 /**
  * Interface for component props
@@ -27,10 +28,7 @@ interface PropsComponent {
     layout?: 'dashboard' | 'trash';
 }
 
-export default function Passwords({
-    data,
-    layout = 'dashboard',
-}: PropsComponent) {
+export default function Passwords({ data, layout = 'dashboard' }: PropsComponent) {
     /**
      * Get tags from vault state data
      */
@@ -80,11 +78,7 @@ export default function Passwords({
     /**
      * Renders a small colored badge on the password element if it has an associated tag.
      */
-    const RenderPasswordTag = ({
-        password,
-    }: {
-        password: VaultInterface.Password;
-    }): ReactElement | undefined => {
+    const RenderPasswordTag = ({ password }: { password: VaultInterface.Password }): ReactElement | undefined => {
         /**
          *  Return nothing if Tags array is unavailable or the password has no tag ID
          */
@@ -154,57 +148,35 @@ export default function Passwords({
                                     width: '100%',
                                     transform: `translateY(${virtualRow.start}px)`,
                                 }}
-                                data-index={'P-' + virtualRow.index}
-                                onClick={() =>
-                                    layout === 'dashboard' && navigate(item.id)
-                                }
+                                data-index={item.id}
+                                onClick={() => layout === 'dashboard' && navigate(item.id)}
                             >
                                 <div className={ListCN.list_item_content}>
                                     <div className={FormCN.favicon_container}>
-                                        <SmartFavicon
-                                            url={item.url}
-                                            title={item.title}
-                                            className={FormCN.favicon}
-                                        />
+                                        <SmartFavicon url={item.url} title={item.title} className={FormCN.favicon} />
+                                        {item.totp && <RenderTOTPBadge />}
                                         <RenderPasswordTag password={item} />
                                     </div>
                                     <div className={ListCN.text_container}>
                                         <div className={ListCN.title}>
-                                            {CommonUtils.limitTextLength(
-                                                item.title,
-                                                35,
-                                            )}
+                                            {CommonUtils.limitTextLength(item.title, 35)}
                                         </div>
                                         <div className='flex items-center'>
                                             <div className={FormCN.sub_label}>
-                                                {CommonUtils.limitTextLength(
-                                                    item.login,
-                                                    35,
-                                                )}
+                                                {CommonUtils.limitTextLength(item.login, 35)}
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <button
-                                    type='button'
-                                    className={ListCN.actions}
-                                    onClick={(e) => e.stopPropagation()}
-                                >
+                                <button type='button' className={ListCN.actions} onClick={(e) => e.stopPropagation()}>
                                     {layout === 'dashboard' && (
-                                        <CopyAction
-                                            value={item.password}
-                                            tooltip={t('common:copy_password')}
-                                        />
+                                        <CopyAction value={item.password} tooltip={t('common:copy_password')} />
                                     )}
                                     {layout === 'trash' && (
                                         <ActionButton
-                                            onClick={() =>
-                                                RestorePassword(item)
-                                            }
+                                            onClick={() => RestorePassword(item)}
                                             tooltip={{
-                                                content: t(
-                                                    'common:recover_password',
-                                                ),
+                                                content: t('common:recover_password'),
                                             }}
                                         >
                                             <HiArrowUturnLeft size={18} />

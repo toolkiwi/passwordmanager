@@ -11,6 +11,7 @@ import VaultCreatePage from './pages/Vault/Create';
 import VaultSettingsPage from './pages/Vault/Settings';
 import VaultPasswordPage from './pages/Vault/Password';
 import VaultPasswordEditPage from './pages/Vault/Password/edit';
+import VaultTotpPage from './pages/Vault/Totp';
 
 import DefaultLayout from './layouts/DefaultLayout';
 
@@ -50,6 +51,7 @@ function App() {
                     path='vault/tags/:uuid/edit'
                     element={<VaiultTagEditPage />}
                 />
+                <Route path='vault/totp' element={<VaultTotpPage />} />
             </Route>
         </Routes>
     );

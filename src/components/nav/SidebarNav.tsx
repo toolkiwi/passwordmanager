@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useNavigate } from 'react-router';
 import { useTranslation } from 'react-i18next';
-import { LuKeyRound, LuLogOut, LuTags, LuTrash2 } from 'react-icons/lu';
+import { LuKeyRound, LuLock, LuLogOut, LuSave, LuTags, LuTrash2 } from 'react-icons/lu';
 import clsx from 'clsx';
 
 import type { StoreDispatch, StoreState } from '@/redux/StoreRedux';
@@ -11,6 +11,9 @@ import { setUnlocked, setUnsaved } from '@/redux/features/appSlice';
 import { setShowSidebar } from '@/redux/features/tempSlice';
 import useIsMobile from '@/hooks/useIsMobile';
 import CommonUtils from '@/utils/commonUtils';
+import StyledButton from '../styled/StyledButton';
+import FileUtils from '@/utils/fileUtils';
+import { TbDatabaseExclamation } from 'react-icons/tb';
 
 /**
  * Navigation items for the sidebar
@@ -27,6 +30,11 @@ const NAV_ITEMS = [
         translationKey: 'page:titles.tags',
     },
     {
+        to: '/vault/totp',
+        icon: LuLock,
+        translationKey: 'page:titles.totp',
+    },
+    {
         to: '/vault/trash',
         icon: LuTrash2,
         translationKey: 'page:titles.trash',
@@ -37,7 +45,7 @@ export default function SidebarNav() {
     /**
      * Instance of Vault state
      */
-    const Vault = useSelector((state: StoreState) => state.vault._d);
+    const Vault = useSelector((state: StoreState) => state.vault);
 
     /**
      * Instance of App state
@@ -88,9 +96,7 @@ export default function SidebarNav() {
          * Prompt the user to save the vault if it has unsaved changes
          * If already saved, simply exit
          */
-        const shouldConfirm = App.unsaved
-            ? window.confirm(t('common:logout_vault_unsaved'))
-            : true;
+        const shouldConfirm = App.unsaved ? window.confirm(t('common:logout_vault_unsaved')) : true;
 
         if (!shouldConfirm) return;
 
@@ -105,8 +111,7 @@ export default function SidebarNav() {
     const getNavLinkClassName = ({ isActive }: { isActive: boolean }) => {
         return clsx([
             isCompact ? CN.listItemCompact : CN.listItem,
-            isActive
-                && (isCompact ? CN.listItemCompactActive : CN.listItemActive),
+            isActive && (isCompact ? CN.listItemCompactActive : CN.listItemActive),
         ]);
     };
 
@@ -120,6 +125,16 @@ export default function SidebarNav() {
             'data-tooltip-place': 'right' as const,
         }),
     });
+
+    /**
+     * When the user presses the download button,
+     * export the vault file.
+     */
+    const handleDownloadVaultFile = () => {
+        if (!Vault) return;
+        FileUtils.download(Vault);
+        dispatch(setUnsaved(false));
+    };
 
     useEffect(() => {
         const handleResize = () => {
@@ -135,19 +150,15 @@ export default function SidebarNav() {
     /**
      * Render the vault header section
      */
-    const renderVaultHeader = () => (
+    const RenderVaultHeader = () => (
         <div
-            className={
-                isCompact
-                    ? CN.sidebarHeaderWrapperCompact
-                    : CN.sidebarHeaderWrapper
-            }
+            className={isCompact ? CN.sidebarHeaderWrapperCompact : CN.sidebarHeaderWrapper}
             onClick={() => {
                 navigate('/vault/settings');
                 dispatch(setShowSidebar(false));
             }}
             data-tooltip-id='default-tooltip'
-            data-tooltip-content={Vault?.name}
+            data-tooltip-content={Vault._d?.name}
             data-tooltip-place={isCompact ? 'right' : 'bottom'}
         >
             <div
@@ -162,16 +173,12 @@ export default function SidebarNav() {
                     <button type='button' className={CN.sidebarImageButton}>
                         <img
                             alt='Vault icon'
-                            src={CommonUtils.VaultIcon(Vault?.logo ?? '') ?? ''}
+                            src={CommonUtils.VaultIcon(Vault._d?.logo ?? '') ?? ''}
                             className={CN.sidebarHeaderImg}
                         />
                     </button>
                 </div>
-                {!isCompact && (
-                    <div className={CN.sidebarHeaderVaultName}>
-                        {Vault?.name}
-                    </div>
-                )}
+                {!isCompact && <div className={CN.sidebarHeaderVaultName}>{Vault._d?.name}</div>}
             </div>
         </div>
     );
@@ -179,7 +186,7 @@ export default function SidebarNav() {
     /**
      * Render navigation items
      */
-    const renderNavItems = () => (
+    const RenderNavItems = () => (
         <div className={isCompact ? CN.listCompact : CN.list}>
             {NAV_ITEMS.map(({ to, icon: Icon, translationKey }) => (
                 <NavLink
@@ -191,13 +198,7 @@ export default function SidebarNav() {
                     onClick={() => dispatch(setShowSidebar(false))}
                     {...getTooltipProps(t(translationKey))}
                 >
-                    <Icon
-                        className={clsx(
-                            CN.listItemIcon,
-                            isCompact && 'text-foreground!',
-                        )}
-                        size={16}
-                    />
+                    <Icon className={clsx(CN.listItemIcon, isCompact && 'text-foreground!')} size={16} />
                     {!isCompact && <span>{t(translationKey)}</span>}
                 </NavLink>
             ))}
@@ -207,52 +208,63 @@ export default function SidebarNav() {
     /**
      * Render logout button
      */
-    const renderLogoutButton = () => (
-        <div
-            className={isCompact ? CN.listItemBottomCompact : CN.listItemBottom}
-        >
+    const RenderLogoutButton = () => (
+        <div className={isCompact ? CN.listItemBottomCompact : CN.listItemBottom}>
             <button
                 type='button'
-                className={clsx(
-                    isCompact ? CN.listItemCompact : CN.listItem,
-                    'border border-neutral-900',
-                )}
+                className={clsx(isCompact ? CN.listItemCompact : CN.listItem, 'border border-neutral-900')}
                 onClick={handleLogout}
                 {...getTooltipProps(t('common:close_vault'))}
             >
-                <LuLogOut
-                    className={clsx(
-                        CN.listItemIcon,
-                        isCompact && 'text-foreground!',
-                    )}
-                    size={16}
-                />
+                <LuLogOut className={clsx(CN.listItemIcon, isCompact && 'text-foreground!')} size={16} />
                 {!isCompact && <span>{t('common:close_vault')}</span>}
             </button>
         </div>
     );
 
+    const RenderVaultSave = () => {
+        return (
+            <div className='flex flex-row items-center py-5 justify-center px-5'>
+                {App.unsaved && !isCompact && (
+                    <div
+                        className={CN.unsaved_button}
+                        data-tooltip-id='default-tooltip'
+                        data-tooltip-place='top'
+                        data-tooltip-class-name='text-center'
+                        data-tooltip-delay-show={0}
+                        data-tooltip-html={t('common:vault_unsaved')}
+                    >
+                        <TbDatabaseExclamation size={18} className='text-yellow-500' />
+                    </div>
+                )}
+                <StyledButton
+                    button={{
+                        className: isCompact
+                            ? 'w-14 h-14 flex items-center justify-center aspect-ratio'
+                            : 'p-3 max-sm:p-2.5 text-sm flex-1',
+                        onClick: () => handleDownloadVaultFile(),
+                    }}
+                >
+                    {!isCompact ? t('common:save_vault') : <LuSave size={18} />}
+                </StyledButton>
+            </div>
+        );
+    };
+
     /**
      * Render footer section
      */
-    const renderFooter = () =>
+    const RenderFooter = () =>
         !isCompact && (
-            <a
-                className={CN.footerVersion}
-                href={import.meta.env.VITE_CHANGELOG_URL}
-                target='_blank'
-                rel='noreferrer'
-            >
-                <div className={CN.footerVersionText}>
-                    Powered by ToolKiwi - V.{APP_VERSION}
-                </div>
+            <a className={CN.footerVersion} href={import.meta.env.VITE_CHANGELOG_URL} target='_blank' rel='noreferrer'>
+                <div className={CN.footerVersionText}>Powered by ToolKiwi - V.{APP_VERSION}</div>
             </a>
         );
 
     /**
      * Render mobile overlay (when sidebar is open)
      */
-    const renderMobileOverlay = () =>
+    const RenderMobileOverlay = () =>
         isMobile
         && Temp.show_sidebar && (
             <div
@@ -274,12 +286,13 @@ export default function SidebarNav() {
                     isMobile && 'bg-background',
                 )}
             >
-                {renderVaultHeader()}
-                {renderNavItems()}
-                {renderLogoutButton()}
-                {renderFooter()}
+                {RenderVaultHeader()}
+                {RenderNavItems()}
+                <RenderVaultSave />
+                {RenderLogoutButton()}
+                {RenderFooter()}
             </nav>
-            {renderMobileOverlay()}
+            {RenderMobileOverlay()}
         </>
     );
 }
@@ -299,14 +312,12 @@ const CN = {
      * Header style
      */
     sidebarHeaderWrapper: 'flex flex-row items-center justify-start mb-8 px-5',
-    sidebarHeaderWrapperCompact:
-        'flex flex-col items-center justify-center mb-8 px-2',
+    sidebarHeaderWrapperCompact: 'flex flex-col items-center justify-center mb-8 px-2',
     sidebarHeaderImage: 'flex items-center justify-center',
     sidebarImageButton:
         'self-center flex items-center justify-center w-13 rounded-2xl cursor-pointer hover:brightness-[125%] border-1 p-1 rounded-2xl overflow-hidden my-3',
     sidebarHeaderImg: 'w-full h-full rounded-xl bg-foreground/5',
-    sidebarHeaderVaultName:
-        'text-center text-foreground/80 truncate font-semibold',
+    sidebarHeaderVaultName: 'text-center text-foreground/80 truncate font-semibold',
     /**
      * List style
      */
@@ -328,7 +339,9 @@ const CN = {
     /**
      * Footer style
      */
-    footerVersion:
-        'transition-all hover:text-white text-foreground/20 cursor-pointer',
+    footerVersion: 'transition-all hover:text-white text-foreground/20 cursor-pointer',
     footerVersionText: 'text-[11px] text-center uppercase',
+
+    unsaved_button:
+        'w-9 h-9 flex items-center transition-opacity opacity-45 justify-center bg-yellow-500/10 rounded-full mr-3 border border-yellow-500/25! hover:opacity-100',
 } as const;

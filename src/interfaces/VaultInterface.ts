@@ -17,6 +17,7 @@ export namespace VaultInterface {
         trash: Password[];
         passwords: Password[];
         tags?: Tag[];
+        totp?: TOTP;
         created_at: number;
     }
 
@@ -33,6 +34,7 @@ export namespace VaultInterface {
         tag_id?: VaultInterface.Tag['id'];
         created_at: Date | number | string;
         updated_at: Date | number | string;
+        totp?: TOTP;
     }
 
     /**
@@ -45,6 +47,15 @@ export namespace VaultInterface {
         created_at: Date | number | string;
         updated_at: Date | number | string;
     }
+    /**
+     * Interface for TOTP (Time-based One-Time Password) configuration
+     */
+    export interface TOTP {
+        secret: string;
+        algorithm: 'SHA1' | 'SHA256' | 'SHA512';
+        digits: number;
+        period: number;
+    }
 
     /**
      * Interfaces for the form
@@ -56,6 +67,7 @@ export namespace VaultInterface {
             password: string;
             url: string;
             note: string;
+            totp?: TOTP;
             tag_id: VaultInterface.Tag['id'];
         }
         export interface Tag {

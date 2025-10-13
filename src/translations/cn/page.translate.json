@@ -4,7 +4,8 @@
         "trash": "已删除的密码",
         "create_password": "创建新密码",
         "settings": "保险库设置",
-        "tags": "我的标签"
+        "tags": "我的标签",
+        "totp": "身份验证器"
     },
     "settings": {
         "change_icon": "更改图标",
@@ -28,5 +29,14 @@
         "create_tag": "创建新标签",
         "create_introduction": "创建一个标签，以便轻松搜索和整理您的密码。请选择一个标题和颜色。",
         "delete_tag": "您确定要删除此标签吗？（此操作无法撤销）"
+    },
+    "form": {
+        "enable_totp": "启用 TOTP",
+        "enable_totp_subtitle": "为此密码添加双重认证。",
+        "totp_secret": "TOTP 密钥",
+        "totp_digits": "TOTP 位数",
+        "totp_duration": "TOTP 有效期（秒）",
+        "totp_algorithm": "TOTP 算法",
+        "totp_default_info": "如有疑问，请保持默认设置。"
     }
 }

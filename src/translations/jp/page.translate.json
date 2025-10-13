@@ -4,7 +4,8 @@
         "trash": "削除されたパスワード",
         "create_password": "新しいパスワードを作成",
         "settings": "ボールト設定",
-        "tags": "自分のタグ"
+        "tags": "自分のタグ",
+        "totp": "TOTPコード"
     },
     "settings": {
         "change_icon": "アイコンを変更",
@@ -28,5 +29,14 @@
         "create_tag": "新しいタグを作成",
         "create_introduction": "タグを作成して、パスワードを簡単に検索・整理しましょう。タグのタイトルと色を選択してください。",
         "delete_tag": "このタグを削除してもよろしいですか？（この操作は元に戻せません）"
+    },
+    "form": {
+        "enable_totp": "TOTPを有効にする",
+        "enable_totp_subtitle": "このパスワードに二要素認証を追加します。",
+        "totp_secret": "TOTP秘密鍵",
+        "totp_digits": "TOTP桁数",
+        "totp_duration": "TOTP有効期間（秒）",
+        "totp_algorithm": "TOTPアルゴリズム",
+        "totp_default_info": "迷った場合は、デフォルト設定を保持してください。"
     }
 }

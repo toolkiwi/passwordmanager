@@ -1,15 +1,10 @@
 import { useSelector } from 'react-redux';
-import { StoreDispatch, StoreState } from '@/redux/StoreRedux';
+import { StoreState } from '@/redux/StoreRedux';
 import PageHead from '@/components/PageHead';
-import { Fragment, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import ListHeader from '@/components/list/Header';
 import ListPasswords from '@/components/list/Passwords';
 import { useTranslation } from 'react-i18next';
-import StyledButton from '@/components/styled/StyledButton';
-import FileUtils from '@/utils/fileUtils';
-import { TbDatabaseExclamation } from 'react-icons/tb';
-import { useDispatch } from 'react-redux';
-import { setUnsaved } from '@/redux/features/appSlice';
 import CommonUtils from '@/utils/commonUtils';
 import { VaultInterface } from '@/interfaces/VaultInterface';
 import { useSearchParams } from 'react-router';
@@ -26,25 +21,15 @@ export default function VaultPage() {
      */
     const [search, setSearch] = useState<string>('');
 
-    const [filterTag, setFilterTag] = useState<
-        VaultInterface.Tag['id'] | undefined
-    >(undefined);
+    const [filterTag, setFilterTag] = useState<VaultInterface.Tag['id'] | undefined>(undefined);
     /**
      * Get password from vault state
      */
     const Vault = useSelector((state: StoreState) => state.vault);
     /**
-     * Get app state
-     */
-    const App = useSelector((state: StoreState) => state.app);
-    /**
      * Instance translation hook
      */
     const { t } = useTranslation();
-    /**
-     * Instance of dispatch hook
-     */
-    const dispatch = useDispatch<StoreDispatch>();
 
     /**
      * Filter passwords by string
@@ -61,18 +46,7 @@ export default function VaultPage() {
     /**
      * Set document title
      */
-    CommonUtils.DocumentTitle(
-        t('page:titles.dashboard') + ` (${Vault._d?.passwords?.length})`,
-    );
-
-    /**
-     * When the user presses the download button,
-     * export the vault file.
-     */
-    const handleDownloadVaultFile = () => {
-        FileUtils.download(Vault);
-        dispatch(setUnsaved(false));
-    };
+    CommonUtils.DocumentTitle(t('page:titles.dashboard') + ` (${Vault._d?.passwords?.length})`);
 
     /**
      * On load, if there is a tag_id in the query parameters, apply filter
@@ -97,46 +71,8 @@ export default function VaultPage() {
 
     return (
         <div className={CN.page_container}>
-            <PageHead
-                title={t('page:titles.dashboard')}
-                afterTitle={
-                    <Fragment>
-                        {App.unsaved && (
-                            <div
-                                className={CN.unsaved_button}
-                                data-tooltip-id='default-tooltip'
-                                data-tooltip-place='bottom'
-                                data-tooltip-class-name='text-center'
-                                data-tooltip-delay-show={0}
-                                data-tooltip-html={t('common:vault_unsaved')}
-                            >
-                                <TbDatabaseExclamation
-                                    size={17}
-                                    className='text-yellow-500'
-                                />
-                            </div>
-                        )}
-                        <StyledButton
-                            variant='secondary'
-                            button={{
-                                className: 'p-3 max-sm:p-2.5 text-sm',
-                                'data-tooltip-content': t(
-                                    'common:save_vault_tp',
-                                ),
-                                onClick: () => handleDownloadVaultFile(),
-                            }}
-                        >
-                            {t('common:save_vault')}
-                        </StyledButton>
-                    </Fragment>
-                }
-            />
-            <ListHeader
-                onSearch={setSearch}
-                onFilterTag={setFilterTag}
-                filterTag={filterTag}
-                layout='dashboard'
-            />
+            <PageHead title={t('page:titles.dashboard')} />
+            <ListHeader onSearch={setSearch} onFilterTag={setFilterTag} filterTag={filterTag} settings={['create']} />
             <ListPasswords data={SearchFilter} />
         </div>
     );

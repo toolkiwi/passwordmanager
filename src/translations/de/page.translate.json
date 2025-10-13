@@ -4,7 +4,8 @@
         "trash": "Gelöschte Passwörter",
         "create_password": "Neues Passwort erstellen",
         "settings": "Tresor-Einstellungen",
-        "tags": "Meine Etiketten"
+        "tags": "Meine Etiketten",
+        "totp": "Meine TOTP-Codes"
     },
     "settings": {
         "change_icon": "Symbol ändern",
@@ -28,5 +29,14 @@
         "create_tag": "Neues Etikett erstellen",
         "create_introduction": "Erstellen Sie ein Etikett, um Ihre Passwörter einfach zu durchsuchen und zu organisieren. Wählen Sie einen Titel und eine Farbe für das Etikett.",
         "delete_tag": "Sind Sie sicher, dass Sie dieses Etikett löschen möchten? (diese Aktion ist endgültig)"
+    },
+    "form": {
+        "enable_totp": "TOTP aktivieren",
+        "enable_totp_subtitle": "Zwei-Faktor-Authentifizierung für dieses Passwort hinzufügen.",
+        "totp_secret": "TOTP-Geheimschlüssel",
+        "totp_digits": "TOTP-Ziffern",
+        "totp_duration": "TOTP-Dauer (Sekunden)",
+        "totp_algorithm": "TOTP-Algorithmus",
+        "totp_default_info": "Wenn Sie unsicher sind, behalten Sie die Standardeinstellungen bei."
     }
 }

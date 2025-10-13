@@ -4,7 +4,8 @@
         "trash": "Deleted passwords",
         "create_password": "Create a new password",
         "settings": "Vault settings",
-        "tags": "My tags"
+        "tags": "My tags",
+        "totp": "My TOTP codes"
     },
     "settings": {
         "change_icon": "Change icon",
@@ -28,5 +29,14 @@
         "create_tag": "Create a new tag",
         "create_introduction": "Create a tag to easily search and organize your passwords. Choose a title and a color for your tag.",
         "delete_tag": "Are you sure you want to delete this tag? (this action is permanent)"
+    },
+    "form": {
+        "enable_totp": "Enable TOTP",
+        "enable_totp_subtitle": "Add two-factor authentication to this password.",
+        "totp_secret": "TOTP Secret Key",
+        "totp_digits": "TOTP Digits",
+        "totp_duration": "TOTP Duration (seconds)",
+        "totp_algorithm": "TOTP Algorithm",
+        "totp_default_info": "If in doubt, keep the default settings."
     }
 }

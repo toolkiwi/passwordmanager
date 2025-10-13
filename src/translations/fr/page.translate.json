@@ -4,7 +4,8 @@
         "trash": "Corbeille",
         "create_password": "Créer un nouveau mot de passe",
         "settings": "Paramètres du coffre-fort",
-        "tags": "Mes étiquettes"
+        "tags": "Mes étiquettes",
+        "totp": "Mes codes TOTP"
     },
     "settings": {
         "change_icon": "Changer d’icône",
@@ -28,5 +29,14 @@
         "create_tag": "Créer une nouvelle étiquette",
         "create_introduction": "Créez une étiquette pour rechercher et organiser facilement vos mots de passe. Choisissez un titre et une couleur pour votre étiquette.",
         "delete_tag": "Êtes-vous sûr de vouloir supprimer cette étiquette ? (action définitive)"
+    },
+    "form": {
+        "enable_totp": "Activer TOTP",
+        "enable_totp_subtitle": "Ajouter une authentification à deux facteurs à ce mot de passe.",
+        "totp_secret": "Clé secrète TOTP",
+        "totp_digits": "Chiffres TOTP",
+        "totp_duration": "Durée TOTP (secondes)",
+        "totp_algorithm": "Algorithme TOTP",
+        "totp_default_info": "Si vous avez un doute, conservez les paramètres par défaut."
     }
 }

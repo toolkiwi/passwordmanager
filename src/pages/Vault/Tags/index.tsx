@@ -45,7 +45,7 @@ export default function Index(): ReactElement {
             <PageHead title={t('page:titles.tags')} />
             <ListHeader
                 onSearch={setSearch}
-                layout='tags'
+                settings={['create']}
                 searchPlaceholder={t('page:tags.search_placeholder')}
             />
             {!SearchFilter || SearchFilter.length === 0 ? (

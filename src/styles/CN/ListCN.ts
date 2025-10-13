@@ -13,7 +13,7 @@ export default {
     favicon_container:
         'w-12 h-12 flex items-center justify-center bg-muted/10 p-2 border-1 border-neutral-900 rounded-lg min-w-10 min-h-10',
     favicon: 'w-full h-full rounded-md',
-    title: 'text-neutral-200 font-semibold text-md max-sm:text-[15px] truncate',
+    title: 'text-neutral-200 font-semibold text-md max-sm:text-[15px] truncate flex flex-row items-center gap-1.5',
     actions: 'flex flex-row items-center gap-2.5 z-10 ',
     sub_title: 'text-neutral-500 text-sm',
     footer: 'p-5 flex flex-row items-center gap-5 max-sm:flex-col max-sm:gap-2.5 max-sm:px-0',

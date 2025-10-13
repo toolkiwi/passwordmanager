@@ -136,10 +136,7 @@ export default function Index() {
      * Auto remove alert
      */
     useEffect(() => {
-        if (
-            JSON.stringify(form) !== JSON.stringify(FORM_DEFAULT_SETTINGS)
-            && isEdited
-        ) {
+        if (JSON.stringify(form) !== JSON.stringify(FORM_DEFAULT_SETTINGS) && isEdited) {
             setIsEdited(false);
         }
     }, [form]);
@@ -149,19 +146,10 @@ export default function Index() {
             <PageHead title={t('page:titles.settings')} goBack />
             {isEdited && (
                 <div className={CN.alertContainer}>
-                    <Alert
-                        type='SUCCESS'
-                        text={t('alert:edit_success')}
-                        onClose={() => setIsEdited(false)}
-                        noRounded
-                    />
+                    <Alert type='SUCCESS' text={t('alert:edit_success')} onClose={() => setIsEdited(false)} noRounded />
                 </div>
             )}
-            <form
-                className={FormCN.form}
-                onSubmit={handleSubmit}
-                onReset={handleResetAll}
-            >
+            <form className={FormCN.form} onSubmit={handleSubmit} onReset={handleResetAll}>
                 <div className={CN.headerSection}>
                     <div className={CN.backgroundPattern} />
                     <div className={CN.iconContainer}>
@@ -197,52 +185,32 @@ export default function Index() {
                 <div className={CN.contentContainer}>
                     <div className={CN.contentWrapper}>
                         <div className={FormCN.input_group}>
-                            <label className={FormCN.label}>
-                                {t('common:vault_title')}
-                            </label>
-                            <p className={FormCN.sub_label}>
-                                {t('page:settings.vault_title_desc')}
-                            </p>
+                            <label className={FormCN.label}>{t('common:vault_title')}</label>
+                            <p className={FormCN.sub_label}>{t('page:settings.vault_title_desc')}</p>
                             <StyledInput
                                 input={{
                                     placeholder: Vault!.name,
                                     defaultValue: Vault!.name,
-                                    onChange: (
-                                        e: ChangeEvent<HTMLInputElement>,
-                                    ) =>
-                                        handleUpdateField(
-                                            'name',
-                                            e.currentTarget.value,
-                                        ),
+                                    onChange: (e: ChangeEvent<HTMLInputElement>) =>
+                                        handleUpdateField('name', e.currentTarget.value),
                                 }}
                             />
                         </div>
                         <div className={FormCN.input_group}>
-                            <label className={FormCN.label}>
-                                {t('common:password_master')}
-                            </label>
-                            <p className={FormCN.sub_label}>
-                                {t('page:settings.password_master_desc')}
-                            </p>
+                            <label className={FormCN.label}>{t('common:password_master')}</label>
+                            <p className={FormCN.sub_label}>{t('page:settings.password_master_desc')}</p>
                             <StyledInput
                                 input={{
                                     placeholder: Vault!.master,
                                     defaultValue: Vault!.master,
                                     type: showPassword ? 'text' : 'password',
-                                    onChange: (
-                                        e: ChangeEvent<HTMLInputElement>,
-                                    ) =>
-                                        handleUpdateField(
-                                            'master',
-                                            e.currentTarget.value,
-                                        ),
+                                    onChange: (e: ChangeEvent<HTMLInputElement>) =>
+                                        handleUpdateField('master', e.currentTarget.value),
                                 }}
                                 rightElement={
                                     <ActionButton
                                         wrapperClassName='mr-1.5 max-sm:mr-[3.5px]'
-                                        onClick={() =>
-                                            setShowPassword((state) => !state)
-                                        }
+                                        onClick={() => setShowPassword((state) => !state)}
                                     >
                                         {showPassword ? (
                                             <TbEyeClosed
@@ -262,18 +230,12 @@ export default function Index() {
                     </div>
                 </div>
                 <div className={CN.footer}>
-                    <StyledButton
-                        button={{ className: CN.buttonFlex, type: 'reset' }}
-                        variant='secondary'
-                    >
+                    <StyledButton button={{ className: CN.buttonFlex, type: 'reset' }} variant='secondary'>
                         {t('common:reset')}
                     </StyledButton>
                     <StyledButton
                         button={{ className: CN.buttonFlex, type: 'submit' }}
-                        disabled={
-                            JSON.stringify(form)
-                            === JSON.stringify(FORM_DEFAULT_SETTINGS)
-                        }
+                        disabled={JSON.stringify(form) === JSON.stringify(FORM_DEFAULT_SETTINGS)}
                     >
                         {t('common:save')}
                     </StyledButton>
@@ -288,14 +250,12 @@ const CN = {
     alertContainer: 'p-0',
     headerSection:
         'w-full min-h-[250px] flex flex-col items-center justify-center m-auto border-b  py-10 gap-5 mb-3 relative overflow-hidden',
-    backgroundPattern:
-        'absolute -top-10 left-0 w-full h-[120%] overflow-hidden bg-pattern-1',
+    backgroundPattern: 'absolute -top-10 left-0 w-full h-[120%] overflow-hidden bg-pattern-1',
     iconContainer: 'border  p-2.5 rounded-3xl z-10',
     iconWrapper: 'w-20 h-20 bg-white/5 rounded-xl overflow-hidden',
     buttonGroup: 'flex flex-row items-center justify-center gap-2 z-10',
     button: 'p-3 hover:text-foreground h-[50px]',
-    iconButton:
-        'hover:text-foreground h-[50px] w-[50px] flex items-center justify-center',
+    iconButton: 'hover:text-foreground h-[50px] w-[50px] flex items-center justify-center',
     contentContainer: 'p-8 flex flex-col relative flex-1',
     contentWrapper: 'flex-1 flex flex-col gap-10',
     footer: 'mt-5 flex flex-row items-center gap-5 p-5 border-t ',

@@ -4,7 +4,8 @@
         "trash": "Verwijderde wachtwoorden",
         "create_password": "Nieuw wachtwoord aanmaken",
         "settings": "Kluisinstellingen",
-        "tags": "Mijn labels"
+        "tags": "Mijn labels",
+        "totp": "Mijn TOTP-codes"
     },
     "settings": {
         "change_icon": "Pictogram wijzigen",
@@ -28,5 +29,14 @@
         "create_tag": "Nieuw label aanmaken",
         "create_introduction": "Maak een label aan om je wachtwoorden gemakkelijk te zoeken en te organiseren. Kies een titel en een kleur voor je label.",
         "delete_tag": "Weet je zeker dat je dit label wilt verwijderen? (deze actie is definitief)"
+    },
+    "form": {
+        "enable_totp": "TOTP inschakelen",
+        "enable_totp_subtitle": "Voeg tweefactorauthenticatie toe aan dit wachtwoord.",
+        "totp_secret": "TOTP geheime sleutel",
+        "totp_digits": "TOTP cijfers",
+        "totp_duration": "TOTP duur (seconden)",
+        "totp_algorithm": "TOTP algoritme",
+        "totp_default_info": "Bij twijfel, behoud de standaardinstellingen."
     }
 }
