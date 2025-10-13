@@ -8,8 +8,10 @@ import dayjs from 'dayjs';
  */
 class ConsoleCommandUtils {
     /**
-     * Registers a console command `GetVaultDetails` to print vault information
-     * and `GetVaultSize` to get current localStorage usage
+     * Registers console commands for vault management:
+     * - `GetVaultDetails`: Print vault information
+     * - `GetVaultSize`: Get current localStorage usage
+     * - `GetVaultPasswords`: Display all password objects
      */
     public static RegisterVaultInformations(
         Vault: VaultInterface.State,
@@ -18,15 +20,17 @@ class ConsoleCommandUtils {
         if (!App.unlocked || !Vault._d) return;
 
         /**
-         * Ensure no existing command is registered
+         * Ensure no existing commands are registered
          */
-        if ('GetVaultDetails' in window) delete window.GetVaultDetails;
-        if ('GetVaultSize' in window) delete window.GetVaultSize;
+        if ('TK_GetVaultDetails' in window) delete window['TK_GetVaultDetails'];
+        if ('TK_GetVaultSize' in window) delete window['TK_GetVaultSize'];
+        if ('TK_GetVaultPasswords' in window)
+            delete window['TK_GetVaultPasswords'];
 
         /**
          * Create the `GetVaultDetails` function globally on window
          */
-        Object.defineProperty(window, 'GetVaultDetails', {
+        Object.defineProperty(window, 'TK_GetVaultDetails', {
             configurable: true,
             get() {
                 console.clear();
@@ -81,15 +85,65 @@ class ConsoleCommandUtils {
         });
 
         /**
-         * Create the `GetLocalStorageSize` function globally on window
+         * Create the `GetVaultSize` function globally on window
          */
-        Object.defineProperty(window, 'GetVaultSize', {
+        Object.defineProperty(window, 'TK_GetVaultSize', {
             configurable: true,
             get() {
                 console.log(
                     `%cLocalStorage Size: %c${ConsoleCommandUtils.getLocalStorageSizeInKB()}`,
                     'color: #00bcd4; font-weight: bold;',
                     'color: yellow;',
+                );
+            },
+        });
+
+        /**
+         * Create the `GetVaultPasswords` function globally on window
+         */
+        Object.defineProperty(window, 'TK_GetVaultPasswords', {
+            configurable: true,
+            get() {
+                console.clear();
+                console.log(
+                    '%c---------------------------------------------',
+                    'color: #444;',
+                );
+                console.log(
+                    '%c[ Password Objects ]',
+                    'color: #4caf50; font-weight: bold; font-size: 16px;',
+                );
+
+                const passwords = Vault._d?.passwords || [];
+
+                if (passwords.length === 0) {
+                    console.log(
+                        '%c• No passwords found in vault',
+                        'color: #ff9800; font-style: italic;',
+                    );
+                } else {
+                    console.log(
+                        `%c• Found ${passwords.length} password(s):`,
+                        'color: #888; font-weight: bold;',
+                    );
+                    console.log(
+                        '%c---------------------------------------------',
+                        'color: #444;',
+                    );
+
+                    passwords.forEach((password, index) => {
+                        console.log(
+                            `%c[${index + 1}] %c${password.title || 'Unnamed'}`,
+                            'color: #2196f3; font-weight: bold;',
+                            'color: #fff; font-size: 13px;',
+                            password,
+                        );
+                    });
+                }
+
+                console.log(
+                    '%c---------------------------------------------',
+                    'color: #444;',
                 );
             },
         });
