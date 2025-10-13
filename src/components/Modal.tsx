@@ -46,13 +46,9 @@ export default function Modal(props: PropsComponent) {
                 <div className={CN.wrapper}>
                     <div className={CN.modal}>
                         <div className={CN.header}>
-                            <h2 className={CN.title}>
-                                {props.title ?? 'Error'}
-                            </h2>
+                            <h2 className={CN.title}>{props.title ?? 'Error'}</h2>
                             {props.subtitle && (
-                                <p className='text-md text-foreground/25 text-center'>
-                                    {props.subtitle}
-                                </p>
+                                <p className='text-md text-foreground/25 text-center'>{props.subtitle}</p>
                             )}
                         </div>
                         <div className={CN.footer}>
@@ -82,8 +78,7 @@ export default function Modal(props: PropsComponent) {
 }
 
 const CN = {
-    container:
-        'absolute top-0 left-0 w-full h-full bg-black/50 backdrop-blur-md flex items-center justify-center',
+    container: 'absolute top-0 left-0 w-full h-full bg-black/50 backdrop-blur-md flex items-center justify-center',
     wrapper: 'p-5 h-full relative w-full',
     modal: 'flex flex-col h-full w-full',
     header: 'flex-1 justify-center items-center self-center content-center leading-13',

@@ -62,12 +62,10 @@
 
 #changelog-container .bg-changelog {
     background-color: #000000;
-    
+
     background-image:
-        linear-gradient(#ffffff 4.2px, transparent 4.2px),
-        linear-gradient(90deg, #ffffff 4.2px, transparent 4.2px),
-        linear-gradient(#ffffff 2.1px, transparent 2.1px),
-        linear-gradient(90deg, #ffffff 2.1px, #000000 2.1px);
+        linear-gradient(#ffffff 4.2px, transparent 4.2px), linear-gradient(90deg, #ffffff 4.2px, transparent 4.2px),
+        linear-gradient(#ffffff 2.1px, transparent 2.1px), linear-gradient(90deg, #ffffff 2.1px, #000000 2.1px);
     background-size:
         105px 105px,
         105px 105px,

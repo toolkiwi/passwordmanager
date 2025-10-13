@@ -36,9 +36,7 @@ export default function TagForm(props: PropsComponent) {
     /**
      * Form state contains all inputs
      */
-    const [form, setForm] = useState<VaultInterface.Form.Tag>(
-        FORM_DEFAULT_SETTINGS,
-    );
+    const [form, setForm] = useState<VaultInterface.Form.Tag>(FORM_DEFAULT_SETTINGS);
 
     /**
      * Disable the save button in the form until all required fields are filled
@@ -46,9 +44,7 @@ export default function TagForm(props: PropsComponent) {
     const IS_SAVE_BUTTON_DISABLED =
         props.type === 'create'
             ? !form.title || !form.color
-            : !form.title
-              || !form.color
-              || JSON.stringify(form) == JSON.stringify(FORM_DEFAULT_SETTINGS);
+            : !form.title || !form.color || JSON.stringify(form) == JSON.stringify(FORM_DEFAULT_SETTINGS);
 
     /**
      * Instance of dispatch hook
@@ -90,8 +86,7 @@ export default function TagForm(props: PropsComponent) {
         /**
          * This fields need to be filled
          */
-        if (!(form.title.trim().length > 0) || !(form.color!.trim().length > 0))
-            return;
+        if (!(form.title.trim().length > 0) || !(form.color!.trim().length > 0)) return;
 
         /**
          * Update vault state
@@ -125,49 +120,28 @@ export default function TagForm(props: PropsComponent) {
 
     return (
         <div className='page-container'>
-            <PageHead
-                title={
-                    props.type === 'edit'
-                        ? FORM_DEFAULT_SETTINGS.title
-                        : t('page:tags.create_tag')
-                }
-                goBack
-            />
-            <form
-                onSubmit={handleSubmit}
-                onReset={handleReset}
-                className={FormCN.form}
-            >
+            <PageHead title={props.type === 'edit' ? FORM_DEFAULT_SETTINGS.title : t('page:tags.create_tag')} goBack />
+            <form onSubmit={handleSubmit} onReset={handleReset} className={FormCN.form}>
                 <div className={FormCN.container}>
                     {isCreated && (
-                        <Alert
-                            type='SUCCESS'
-                            text={t('alert:tag_created')}
-                            onClose={() => setIsCreated(false)}
-                        />
+                        <Alert type='SUCCESS' text={t('alert:tag_created')} onClose={() => setIsCreated(false)} />
                     )}
 
                     {props.type === 'create' && (
                         <div className='py-3'>
-                            <p className={ListCN.sub_title}>
-                                {t('page:tags.create_introduction')}
-                            </p>
+                            <p className={ListCN.sub_title}>{t('page:tags.create_introduction')}</p>
                         </div>
                     )}
 
                     <StyledInput
                         input={{
                             placeholder: t('common:title'),
-                            onChange: (e) =>
-                                FormFieldUpdate('title', e.currentTarget.value),
+                            onChange: (e) => FormFieldUpdate('title', e.currentTarget.value),
                             value: form.title,
                         }}
                     />
 
-                    <ColorPicker
-                        form={form}
-                        FormFieldUpdate={FormFieldUpdate}
-                    />
+                    <ColorPicker form={form} FormFieldUpdate={FormFieldUpdate} />
                 </div>
                 <div className={FormCN.footer}>
                     <StyledButton

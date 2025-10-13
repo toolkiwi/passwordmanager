@@ -1,10 +1,5 @@
 import { ReactElement, useCallback } from 'react';
-import {
-    Listbox,
-    ListboxButton,
-    ListboxOption,
-    ListboxOptions,
-} from '@headlessui/react';
+import { Listbox, ListboxButton, ListboxOption, ListboxOptions } from '@headlessui/react';
 import { TbCheck, TbChevronDown } from 'react-icons/tb';
 import { useSelector } from 'react-redux';
 import { StoreState } from '@/redux/StoreRedux';
@@ -13,9 +8,7 @@ import { useTranslation } from 'react-i18next';
 import type { TagFormInterface } from '@/interfaces/TagFormInterface';
 import type { VaultInterface } from '@/interfaces/VaultInterface';
 
-export default function TagSelect(
-    props: TagFormInterface.Select,
-): ReactElement | undefined {
+export default function TagSelect(props: TagFormInterface.Select): ReactElement | undefined {
     /**
      * Get all tags from vault data
      */
@@ -28,9 +21,7 @@ export default function TagSelect(
      * Tag selected
      */
 
-    const Selected =
-        VaultTags[VaultTags.findIndex((i) => i.id === props.value)]
-        ?? undefined;
+    const Selected = VaultTags[VaultTags.findIndex((i) => i.id === props.value)] ?? undefined;
 
     /**
      * Instance translation  hookforeground
@@ -44,23 +35,13 @@ export default function TagSelect(
         if (!Selected) {
             return (
                 <span className={CN.button_content}>
-                    <span
-                        className={clsx(
-                            CN.selected_title,
-                            'text-foreground/25!',
-                        )}
-                    >
-                        {t('common:choose_tag')}
-                    </span>
+                    <span className={clsx(CN.selected_title, 'text-foreground/25!')}>{t('common:choose_tag')}</span>
                 </span>
             );
         }
         return (
             <span className={CN.button_content}>
-                <div
-                    className={CN.tag_icon}
-                    style={{ backgroundColor: Selected.color }}
-                />
+                <div className={CN.tag_icon} style={{ backgroundColor: Selected.color }} />
                 <span className={CN.selected_title}>{Selected.title}</span>
             </span>
         );
@@ -73,10 +54,7 @@ export default function TagSelect(
         return VaultTags?.map((tag: VaultInterface.Tag, index: number) => (
             <ListboxOption key={index} value={tag} className={CN.option}>
                 <div className={CN.option_content}>
-                    <div
-                        className={CN.tag_icon}
-                        style={{ backgroundColor: tag.color }}
-                    />
+                    <div className={CN.tag_icon} style={{ backgroundColor: tag.color }} />
                     <span className={CN.optio_title}>{tag.title}</span>
                 </div>
 
@@ -102,9 +80,7 @@ export default function TagSelect(
                     <ListboxOption value={String()} className={CN.option}>
                         <div className={CN.option_content}>
                             <div className={CN.tag_icon} />
-                            <span className={CN.optio_title}>
-                                {t('common:no_tag')}
-                            </span>
+                            <span className={CN.optio_title}>{t('common:no_tag')}</span>
                         </div>
 
                         <span className={CN.check_icon_wrapper}>
@@ -124,8 +100,7 @@ const CN = {
     button_content: 'col-start-1 row-start-1 flex items-center gap-2 truncate',
     tag_icon: 'w-4 h-4 rounded-full border-2 border-white/10',
     selected_title: 'block truncate text-foreground',
-    chevron_icon:
-        'col-start-1 row-start-1 size-5 self-center justify-self-end text-foreground/25 sm:size-4',
+    chevron_icon: 'col-start-1 row-start-1 size-5 self-center justify-self-end text-foreground/25 sm:size-4',
     options:
         'absolute z-10 my-2 max-h-56 w-full overflow-auto rounded-md bg-background border hover:border-foreground/8! text-base shadow-lg ring-1 ring-black/5 focus:outline-hidden data-leave:transition data-leave:duration-100 data-leave:ease-in data-closed:data-leave:opacity-0 sm:text-sm',
     option: 'group relative cursor-default p-3 text-foreground/50 select-none data-focus:bg-foreground/2 data-focus:text-foreground data-focus:outline-hidden',

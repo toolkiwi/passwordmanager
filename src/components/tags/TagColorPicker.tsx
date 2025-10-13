@@ -3,10 +3,7 @@ import { TagFormInterface } from '@/interfaces/TagFormInterface';
 import { ReactElement, useState } from 'react';
 import TagColorPickercolor from './TagColorPickerCustomColor';
 
-export default function ColorPicker({
-    FormFieldUpdate,
-    form,
-}: TagFormInterface.ColorPicker): ReactElement {
+export default function ColorPicker({ FormFieldUpdate, form }: TagFormInterface.ColorPicker): ReactElement {
     /**
      * Color choosed state
      */
@@ -25,10 +22,7 @@ export default function ColorPicker({
      */
     return (
         <div className={CN.wrapper}>
-            <TagColorPickercolor
-                customColor={color}
-                handleColorChange={handleColorChange}
-            />
+            <TagColorPickercolor customColor={color} handleColorChange={handleColorChange} />
             {TAG_COLORS.map((color, index) => {
                 const isSelected = form.color === color;
                 return (
@@ -38,16 +32,11 @@ export default function ColorPicker({
                         className={CN.colorOption}
                         onClick={() => handleColorChange(color)}
                         style={{
-                            borderColor: isSelected
-                                ? color
-                                : 'rgba(255,255,255,.1)',
+                            borderColor: isSelected ? color : 'rgba(255,255,255,.1)',
                             opacity: isSelected ? 1 : 0.65,
                         }}
                     >
-                        <div
-                            className={CN.colorInner}
-                            style={{ backgroundColor: color }}
-                        />
+                        <div className={CN.colorInner} style={{ backgroundColor: color }} />
                     </div>
                 );
             })}
@@ -58,7 +47,6 @@ export default function ColorPicker({
 const CN = {
     wrapper:
         'mt-3 p-5 bg-foreground/5 rounded-lg border border-neutral-800 flex flex-row items-center flex-wrap gap-3 place-content-center',
-    colorOption:
-        'w-10 h-10 rounded-full border-2 p-1 cursor-pointer transition-all hover:opacity-100!',
+    colorOption: 'w-10 h-10 rounded-full border-2 p-1 cursor-pointer transition-all hover:opacity-100!',
     colorInner: 'w-full h-full rounded-full flex items-center justify-center',
 };

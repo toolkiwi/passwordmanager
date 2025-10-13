@@ -13,8 +13,7 @@ export default function TagColorPickerCustomColor({
     /**
      * Determine if it is a custom color
      */
-    const isSelected =
-        !TAG_COLORS.includes(customColor) && customColor.length > 0;
+    const isSelected = !TAG_COLORS.includes(customColor) && customColor.length > 0;
     /**
      * Render JSX
      */
@@ -29,21 +28,14 @@ export default function TagColorPickerCustomColor({
             <input
                 type='color'
                 value={customColor}
-                onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                    handleColorChange(e.currentTarget.value)
-                }
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleColorChange(e.currentTarget.value)}
                 className={CN.colorInput}
             />
             <div
                 className={CN.colorInner}
                 style={{
-                    backgroundColor: isSelected
-                        ? customColor
-                        : 'rgba(255,255,255,.05)',
-                    color:
-                        isSelected && CommonUtils.isColorLight(customColor)
-                            ? '#000'
-                            : '#fff',
+                    backgroundColor: isSelected ? customColor : 'rgba(255,255,255,.05)',
+                    color: isSelected && CommonUtils.isColorLight(customColor) ? '#000' : '#fff',
                 }}
             >
                 <TbColorSwatch size={20} />
@@ -54,7 +46,6 @@ export default function TagColorPickerCustomColor({
 
 const CN = {
     colorInner: 'w-full h-full rounded-full flex items-center justify-center',
-    customColorPicker:
-        'relative w-10 h-10 rounded-full border-2 p-1 cursor-pointer hover:opacity-100! overflow-hidden',
+    customColorPicker: 'relative w-10 h-10 rounded-full border-2 p-1 cursor-pointer hover:opacity-100! overflow-hidden',
     colorInput: 'w-full h-full opacity-0 absolute',
 };

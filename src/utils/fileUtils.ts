@@ -10,16 +10,9 @@ class FileUtils {
      */
     public static download(Vault: VaultInterface.State) {
         saveAs(
-            new Blob(
-                [
-                    '+ptk+'
-                        + CryptoJS.AES.encrypt(
-                            JSON.stringify(Vault),
-                            Vault._d!.master,
-                        ).toString(),
-                ],
-                { type: 'text/plain;charset=utf-8;author:ToolKiwi' },
-            ),
+            new Blob(['+ptk+' + CryptoJS.AES.encrypt(JSON.stringify(Vault), Vault._d!.master).toString()], {
+                type: 'text/plain;charset=utf-8;author:ToolKiwi',
+            }),
             `${Vault._d!.name}-${dayjs(new Date()).format('MM-DD-YYYY-HHmm')}.ptk`,
         );
     }
@@ -41,10 +34,7 @@ class FileUtils {
                     let encryptedText = eventResult;
                     encryptedText = encryptedText.replace('+ptk+', '');
                     try {
-                        const bytes = CryptoJS.AES.decrypt(
-                            encryptedText,
-                            masterPassword,
-                        );
+                        const bytes = CryptoJS.AES.decrypt(encryptedText, masterPassword);
                         const decryptedText = bytes.toString(CryptoJS.enc.Utf8);
 
                         if (decryptedText) {

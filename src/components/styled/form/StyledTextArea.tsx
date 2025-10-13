@@ -15,10 +15,7 @@ interface ComponentProps {
 export default function StyledTextArea(props: ComponentProps): ReactElement {
     return (
         <div className={`${CN.wrapper} ${props.wrapperClassName}`}>
-            <textarea
-                {...props.textarea}
-                className={`${CN.textarea} ${props.textarea.className}`}
-            />
+            <textarea {...props.textarea} className={`${CN.textarea} ${props.textarea.className}`} />
             {props.rightElement && props.rightElement}
         </div>
     );

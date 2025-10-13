@@ -20,37 +20,16 @@ function App() {
         <Routes>
             <Route index element={<IndexPage />} />
             <Route element={<DefaultLayout />}>
-                <Route
-                    path='vault/'
-                    element={<Navigate to='/vault/passwords' replace />}
-                />
-                <Route
-                    path='vault/passwords'
-                    element={<VaultDashboardPage />}
-                />
-                <Route
-                    path='vault/passwords/create'
-                    element={<VaultCreatePage />}
-                />
-                <Route
-                    path='vault/passwords/:uuid'
-                    element={<VaultPasswordPage />}
-                />
-                <Route
-                    path='vault/passwords/:uuid/edit'
-                    element={<VaultPasswordEditPage />}
-                />
+                <Route path='vault/' element={<Navigate to='/vault/passwords' replace />} />
+                <Route path='vault/passwords' element={<VaultDashboardPage />} />
+                <Route path='vault/passwords/create' element={<VaultCreatePage />} />
+                <Route path='vault/passwords/:uuid' element={<VaultPasswordPage />} />
+                <Route path='vault/passwords/:uuid/edit' element={<VaultPasswordEditPage />} />
                 <Route path='vault/trash' element={<VaultTrashPage />} />
                 <Route path='vault/settings' element={<VaultSettingsPage />} />
                 <Route path='vault/tags' element={<VaultTagsPage />} />
-                <Route
-                    path='vault/tags/create'
-                    element={<VaiultTagCreatePage />}
-                />
-                <Route
-                    path='vault/tags/:uuid/edit'
-                    element={<VaiultTagEditPage />}
-                />
+                <Route path='vault/tags/create' element={<VaiultTagCreatePage />} />
+                <Route path='vault/tags/:uuid/edit' element={<VaiultTagEditPage />} />
                 <Route path='vault/totp' element={<VaultTotpPage />} />
             </Route>
         </Routes>

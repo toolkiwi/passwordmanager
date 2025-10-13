@@ -13,10 +13,7 @@ class ConsoleCommandUtils {
      * - `GetVaultSize`: Get current localStorage usage
      * - `GetVaultPasswords`: Display all password objects
      */
-    public static RegisterVaultInformations(
-        Vault: VaultInterface.State,
-        App: AppInterface.State,
-    ): void {
+    public static RegisterVaultInformations(Vault: VaultInterface.State, App: AppInterface.State): void {
         if (!App.unlocked || !Vault._d) return;
 
         /**
@@ -24,8 +21,7 @@ class ConsoleCommandUtils {
          */
         if ('TK_GetVaultDetails' in window) delete window['TK_GetVaultDetails'];
         if ('TK_GetVaultSize' in window) delete window['TK_GetVaultSize'];
-        if ('TK_GetVaultPasswords' in window)
-            delete window['TK_GetVaultPasswords'];
+        if ('TK_GetVaultPasswords' in window) delete window['TK_GetVaultPasswords'];
 
         /**
          * Create the `GetVaultDetails` function globally on window
@@ -34,14 +30,8 @@ class ConsoleCommandUtils {
             configurable: true,
             get() {
                 console.clear();
-                console.log(
-                    '%c---------------------------------------------',
-                    'color: #444;',
-                );
-                console.log(
-                    '%c[ Vault Information ]',
-                    'color: #00bcd4; font-weight: bold; font-size: 16px;',
-                );
+                console.log('%c---------------------------------------------', 'color: #444;');
+                console.log('%c[ Vault Information ]', 'color: #00bcd4; font-weight: bold; font-size: 16px;');
                 console.log(
                     `%c• Name: %c${Vault._d?.name || 'N/A'}`,
                     'color: #888; font-weight: bold;',
@@ -62,11 +52,7 @@ class ConsoleCommandUtils {
                     'color: #888; font-weight: bold;',
                     'color: yellow;',
                 );
-                console.log(
-                    `%c• Version: %c${Vault._v || 'N/A'}`,
-                    'color: #888; font-weight: bold;',
-                    'color: #fff;',
-                );
+                console.log(`%c• Version: %c${Vault._v || 'N/A'}`, 'color: #888; font-weight: bold;', 'color: #fff;');
                 console.log(
                     `%c• Vault created at: %c${Vault._d?.created_at ? dayjs(Vault._d.created_at).format('DD MMM YYYY HH:mm') : 'Unknown'}`,
                     'color: #888; font-weight: bold;',
@@ -77,10 +63,7 @@ class ConsoleCommandUtils {
                     'color: #888; font-weight: bold;',
                     'color: yellow;',
                 );
-                console.log(
-                    '%c---------------------------------------------',
-                    'color: #444;',
-                );
+                console.log('%c---------------------------------------------', 'color: #444;');
             },
         });
 
@@ -105,31 +88,16 @@ class ConsoleCommandUtils {
             configurable: true,
             get() {
                 console.clear();
-                console.log(
-                    '%c---------------------------------------------',
-                    'color: #444;',
-                );
-                console.log(
-                    '%c[ Password Objects ]',
-                    'color: #4caf50; font-weight: bold; font-size: 16px;',
-                );
+                console.log('%c---------------------------------------------', 'color: #444;');
+                console.log('%c[ Password Objects ]', 'color: #4caf50; font-weight: bold; font-size: 16px;');
 
                 const passwords = Vault._d?.passwords || [];
 
                 if (passwords.length === 0) {
-                    console.log(
-                        '%c• No passwords found in vault',
-                        'color: #ff9800; font-style: italic;',
-                    );
+                    console.log('%c• No passwords found in vault', 'color: #ff9800; font-style: italic;');
                 } else {
-                    console.log(
-                        `%c• Found ${passwords.length} password(s):`,
-                        'color: #888; font-weight: bold;',
-                    );
-                    console.log(
-                        '%c---------------------------------------------',
-                        'color: #444;',
-                    );
+                    console.log(`%c• Found ${passwords.length} password(s):`, 'color: #888; font-weight: bold;');
+                    console.log('%c---------------------------------------------', 'color: #444;');
 
                     passwords.forEach((password, index) => {
                         console.log(
@@ -141,10 +109,7 @@ class ConsoleCommandUtils {
                     });
                 }
 
-                console.log(
-                    '%c---------------------------------------------',
-                    'color: #444;',
-                );
+                console.log('%c---------------------------------------------', 'color: #444;');
             },
         });
 

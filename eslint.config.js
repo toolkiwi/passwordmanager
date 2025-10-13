@@ -10,12 +10,7 @@ export default tseslint.config(
     { ignores: ['dist'] },
     {
         files: ['**/*.{ts,tsx}'],
-        extends: [
-            js.configs.recommended,
-            ...tseslint.configs.recommended,
-            react.configs.flat.recommended,
-            prettier,
-        ],
+        extends: [js.configs.recommended, ...tseslint.configs.recommended, react.configs.flat.recommended, prettier],
         languageOptions: {
             ecmaVersion: 2020,
             globals: globals.browser,
@@ -41,14 +36,8 @@ export default tseslint.config(
             'react/react-in-jsx-scope': 'off',
             'react/button-has-type': 'error',
             'react/react-in-jsx-scope': ['off'],
-            'react-refresh/only-export-components': [
-                'warn',
-                { allowConstantExport: true },
-            ],
-            '@typescript-eslint/no-unused-vars': [
-                'warn',
-                { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }
-            ],
+            'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
+            '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }],
         },
     },
 );

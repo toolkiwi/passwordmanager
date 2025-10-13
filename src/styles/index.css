@@ -1,11 +1,10 @@
 @import 'tailwindcss';
 
 :root {
-  --background: hsl(0, 0%, 11%);
-  --border: hsl(0, 0%, 16%);
-  --foreground: hsl(0, 0%, 100%);
-  --muted: hsl(0, 0%, 0%);
-
+    --background: hsl(0, 0%, 11%);
+    --border: hsl(0, 0%, 16%);
+    --foreground: hsl(0, 0%, 100%);
+    --muted: hsl(0, 0%, 0%);
 }
 
 @theme {
@@ -29,7 +28,6 @@ body {
     position: relative;
     width: 100svw;
     height: 100svh;
-
 }
 
 button.b-1 {
@@ -44,54 +42,12 @@ button.b-1 {
     background-color: #e5e5f7;
     opacity: 0.03;
     background-image:
-        linear-gradient(
-            30deg,
-            #212121 12%,
-            transparent 12.5%,
-            transparent 87%,
-            #212121 87.5%,
-            #212121
-        ),
-        linear-gradient(
-            150deg,
-            #212121 12%,
-            transparent 12.5%,
-            transparent 87%,
-            #212121 87.5%,
-            #212121
-        ),
-        linear-gradient(
-            30deg,
-            #212121 12%,
-            transparent 12.5%,
-            transparent 87%,
-            #212121 87.5%,
-            #212121
-        ),
-        linear-gradient(
-            150deg,
-            #212121 12%,
-            transparent 12.5%,
-            transparent 87%,
-            #212121 87.5%,
-            #212121
-        ),
-        linear-gradient(
-            60deg,
-            #21212177 25%,
-            transparent 25.5%,
-            transparent 75%,
-            #21212177 75%,
-            #21212177
-        ),
-        linear-gradient(
-            60deg,
-            #21212177 25%,
-            transparent 25.5%,
-            transparent 75%,
-            #21212177 75%,
-            #21212177
-        );
+        linear-gradient(30deg, #212121 12%, transparent 12.5%, transparent 87%, #212121 87.5%, #212121),
+        linear-gradient(150deg, #212121 12%, transparent 12.5%, transparent 87%, #212121 87.5%, #212121),
+        linear-gradient(30deg, #212121 12%, transparent 12.5%, transparent 87%, #212121 87.5%, #212121),
+        linear-gradient(150deg, #212121 12%, transparent 12.5%, transparent 87%, #212121 87.5%, #212121),
+        linear-gradient(60deg, #21212177 25%, transparent 25.5%, transparent 75%, #21212177 75%, #21212177),
+        linear-gradient(60deg, #21212177 25%, transparent 25.5%, transparent 75%, #21212177 75%, #21212177);
     background-size: 64px 112px;
     background-position:
         0 0,
@@ -138,4 +94,3 @@ button.b-1 {
     border-color: var(--color-border);
     outline-color: var(--color-border);
 }
-

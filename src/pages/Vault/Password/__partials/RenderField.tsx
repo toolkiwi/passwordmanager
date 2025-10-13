@@ -32,9 +32,7 @@ export default function RenderField(props: ComponentProps): ReactElement {
         /**
          * Get tags form vault data
          */
-        const VaultTags = useSelector(
-            (state: StoreState) => state.vault._d?.tags,
-        );
+        const VaultTags = useSelector((state: StoreState) => state.vault._d?.tags);
 
         /**
          * Verifications and TagIndex
@@ -52,10 +50,7 @@ export default function RenderField(props: ComponentProps): ReactElement {
                     color: VaultTags[TagIndex].color,
                 }}
             >
-                <div
-                    className={CN.field_tag_dot}
-                    style={{ backgroundColor: VaultTags[TagIndex].color }}
-                />
+                <div className={CN.field_tag_dot} style={{ backgroundColor: VaultTags[TagIndex].color }} />
                 <div
                     className={CN.field_tag_bg}
                     style={{
@@ -63,9 +58,7 @@ export default function RenderField(props: ComponentProps): ReactElement {
                         border: VaultTags[TagIndex].color,
                     }}
                 />
-                <div>
-                    {CommonUtils.limitTextLength(VaultTags[TagIndex].title)}
-                </div>
+                <div>{CommonUtils.limitTextLength(VaultTags[TagIndex].title)}</div>
             </div>
         );
     };
@@ -76,10 +69,7 @@ export default function RenderField(props: ComponentProps): ReactElement {
     const RenderValue = useCallback(() => {
         switch (props.type) {
             case 'url': {
-                const format_value = props.value!.replace(
-                    /^(https?:\/\/)?(www\.)?/,
-                    '',
-                );
+                const format_value = props.value!.replace(/^(https?:\/\/)?(www\.)?/, '');
 
                 /**
                  * Show empty render
@@ -104,10 +94,7 @@ export default function RenderField(props: ComponentProps): ReactElement {
                             rel='noopener noreferrer'
                             className='border-b-[3px] pr-1 hover:border-foreground/5! border-transparent! hover:text-foreground hover:bg-neutral inline-flex flex-row items-center gap-1 max-sm:block truncate!'
                         >
-                            <TbLink
-                                size={16}
-                                className='max-sm:inline-block max-sm:mr-1'
-                            />
+                            <TbLink size={16} className='max-sm:inline-block max-sm:mr-1' />
                             {CommonUtils.limitTextLength(format_value)}
                         </a>
                     </div>
@@ -145,11 +132,7 @@ export default function RenderField(props: ComponentProps): ReactElement {
                 {/* Field value; displays the value if available, otherwise shows the emptyText or a default message */}
                 <RenderValue />
             </div>
-            {props.rightAction && !isValueEmpty && (
-                <div className={CN.rightaction_wrapper}>
-                    {props.rightAction}
-                </div>
-            )}
+            {props.rightAction && !isValueEmpty && <div className={CN.rightaction_wrapper}>{props.rightAction}</div>}
         </div>
     );
 }
@@ -162,11 +145,9 @@ const CN = {
     field_main: 'flex-1 flex flex-col gap-1.5 relative w-full',
     field_label: 'text-xs uppercase font-semibold text-neutral-500 truncate!',
     field_value: 'text-foreground/80 font-semibold flex-1 truncate!',
-    field_value_note:
-        'text-foreground/50 font-normal! italic whitespace-break-spaces text-wrap',
+    field_value_note: 'text-foreground/50 font-normal! italic whitespace-break-spaces text-wrap',
     field_value_empty: 'text-foreground/25! font-normal!',
-    field_tag:
-        'inline-flex flex-row items-center rounded-xl relative w-fit p-1 px-2',
+    field_tag: 'inline-flex flex-row items-center rounded-xl relative w-fit p-1 px-2',
     field_tag_bg: 'absolute w-full h-full top-0 left-0 rounded-lg opacity-10',
     field_tag_dot: 'w-4 h-4 rounded-full border-2 p-1 mr-2 border-white/20',
     rightaction_wrapper: 'mx-5 max-sm:self-start max-sm:mt-2.5 max-sm:mx-0',

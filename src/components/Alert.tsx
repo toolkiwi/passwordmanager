@@ -1,9 +1,4 @@
-import {
-    TbInfoCircleFilled,
-    TbAlertHexagonFilled,
-    TbCircleCheckFilled,
-    TbX,
-} from 'react-icons/tb';
+import { TbInfoCircleFilled, TbAlertHexagonFilled, TbCircleCheckFilled, TbX } from 'react-icons/tb';
 import clsx from 'clsx';
 
 /**
@@ -16,12 +11,7 @@ interface ComponentProps {
     onClose?: () => void;
 }
 
-export default function Alert({
-    type = 'DEFAULT',
-    noRounded,
-    text,
-    onClose,
-}: ComponentProps) {
+export default function Alert({ type = 'DEFAULT', noRounded, text, onClose }: ComponentProps) {
     /**
      * Custom colors
      */
@@ -37,30 +27,10 @@ export default function Alert({
      * Custom icons by type of alert
      */
     const TYPE_ICON = {
-        DEFAULT: (
-            <TbInfoCircleFilled
-                size={22}
-                className={`text-${TYPE_COLOR}-500`}
-            />
-        ),
-        SUCCESS: (
-            <TbCircleCheckFilled
-                size={22}
-                className={`text-${TYPE_COLOR}-500`}
-            />
-        ),
-        ERROR: (
-            <TbAlertHexagonFilled
-                size={22}
-                className={`text-${TYPE_COLOR}-500`}
-            />
-        ),
-        WARNING: (
-            <TbAlertHexagonFilled
-                size={22}
-                className={`text-${TYPE_COLOR}-500`}
-            />
-        ),
+        DEFAULT: <TbInfoCircleFilled size={22} className={`text-${TYPE_COLOR}-500`} />,
+        SUCCESS: <TbCircleCheckFilled size={22} className={`text-${TYPE_COLOR}-500`} />,
+        ERROR: <TbAlertHexagonFilled size={22} className={`text-${TYPE_COLOR}-500`} />,
+        WARNING: <TbAlertHexagonFilled size={22} className={`text-${TYPE_COLOR}-500`} />,
     };
 
     return (
@@ -99,11 +69,9 @@ export default function Alert({
                     onClick={onClose}
                     className={clsx(CN.close, {
                         'text-foreground hover:bg-white/10': type === 'DEFAULT',
-                        'text-green-500 hover:bg-green-500/10':
-                            type === 'SUCCESS',
+                        'text-green-500 hover:bg-green-500/10': type === 'SUCCESS',
                         'text-red-500 hover:bg-red-500/10': type === 'ERROR',
-                        'text-orange-500 hover:bg-orange-500/10':
-                            type === 'WARNING',
+                        'text-orange-500 hover:bg-orange-500/10': type === 'WARNING',
                     })}
                 >
                     <TbX size={18} />

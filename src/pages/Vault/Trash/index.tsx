@@ -54,9 +54,7 @@ export default function TrashPage() {
      */
     const SearchFilter =
         DATA?.filter((i) =>
-            [i.title, i.password, i.login, i.note].some((v) =>
-                v.toLowerCase().includes(search.trim().toLowerCase()),
-            ),
+            [i.title, i.password, i.login, i.note].some((v) => v.toLowerCase().includes(search.trim().toLowerCase())),
         ) || [];
 
     return (

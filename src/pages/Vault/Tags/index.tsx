@@ -28,17 +28,13 @@ export default function Index(): ReactElement {
      */
     const SearchFilter =
         Vault?.tags?.filter((i) =>
-            [i.title, i.color].some((v) =>
-                v.toLowerCase().includes(search.trim().toLowerCase()),
-            ),
+            [i.title, i.color].some((v) => v.toLowerCase().includes(search.trim().toLowerCase())),
         ) || [];
 
     /**
      * Set document title
      */
-    CommonUtils.DocumentTitle(
-        t('page:titles.tags') + ` (${Vault?.tags?.length})`,
-    );
+    CommonUtils.DocumentTitle(t('page:titles.tags') + ` (${Vault?.tags?.length})`);
 
     return (
         <div className='page-container'>

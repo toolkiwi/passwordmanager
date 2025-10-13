@@ -55,10 +55,7 @@ export const CreateVault = () => {
          */
         dispatch(
             createVault({
-                title:
-                    registerForm.title.length > 0
-                        ? registerForm.title
-                        : t('page:index.default_vault_name'),
+                title: registerForm.title.length > 0 ? registerForm.title : t('page:index.default_vault_name'),
                 master: registerForm.master,
             }),
         );
@@ -72,10 +69,7 @@ export const CreateVault = () => {
     /**
      * On update field input value
      */
-    const onInputRegisterChange = (
-        field: keyof RegisterFormInputs,
-        event: React.ChangeEvent<HTMLInputElement>,
-    ) => {
+    const onInputRegisterChange = (field: keyof RegisterFormInputs, event: React.ChangeEvent<HTMLInputElement>) => {
         setRegisterForm((state: RegisterFormInputs) => {
             return { ...state, [field]: event.target.value };
         });
@@ -107,8 +101,7 @@ export const CreateVault = () => {
                 </div>
                 <div className={CN.form_group}>
                     <label className={CN.label} htmlFor='password'>
-                        {t('common:password')}{' '}
-                        <span className={CN.required}>*</span>
+                        {t('common:password')} <span className={CN.required}>*</span>
                     </label>
                     <StyledInput
                         input={{
@@ -136,8 +129,7 @@ export const CreateVault = () => {
 };
 
 const CN = {
-    error_box:
-        'p-3 bg-red-500 text-foreground text-center rounded-md mb-5 max-sm:p-1!',
+    error_box: 'p-3 bg-red-500 text-foreground text-center rounded-md mb-5 max-sm:p-1!',
     error_text: 'font-bold',
     form: 'p-8 border border-solid mb-5 rounded-lg max-sm:p-5',
     form_group: 'mb-8 gap-3 flex flex-col',

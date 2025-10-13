@@ -18,9 +18,7 @@ export default function Index() {
     /**
      * Instance of Vault state
      */
-    const VaultPasswords = useSelector(
-        (state: StoreState) => state.vault._d?.passwords,
-    );
+    const VaultPasswords = useSelector((state: StoreState) => state.vault._d?.passwords);
     /**
      * Instance of navigate hook
      */
@@ -33,8 +31,7 @@ export default function Index() {
         /**
          * Try to get password with the uuid
          */
-        const password =
-            VaultPasswords![VaultPasswords!.findIndex((i) => i.id === uuid)];
+        const password = VaultPasswords![VaultPasswords!.findIndex((i) => i.id === uuid)];
         /**
          * Verify if the uuid and password exist
          */
@@ -52,13 +49,5 @@ export default function Index() {
     /**
      * Render Password Form with the data
      */
-    return (
-        data && (
-            <PasswordForm
-                type='edit'
-                default={data as VaultInterface.Form.Password}
-                password_id={uuid}
-            />
-        )
-    );
+    return data && <PasswordForm type='edit' default={data as VaultInterface.Form.Password} password_id={uuid} />;
 }

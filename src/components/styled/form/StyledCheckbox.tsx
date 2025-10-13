@@ -48,9 +48,7 @@ export default function StyledCheckbox({
             </div>
             <div>
                 <div className='text-foreground text-sm'>{title}</div>
-                {subtitle && subtitle.length > 0 && (
-                    <div className='text-foreground/50 text-sm'>{subtitle}</div>
-                )}
+                {subtitle && subtitle.length > 0 && <div className='text-foreground/50 text-sm'>{subtitle}</div>}
             </div>
         </div>
     );

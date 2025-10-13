@@ -90,47 +90,26 @@ export default function TagsList(props: PropsComponent): ReactElement {
                                     transform: `translateY(${virtualRow.start}px)`,
                                 }}
                                 data-index={'T-' + virtualRow.index}
-                                onClick={() =>
-                                    navigate(
-                                        `/vault/passwords?tag_id=${item.id}`,
-                                    )
-                                }
+                                onClick={() => navigate(`/vault/passwords?tag_id=${item.id}`)}
                             >
                                 <div className={ListCN.list_item_content}>
                                     <div className={ListCN.favicon_container}>
                                         <div
-                                            className={clsx([
-                                                ListCN.favicon,
-                                                CN.tag_favicon,
-                                            ])}
+                                            className={clsx([ListCN.favicon, CN.tag_favicon])}
                                             style={{
                                                 backgroundColor: item.color,
                                             }}
                                         />
                                     </div>
                                     <div className={ListCN.text_container}>
-                                        <div className={ListCN.title}>
-                                            {item.title}
-                                        </div>
+                                        <div className={ListCN.title}>{item.title}</div>
                                     </div>
                                 </div>
-                                <button
-                                    type='button'
-                                    className={ListCN.actions}
-                                    onClick={(e) => e.stopPropagation()}
-                                >
-                                    <ActionButton
-                                        onClick={() =>
-                                            navigate(
-                                                `/vault/tags/${item.id}/edit`,
-                                            )
-                                        }
-                                    >
+                                <button type='button' className={ListCN.actions} onClick={(e) => e.stopPropagation()}>
+                                    <ActionButton onClick={() => navigate(`/vault/tags/${item.id}/edit`)}>
                                         <TbEdit size={18} />
                                     </ActionButton>
-                                    <ActionButton
-                                        onClick={() => handleDeleteTag(item.id)}
-                                    >
+                                    <ActionButton onClick={() => handleDeleteTag(item.id)}>
                                         <TbTrash size={18} />
                                     </ActionButton>
                                 </button>

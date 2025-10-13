@@ -30,19 +30,14 @@ class CommonUtils {
          * Fill the rest of the password length with random characters
          */
         for (let i = passwordArray.length; i < length; i++) {
-            passwordArray.push(
-                allChars[Math.floor(Math.random() * allChars.length)],
-            );
+            passwordArray.push(allChars[Math.floor(Math.random() * allChars.length)]);
         }
         /**
          *  Shuffle the password using Fisher-Yates algorithm (https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle)
          */
         for (let i = passwordArray.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
-            [passwordArray[i], passwordArray[j]] = [
-                passwordArray[j],
-                passwordArray[i],
-            ];
+            [passwordArray[i], passwordArray[j]] = [passwordArray[j], passwordArray[i]];
         }
 
         return passwordArray.join('');
@@ -73,10 +68,7 @@ class CommonUtils {
     /**
      * Return a custom avatar icon or website favicon
      */
-    public static getWebsiteFavicon(item: {
-        url?: string;
-        title: string;
-    }): string {
+    public static getWebsiteFavicon(item: { url?: string; title: string }): string {
         if (item.url && item.url.length > 0) {
             /**
              * Return the favicon URL if the item has a valid URL
@@ -110,9 +102,7 @@ class CommonUtils {
     /**
      * Generate VaultIcon with defined seed
      */
-    public static VaultIcon(
-        VaultLogo: VaultInterface.Data['logo'],
-    ): string | null {
+    public static VaultIcon(VaultLogo: VaultInterface.Data['logo']): string | null {
         /**
          * Generate the vault icon based on a seed
          */

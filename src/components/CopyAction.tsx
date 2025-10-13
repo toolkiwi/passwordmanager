@@ -3,13 +3,7 @@ import ActionButton from './styled/ActionButton';
 import { TbCheck, TbCopy } from 'react-icons/tb';
 import { useTranslation } from 'react-i18next';
 
-export default function CopyAction({
-    value,
-    tooltip,
-}: {
-    value: string;
-    tooltip?: string;
-}) {
+export default function CopyAction({ value, tooltip }: { value: string; tooltip?: string }) {
     /**
      * Coppied state;
      */
@@ -33,8 +27,7 @@ export default function CopyAction({
             /**
              * Old browser method alternative for clipboard
              */
-            const textarea: HTMLTextAreaElement =
-                document.createElement('textarea');
+            const textarea: HTMLTextAreaElement = document.createElement('textarea');
             textarea.value = value;
             document.body.appendChild(textarea);
             textarea.select();
@@ -81,11 +74,7 @@ export default function CopyAction({
             onClick={() => handleCopy()}
             variant={coppied ? 'success' : 'default'}
             tooltip={{
-                content: coppied
-                    ? t('common:copied')
-                    : tooltip
-                      ? tooltip
-                      : t('common:copy'),
+                content: coppied ? t('common:copied') : tooltip ? tooltip : t('common:copy'),
             }}
         >
             {coppied ? <TbCheck size={18} /> : <TbCopy size={18} />}

@@ -51,12 +51,7 @@ export default function DashboardLayout(): ReactElement | null {
     return (
         <main className='relative h-full w-full flex flex-row items-start overflow-auto bg-muted/30 max-sm:bg-background max-sm:p-0'>
             <SidebarNav />
-            <section
-                className={clsx(
-                    'overflow-hidden p-3 w-full h-full relative',
-                    'max-sm:p-0',
-                )}
-            >
+            <section className={clsx('overflow-hidden p-3 w-full h-full relative', 'max-sm:p-0')}>
                 <div
                     className={clsx(
                         'relative h-full w-full bg-foreground/3 rounded-2xl',

@@ -16,18 +16,11 @@ interface PropsComponentInteface {
     goBack?: boolean;
 }
 
-export default function PageHead({
-    title,
-    beforeTitle,
-    afterTitle,
-    goBack,
-}: PropsComponentInteface) {
+export default function PageHead({ title, beforeTitle, afterTitle, goBack }: PropsComponentInteface) {
     /**
      * Get sidebar state from temp
      */
-    const SidebarState = useSelector(
-        (state: StoreState) => state.temp.show_sidebar,
-    );
+    const SidebarState = useSelector((state: StoreState) => state.temp.show_sidebar);
     /**
      * Instance useIsMobile hook
      */

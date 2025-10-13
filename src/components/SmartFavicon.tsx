@@ -15,12 +15,7 @@ type SmartFaviconProps = {
  * SmartFavicon component tries to load the favicon from a given URL
  * If it detects a generic 16x16 favicon, it falls back to a version based on the title only
  */
-export default function SmartFavicon({
-    title,
-    url,
-    size = 32,
-    className,
-}: SmartFaviconProps): ReactElement | null {
+export default function SmartFavicon({ title, url, size = 32, className }: SmartFaviconProps): ReactElement | null {
     const [src, setSrc] = useState<string | null>(null);
     const imgRef = useRef<HTMLImageElement | null>(null);
 

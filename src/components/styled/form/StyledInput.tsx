@@ -16,11 +16,7 @@ interface ComponentProps {
 export default function StyledInput(props: ComponentProps): ReactElement {
     return (
         <div className={`${CN.wrapper} ${props.wrapperClassName}`}>
-            <input
-                ref={props.inputRef}
-                {...props.input}
-                className={`${CN.input} ${props.input.className}`}
-            />
+            <input ref={props.inputRef} {...props.input} className={`${CN.input} ${props.input.className}`} />
             {props.rightElement && props.rightElement}
         </div>
     );

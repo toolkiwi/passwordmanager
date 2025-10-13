@@ -9,8 +9,7 @@ const VaultChangeMiddleware: Middleware = (store) => {
     /**
      * Store the previous state of the vault to detect changes
      */
-    let previousVaultState: VaultInterface.State | null =
-        store.getState().vault;
+    let previousVaultState: VaultInterface.State | null = store.getState().vault;
 
     return (next) => (action) => {
         /**
@@ -24,15 +23,12 @@ const VaultChangeMiddleware: Middleware = (store) => {
         /**
          * Get the current state of the vault
          */
-        const currentVaultState: VaultInterface.State | null =
-            store.getState().vault;
+        const currentVaultState: VaultInterface.State | null = store.getState().vault;
         /**
          *  Check if the vault state has changed, excluding the '_d' property
          */
         const hasVaultChanged =
-            currentVaultState?._d !== null
-            && JSON.stringify(previousVaultState)
-                !== JSON.stringify(currentVaultState);
+            currentVaultState?._d !== null && JSON.stringify(previousVaultState) !== JSON.stringify(currentVaultState);
 
         if (hasVaultChanged) {
             /**

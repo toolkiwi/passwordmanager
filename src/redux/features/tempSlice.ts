@@ -11,10 +11,7 @@ export const tempSlice = createSlice({
     name: 'temp',
     initialState,
     reducers: {
-        setShowSidebar: (
-            state: StateInterface,
-            action: PayloadAction<StateInterface['show_sidebar']>,
-        ) => {
+        setShowSidebar: (state: StateInterface, action: PayloadAction<StateInterface['show_sidebar']>) => {
             state.show_sidebar = action.payload;
         },
     },

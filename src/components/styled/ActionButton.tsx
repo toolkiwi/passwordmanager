@@ -33,11 +33,7 @@ export default function ActionButton({
             data-tooltip-place={tooltip?.place}
             className={wrapperClassName}
         >
-            <div
-                role='button'
-                className={`${CN.button} ${CN.variants[variant]} ${className}`}
-                onClick={onClick}
-            >
+            <div role='button' className={`${CN.button} ${CN.variants[variant]} ${className}`} onClick={onClick}>
                 {children}
             </div>
         </div>
@@ -47,8 +43,7 @@ export default function ActionButton({
 const CN = {
     button: 'w-10 h-10 border flex items-center active:outline-3 outline-white/15 justify-center rounded-md group/copy relative cursor-pointer',
     variants: {
-        default:
-            'dark:text-neutral-700 hover:bg-foreground/10 hover:border-foreground/5! hover:text-foreground/80!',
+        default: 'dark:text-neutral-700 hover:bg-foreground/10 hover:border-foreground/5! hover:text-foreground/80!',
         success: 'bg-neutral-800 hover:border-foreground/5! text-foreground',
         danger: 'border-red-600 text-red-600 hover:bg-red-600 hover:border-red-500 hover:text-foreground!',
     },

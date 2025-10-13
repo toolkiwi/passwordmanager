@@ -18,10 +18,7 @@ export const vaultSlice = createSlice({
     name: 'vault',
     initialState,
     reducers: {
-        createVault: (
-            state: VaultInterface.State | null,
-            action: PayloadAction<{ title: string; master: string }>,
-        ) => {
+        createVault: (state: VaultInterface.State | null, action: PayloadAction<{ title: string; master: string }>) => {
             state = {
                 _d: {
                     name: action.payload.title,
@@ -37,17 +34,11 @@ export const vaultSlice = createSlice({
             };
             return state;
         },
-        setVault: (
-            state: VaultInterface.State | null,
-            action: PayloadAction<VaultInterface.State>,
-        ) => {
+        setVault: (state: VaultInterface.State | null, action: PayloadAction<VaultInterface.State>) => {
             state = action.payload;
             return state;
         },
-        setVaultData: (
-            state: VaultInterface.State | null,
-            action: PayloadAction<VaultInterface.State['_d']>,
-        ) => {
+        setVaultData: (state: VaultInterface.State | null, action: PayloadAction<VaultInterface.State['_d']>) => {
             if (!state) return;
             state._d = action.payload;
             return state;
@@ -56,10 +47,7 @@ export const vaultSlice = createSlice({
             state = initialState;
             return state;
         },
-        addPassword: (
-            state: VaultInterface.State | null,
-            action: PayloadAction<VaultInterface.Form.Password>,
-        ) => {
+        addPassword: (state: VaultInterface.State | null, action: PayloadAction<VaultInterface.Form.Password>) => {
             if (!state) return;
 
             const payload: VaultInterface.Password = {
@@ -82,9 +70,7 @@ export const vaultSlice = createSlice({
             /**
              * Get the password index
              */
-            const index: number | undefined = state?._d?.passwords.findIndex(
-                (e) => e.id === action.payload.id,
-            );
+            const index: number | undefined = state?._d?.passwords.findIndex((e) => e.id === action.payload.id);
             /**
              * If not exist return;
              */
@@ -98,15 +84,10 @@ export const vaultSlice = createSlice({
 
             return state;
         },
-        deletePassword: (
-            state: VaultInterface.State | null,
-            action: PayloadAction<VaultInterface.Password>,
-        ) => {
+        deletePassword: (state: VaultInterface.State | null, action: PayloadAction<VaultInterface.Password>) => {
             if (!state || !state._d) return;
 
-            const index = state._d.passwords.findIndex(
-                (e) => e.id === action.payload.id,
-            );
+            const index = state._d.passwords.findIndex((e) => e.id === action.payload.id);
 
             if (index !== -1) {
                 state._d.passwords.splice(index, 1);
@@ -118,15 +99,10 @@ export const vaultSlice = createSlice({
 
             return state;
         },
-        trashRestorePassword: (
-            state: VaultInterface.State | null,
-            action: PayloadAction<VaultInterface.Password>,
-        ) => {
+        trashRestorePassword: (state: VaultInterface.State | null, action: PayloadAction<VaultInterface.Password>) => {
             if (!state || !state._d) return;
 
-            const index = state._d.trash.findIndex(
-                (e) => e.id === action.payload.id,
-            );
+            const index = state._d.trash.findIndex((e) => e.id === action.payload.id);
 
             if (index !== -1) {
                 state._d.trash.splice(index, 1);
@@ -143,10 +119,7 @@ export const vaultSlice = createSlice({
             state._d.trash = [];
             return state;
         },
-        addTag: (
-            state: VaultInterface.State | null,
-            action: PayloadAction<VaultInterface.Form.Tag>,
-        ) => {
+        addTag: (state: VaultInterface.State | null, action: PayloadAction<VaultInterface.Form.Tag>) => {
             if (!state?._d || !action.payload.title) return;
             /**
              * Create the tags array in state if it doesn't exist yet
@@ -179,9 +152,7 @@ export const vaultSlice = createSlice({
             /**
              * Get the tag index
              */
-            const index: number | undefined = state?._d?.tags.findIndex(
-                (e) => e.id === action.payload.id,
-            );
+            const index: number | undefined = state?._d?.tags.findIndex((e) => e.id === action.payload.id);
             /**
              * If not exist return;
              */
@@ -195,15 +166,10 @@ export const vaultSlice = createSlice({
 
             return state;
         },
-        deleteTag: (
-            state: VaultInterface.State | null,
-            action: PayloadAction<VaultInterface.Tag['id']>,
-        ) => {
+        deleteTag: (state: VaultInterface.State | null, action: PayloadAction<VaultInterface.Tag['id']>) => {
             if (!state || !state._d || !state._d.tags) return;
 
-            const index = state._d.tags.findIndex(
-                (e) => e.id === action.payload,
-            );
+            const index = state._d.tags.findIndex((e) => e.id === action.payload);
 
             if (index !== -1) {
                 /**
