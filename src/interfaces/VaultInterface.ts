@@ -5,6 +5,8 @@ export namespace VaultInterface {
     export interface State {
         _d: Data | null;
         _v: number | null;
+        _unsaved: boolean;
+        _cipher?: string | null;
     }
     /**
      * Interface for the data inside the vault state

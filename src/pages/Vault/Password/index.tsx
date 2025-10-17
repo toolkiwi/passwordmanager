@@ -1,7 +1,7 @@
 import { StoreDispatch, type StoreState } from '@/redux/StoreRedux';
 import { useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router';
-import { type ReactElement, useEffect, useState, useCallback } from 'react';
+import { type ReactElement, useEffect, useState, useCallback, Fragment } from 'react';
 import PageHead from '@/components/PageHead';
 import CommonUtils from '@/utils/commonUtils';
 import RenderField from './__partials/RenderField';
@@ -136,7 +136,7 @@ export default function Index(): ReactElement | null {
         /**
          * Try to get password with the uuid;
          */
-        const password = VaultPasswords![VaultPasswords!.findIndex((i) => i.id === uuid)];
+        const password = VaultPasswords ? VaultPasswords![VaultPasswords!.findIndex((i) => i.id === uuid)] : undefined;
         /**
          * Verify if the uuid and password exist;
          */
@@ -146,13 +146,11 @@ export default function Index(): ReactElement | null {
              * Set document title
              */
             CommonUtils.DocumentTitle(password.title);
-        } else {
-            navigate(-1);
         }
-    }, [uuid, VaultPasswords, navigate]);
+    }, [uuid, VaultPasswords]);
 
     if (!password) {
-        return null;
+        return <Fragment />;
     }
 
     /**

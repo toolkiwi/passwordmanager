@@ -239,5 +239,5 @@ const CN = {
     tag: 'w-4 h-4 rounded-full border-3 border-black transition-all hover:scale-120',
     item_title: 'text-sm text-foreground/30 font-semibold truncate',
     code_container: 'flex items-center',
-    totp_code: 'font-bold text-3xl text-foreground',
+    totp_code: 'font-bold text-2xl text-foreground',
 };

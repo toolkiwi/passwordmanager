@@ -7,6 +7,7 @@ import ConsoleCommandUtils from '@/utils/consoleCommandUtils';
 import { Tooltip } from 'react-tooltip';
 import useIsMobile from '@/hooks/useIsMobile';
 import clsx from 'clsx';
+import UnlockVaultScreen from '@/components/UnlockVaultScreen';
 
 /**
  * Provides the main dashboard structure including sidebar navigation
@@ -83,6 +84,7 @@ export default function DashboardLayout(): ReactElement | null {
                 style={{ borderRadius: 8, zIndex: 10000 }}
                 delayShow={400}
             />
+            {!Vault?._d?.master && <UnlockVaultScreen />}
         </main>
     );
 }

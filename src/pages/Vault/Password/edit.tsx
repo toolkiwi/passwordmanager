@@ -1,8 +1,8 @@
 import PasswordForm from '@/components/PasswordForm';
 import { useSelector } from 'react-redux';
-import { useNavigate, useParams } from 'react-router';
+import { useParams } from 'react-router';
 import type { StoreState } from '@/redux/StoreRedux';
-import { useEffect, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import { VaultInterface } from '@/interfaces/VaultInterface';
 import CommonUtils from '@/utils/commonUtils';
 
@@ -19,10 +19,6 @@ export default function Index() {
      * Instance of Vault state
      */
     const VaultPasswords = useSelector((state: StoreState) => state.vault._d?.passwords);
-    /**
-     * Instance of navigate hook
-     */
-    const navigate = useNavigate();
 
     /**
      * On mount
@@ -31,7 +27,7 @@ export default function Index() {
         /**
          * Try to get password with the uuid
          */
-        const password = VaultPasswords![VaultPasswords!.findIndex((i) => i.id === uuid)];
+        const password = VaultPasswords ? VaultPasswords![VaultPasswords!.findIndex((i) => i.id === uuid)] : undefined;
         /**
          * Verify if the uuid and password exist
          */
@@ -41,10 +37,12 @@ export default function Index() {
              * Set document title
              */
             CommonUtils.DocumentTitle(password.title);
-        } else {
-            navigate(-1);
         }
-    }, []);
+    }, [VaultPasswords]);
+
+    if (!data) {
+        return <Fragment />;
+    }
 
     /**
      * Render Password Form with the data

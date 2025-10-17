@@ -34,5 +34,8 @@
     "tag": "タグ",
     "choose_tag": "タグを選択",
     "no_tag": "タグなし",
-    "tag_not_found": "タグが見つかりません"
+    "tag_not_found": "タグが見つかりません",
+    "exit_when_vault_ciphered_confirm": "この保管庫は暗号化されています。エクスポートせずに終了すると、保存されていないデータはすべて失われます。本当に終了しますか？",
+    "leave": "退出",
+    "vault_ciphered_message": "この保管庫は暗号化されています。開くにはマスターパスワードを入力してください。"
 }

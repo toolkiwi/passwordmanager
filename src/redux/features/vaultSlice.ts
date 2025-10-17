@@ -9,6 +9,7 @@ import { getRandomTagColor } from '@/constants/TagColors';
 const initialState: VaultInterface.State = {
     _d: null,
     _v: null,
+    _unsaved: false,
 };
 
 /**
@@ -31,6 +32,7 @@ export const vaultSlice = createSlice({
                     created_at: new Date().getTime() / 1000,
                 },
                 _v: 1,
+                _unsaved: false,
             };
             return state;
         },
@@ -188,6 +190,11 @@ export const vaultSlice = createSlice({
 
             return state;
         },
+        setUnsaved: (state: VaultInterface.State | null, action: PayloadAction<boolean>) => {
+            if (!state || !state._d) return;
+            state._unsaved = action.payload;
+            return state;
+        },
     },
 });
 
@@ -207,6 +214,7 @@ export const {
     addTag,
     setTag,
     deleteTag,
+    setUnsaved,
 } = vaultSlice.actions;
 /**
  * Export reducer

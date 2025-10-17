@@ -4,9 +4,12 @@ import vaultReducer from './features/vaultSlice';
 import appReducer from './features/appSlice';
 import tempReducer from './features/tempSlice';
 import VaultChangeMiddleware from './middlewares/VaultChangeMiddleware';
+import VaultEncryptTransform from './transformers/vaultEncryptTransform';
 
 // @ts-expect-error : No types found for this lib
 import storage from 'redux-persist-indexeddb-storage';
+
+export type RootState = ReturnType<typeof rootReducer>;
 
 /**
  * Reducers
@@ -24,12 +27,13 @@ const persistConfig = {
     key: 'root',
     storage: storage('ptk'),
     blacklist: ['temp'],
+    transforms: [VaultEncryptTransform],
 };
 
 /**
- * Combine reducers
+ * Persisted reducer
  */
-const persistedReducer = persistReducer(persistConfig, rootReducer);
+const persistedReducer = persistReducer(persistConfig, rootReducer as never);
 
 /**
  * Store Redux
@@ -45,14 +49,13 @@ const StoreRedux = configureStore({
 /**
  * Types
  */
-export type StoreState = ReturnType<typeof StoreRedux.getState>;
+export type StoreState = RootState;
 export type StoreDispatch = typeof StoreRedux.dispatch;
 
 /**
  * Persistor
  */
 export const StorePersistor = persistStore(StoreRedux);
-
 /**
  * Export
  */

@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
-import { useNavigate, useParams } from 'react-router';
+import { useParams } from 'react-router';
 import type { StoreState } from '@/redux/StoreRedux';
-import { useEffect, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import { VaultInterface } from '@/interfaces/VaultInterface';
 import CommonUtils from '@/utils/commonUtils';
 import TagForm from '@/components/tags/TagForm';
@@ -19,10 +19,6 @@ export default function Index() {
      * Instance of Vault state
      */
     const VaultTags = useSelector((state: StoreState) => state.vault._d?.tags);
-    /**
-     * Instance of navigate hook
-     */
-    const navigate = useNavigate();
 
     /**
      * On mount
@@ -31,7 +27,7 @@ export default function Index() {
         /**
          * Try to get tag with the uuid
          */
-        const tag = VaultTags![VaultTags!.findIndex((i) => i.id === uuid)];
+        const tag = VaultTags ? VaultTags![VaultTags!.findIndex((i) => i.id === uuid)] : undefined;
         /**
          * Verify if the uuid and tag exist
          */
@@ -41,11 +37,12 @@ export default function Index() {
              * Set document title
              */
             CommonUtils.DocumentTitle(tag.title);
-        } else {
-            navigate(-1);
         }
-    }, []);
+    }, [VaultTags]);
 
+    if (!data) {
+        return <Fragment />;
+    }
     /**
      * Render tag Form with the data
      */

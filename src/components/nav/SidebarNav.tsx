@@ -6,8 +6,8 @@ import { LuKeyRound, LuLock, LuLogOut, LuSave, LuTags, LuTrash2 } from 'react-ic
 import clsx from 'clsx';
 
 import type { StoreDispatch, StoreState } from '@/redux/StoreRedux';
-import { resetVault } from '@/redux/features/vaultSlice';
-import { setUnlocked, setUnsaved } from '@/redux/features/appSlice';
+import { resetVault, setUnsaved } from '@/redux/features/vaultSlice';
+import { setUnlocked } from '@/redux/features/appSlice';
 import { setShowSidebar } from '@/redux/features/tempSlice';
 import useIsMobile from '@/hooks/useIsMobile';
 import CommonUtils from '@/utils/commonUtils';
@@ -46,11 +46,6 @@ export default function SidebarNav() {
      * Instance of Vault state
      */
     const Vault = useSelector((state: StoreState) => state.vault);
-
-    /**
-     * Instance of App state
-     */
-    const App = useSelector((state: StoreState) => state.app);
 
     /**
      * Instance of Temp state
@@ -96,12 +91,11 @@ export default function SidebarNav() {
          * Prompt the user to save the vault if it has unsaved changes
          * If already saved, simply exit
          */
-        const shouldConfirm = App.unsaved ? window.confirm(t('common:logout_vault_unsaved')) : true;
+        const shouldConfirm = Vault._unsaved ? window.confirm(t('common:logout_vault_unsaved')) : true;
 
         if (!shouldConfirm) return;
 
         dispatch(resetVault());
-        dispatch(setUnsaved(false));
         dispatch(setUnlocked(false));
     };
 
@@ -136,6 +130,9 @@ export default function SidebarNav() {
         dispatch(setUnsaved(false));
     };
 
+    /**
+     * Effect to handle screen resizing for compact mode
+     */
     useEffect(() => {
         const handleResize = () => {
             setIsCompact(!isMobile && window.innerWidth <= 900);
@@ -222,10 +219,13 @@ export default function SidebarNav() {
         </div>
     );
 
+    /**
+     * Render vault save section
+     */
     const RenderVaultSave = () => {
         return (
             <div className='flex flex-row items-center py-5 justify-center px-5'>
-                {App.unsaved && !isCompact && (
+                {Vault._unsaved && !isCompact && (
                     <div
                         className={CN.unsaved_button}
                         data-tooltip-id='default-tooltip'

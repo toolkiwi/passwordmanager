@@ -34,5 +34,8 @@
     "tag": "Tag",
     "choose_tag": "Choose a tag",
     "no_tag": "No tag",
-    "tag_not_found": "Tag not found"
+    "tag_not_found": "Tag not found",
+    "exit_when_vault_ciphered_confirm": "This vault is encrypted. If you leave without exporting it, you will lose any unsaved data. Do you really want to leave?",
+    "leave": "Leave",
+    "vault_ciphered_message": "This vault is encrypted. Enter the master password to open it."
 }
