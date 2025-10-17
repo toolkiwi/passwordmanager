@@ -256,8 +256,8 @@ const CN = {
     buttonGroup: 'flex flex-row items-center justify-center gap-2 z-10',
     button: 'p-3 hover:text-foreground h-[50px]',
     iconButton: 'hover:text-foreground h-[50px] w-[50px] flex items-center justify-center',
-    contentContainer: 'p-8 flex flex-col relative flex-1',
-    contentWrapper: 'flex-1 flex flex-col gap-10',
+    contentContainer: 'p-8 relative flex-1',
+    contentWrapper: 'flex-1 flex flex-col gap-10 ',
     footer: 'mt-5 flex flex-row items-center gap-5 p-5 border-t ',
     buttonFlex: 'flex-1 p-3',
 };

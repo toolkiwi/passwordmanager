@@ -3,7 +3,7 @@
  */
 export default {
     form: 'w-full h-full flex flex-col flex-1',
-    input_group: 'flex flex-col gap-2',
+    input_group: 'flex flex-col gap-2 flex-1',
     container: 'p-5 flex flex-col gap-5',
     favicon_container:
         'relative w-12 h-12 flex items-center justify-center bg-muted/10 p-2 border-1 rounded-lg max-sm:w-10 max-sm:h-10',
