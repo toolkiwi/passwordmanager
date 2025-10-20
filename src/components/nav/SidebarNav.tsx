@@ -209,7 +209,7 @@ export default function SidebarNav() {
         <div className={isCompact ? CN.listItemBottomCompact : CN.listItemBottom}>
             <button
                 type='button'
-                className={clsx(isCompact ? CN.listItemCompact : CN.listItem, 'border border-neutral-900')}
+                className={clsx(isCompact ? CN.listItemCompact : CN.listItem, 'border border-neutral-800')}
                 onClick={handleLogout}
                 {...getTooltipProps(t('common:close_vault'))}
             >
@@ -224,7 +224,7 @@ export default function SidebarNav() {
      */
     const RenderVaultSave = () => {
         return (
-            <div className='flex flex-row items-center py-5 justify-center px-5'>
+            <div className='flex flex-row items-center justify-center px-5'>
                 {Vault._unsaved && !isCompact && (
                     <div
                         className={CN.unsaved_button}
@@ -289,6 +289,7 @@ export default function SidebarNav() {
                 {RenderVaultHeader()}
                 {RenderNavItems()}
                 <RenderVaultSave />
+                <div className={clsx('w-[80%] h-[1px] bg-neutral-900 my-8 m-auto', isMobile && 'bg-neutral-800!')} />
                 {RenderLogoutButton()}
                 {RenderFooter()}
             </nav>
