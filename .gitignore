@@ -37,3 +37,6 @@ build/
 *.bak
 *.sw?
 
+.DS_Store
+Dockerfile
+nginx.conf
