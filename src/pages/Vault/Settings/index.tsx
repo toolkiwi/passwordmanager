@@ -184,7 +184,7 @@ export default function Index() {
                 </div>
                 <div className={CN.contentContainer}>
                     <div className={CN.contentWrapper}>
-                        <div className={FormCN.input_group}>
+                        <div className={CN.input_group}>
                             <label className={FormCN.label}>{t('common:vault_title')}</label>
                             <p className={FormCN.sub_label}>{t('page:settings.vault_title_desc')}</p>
                             <StyledInput
@@ -196,7 +196,7 @@ export default function Index() {
                                 }}
                             />
                         </div>
-                        <div className={FormCN.input_group}>
+                        <div className={CN.input_group}>
                             <label className={FormCN.label}>{t('common:password_master')}</label>
                             <p className={FormCN.sub_label}>{t('page:settings.password_master_desc')}</p>
                             <StyledInput
@@ -260,4 +260,5 @@ const CN = {
     contentWrapper: 'flex-1 flex flex-col gap-10 ',
     footer: 'mt-5 flex flex-row items-center gap-5 p-5 border-t ',
     buttonFlex: 'flex-1 p-3',
+    input_group: 'flex flex-col gap-2 flex-1',
 };
