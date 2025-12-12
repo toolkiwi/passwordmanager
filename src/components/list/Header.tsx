@@ -69,7 +69,7 @@ export default function ListHeader({ onSearch, onFilterTag, filterTag, settings,
                 )
             );
         }
-    }, [Vault]);
+    }, [Vault, onFilterTag, filterTag]);
 
     /**
      * Render Header
