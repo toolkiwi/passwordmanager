@@ -37,5 +37,6 @@
     "tag_not_found": "Kein Etikett gefunden",
     "exit_when_vault_ciphered_confirm": "Dieser Tresor ist verschlüsselt. Wenn Sie ihn verlassen, ohne ihn exportiert zu haben, gehen alle nicht gespeicherten Daten verloren. Möchten Sie wirklich fortfahren?",
     "leave": "Beenden",
-    "vault_ciphered_message": "Dieser Tresor ist verschlüsselt. Bitte geben Sie das Master-Passwort ein, um ihn zu öffnen."
+    "vault_ciphered_message": "Dieser Tresor ist verschlüsselt. Bitte geben Sie das Master-Passwort ein, um ihn zu öffnen.",
+    "feedback": "Hilf uns besser zu werden!"
 }

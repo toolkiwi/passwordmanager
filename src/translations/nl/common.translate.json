@@ -38,5 +38,6 @@
     "tag_not_found": "Label niet gevonden",
     "exit_when_vault_ciphered_confirm": "Deze kluis is versleuteld. Als u deze verlaat zonder te exporteren, verliest u alle niet-opgeslagen gegevens. Wilt u echt verlaten?",
     "leave": "Verlaten",
-    "vault_ciphered_message": "Deze kluis is versleuteld. Voer het hoofdwachtwoord in om deze te openen."
+    "vault_ciphered_message": "Deze kluis is versleuteld. Voer het hoofdwachtwoord in om deze te openen.",
+    "feedback": "Help ons beter te worden!"
 }

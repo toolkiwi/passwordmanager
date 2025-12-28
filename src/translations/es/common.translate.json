@@ -37,5 +37,6 @@
     "tag_not_found": "Etiqueta no encontrada",
     "exit_when_vault_ciphered_confirm": "Esta bóveda está cifrada. Si sales sin exportarla, perderás cualquier dato no guardado. ¿Realmente quieres salir?",
     "leave": "Salir",
-    "vault_ciphered_message": "Esta bóveda está cifrada. Introduce la contraseña maestra para abrirla."
+    "vault_ciphered_message": "Esta bóveda está cifrada. Introduce la contraseña maestra para abrirla.",
+    "feedback": "¡Ayúdanos a mejorar!"
 }

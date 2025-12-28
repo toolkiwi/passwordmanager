@@ -37,5 +37,6 @@
     "tag_not_found": "未找到标签",
     "exit_when_vault_ciphered_confirm": "此保险库已加密。如果在未导出情况下退出，您将丢失所有未保存的数据。确定要退出吗？",
     "leave": "退出",
-    "vault_ciphered_message": "此保险库已加密。请输入主密码以打开。"
+    "vault_ciphered_message": "此保险库已加密。请输入主密码以打开。",
+    "feedback": "帮助我们改进！"
 }

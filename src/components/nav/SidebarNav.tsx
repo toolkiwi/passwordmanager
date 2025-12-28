@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useNavigate } from 'react-router';
 import { useTranslation } from 'react-i18next';
-import { LuKeyRound, LuLock, LuLogOut, LuSave, LuTags, LuTrash2 } from 'react-icons/lu';
+import { LuKeyRound, LuLock, LuLogOut, LuSave, LuTags, LuTrash2, LuLifeBuoy } from 'react-icons/lu';
 import clsx from 'clsx';
 
 import type { StoreDispatch, StoreState } from '@/redux/StoreRedux';
@@ -10,6 +10,7 @@ import { resetVault, setUnsaved } from '@/redux/features/vaultSlice';
 import { setUnlocked } from '@/redux/features/appSlice';
 import { setShowSidebar } from '@/redux/features/tempSlice';
 import useIsMobile from '@/hooks/useIsMobile';
+import useOnlineStatus from '@/hooks/useOnlineStatus';
 import CommonUtils from '@/utils/commonUtils';
 import StyledButton from '../styled/StyledButton';
 import FileUtils from '@/utils/fileUtils';
@@ -71,6 +72,11 @@ export default function SidebarNav() {
      * Instance useIsMobile hook
      */
     const isMobile = useIsMobile();
+
+    /**
+     * Instance useOnlineStatus hook
+     */
+    const isOnline = useOnlineStatus();
 
     /**
      * State to track if screen is below 900px (but not mobile)
@@ -179,6 +185,36 @@ export default function SidebarNav() {
             </div>
         </div>
     );
+    /**
+     * Render feedback button
+     */
+    const RenderFeedbackButton = () => {
+        if (!isOnline) return null;
+
+        return (
+            <a
+                href='https://bit.ly/4q7dUQL'
+                target='_blank'
+                rel='noopener noreferrer'
+                className={clsx(isCompact ? CN.listItemCompact : CN.listItem)}
+                {...getTooltipProps(t('common:feedback'))}
+                onClick={() => dispatch(setShowSidebar(false))}
+            >
+                <LuLifeBuoy
+                    className={clsx(
+                        CN.listItemIcon,
+                        isCompact ? 'text-emerald-500!' : 'text-emerald-700! group-hover:text-emerald-500!',
+                    )}
+                    size={17}
+                />
+                {!isCompact && (
+                    <span className='truncate text-emerald-700 group-hover:text-emerald-500'>
+                        {t('common:feedback')}
+                    </span>
+                )}
+            </a>
+        );
+    };
 
     /**
      * Render navigation items
@@ -199,6 +235,7 @@ export default function SidebarNav() {
                     {!isCompact && <span>{t(translationKey)}</span>}
                 </NavLink>
             ))}
+            <RenderFeedbackButton />
         </div>
     );
 
@@ -250,7 +287,6 @@ export default function SidebarNav() {
             </div>
         );
     };
-
     /**
      * Render footer section
      */
