@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useNavigate } from 'react-router';
 import { useTranslation } from 'react-i18next';
-import { LuKeyRound, LuLock, LuLogOut, LuSave, LuTags, LuTrash2, LuLifeBuoy } from 'react-icons/lu';
+import { LuKeyRound, LuLock, LuLogOut, LuSave, LuTags, LuTrash2, LuHeart } from 'react-icons/lu';
 import clsx from 'clsx';
 
 import type { StoreDispatch, StoreState } from '@/redux/StoreRedux';
@@ -200,15 +200,15 @@ export default function SidebarNav() {
                 {...getTooltipProps(t('common:feedback'))}
                 onClick={() => dispatch(setShowSidebar(false))}
             >
-                <LuLifeBuoy
+                <LuHeart
                     className={clsx(
                         CN.listItemIcon,
-                        isCompact ? 'text-blue-400!' : 'text-blue-500! group-hover:text-blue-400!',
+                        isCompact ? 'text-orange-600!' : 'text-orange-700 group-hover:text-orange-500!',
                     )}
-                    size={17}
+                    size={16}
                 />
                 {!isCompact && (
-                    <span className='truncate text-blue-500 group-hover:text-blue-400'>{t('common:feedback')}</span>
+                    <span className='truncate text-orange-700 group-hover:text-orange-500'>{t('common:feedback')}</span>
                 )}
             </a>
         );
