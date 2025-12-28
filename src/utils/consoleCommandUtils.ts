@@ -12,6 +12,7 @@ class ConsoleCommandUtils {
      * - `GetVaultDetails`: Print vault information
      * - `GetVaultSize`: Get current localStorage usage
      * - `GetVaultPasswords`: Display all password objects
+     * - `ExportVaultJSON`: Export entire decrypted vault as JSON
      */
     public static RegisterVaultInformations(Vault: VaultInterface.State, App: AppInterface.State): void {
         if (!App.unlocked || !Vault._d) return;
@@ -22,6 +23,7 @@ class ConsoleCommandUtils {
         if ('TK_GetVaultDetails' in window) delete window['TK_GetVaultDetails'];
         if ('TK_GetVaultSize' in window) delete window['TK_GetVaultSize'];
         if ('TK_GetVaultPasswords' in window) delete window['TK_GetVaultPasswords'];
+        if ('TK_ExportVaultJSON' in window) delete window['TK_ExportVaultJSON'];
 
         /**
          * Create the `GetVaultDetails` function globally on window
@@ -110,6 +112,40 @@ class ConsoleCommandUtils {
                 }
 
                 console.log('%c---------------------------------------------', 'color: #444;');
+            },
+        });
+
+        /**
+         * Create the `ExportVaultJSON` function globally on window
+         * Exports the entire decrypted vault as JSON
+         */
+        Object.defineProperty(window, 'TK_ExportVaultJSON', {
+            configurable: true,
+            get() {
+                const vaultExport = {
+                    version: Vault._v,
+                    vault: Vault._d,
+                    exportedAt: new Date().toISOString(),
+                };
+
+                console.clear();
+                console.log('%c---------------------------------------------', 'color: #444;');
+                console.log('%c[ Vault JSON Export ]', 'color: #ff6f00; font-weight: bold; font-size: 16px;');
+                console.log(
+                    '%c⚠️  WARNING: This contains your decrypted vault data!',
+                    'color: #ff0000; font-weight: bold;',
+                );
+                console.log('%c---------------------------------------------', 'color: #444;');
+                console.log(vaultExport);
+                console.log('%c---------------------------------------------', 'color: #444;');
+                console.log('%cJSON String:', 'color: #888; font-weight: bold;');
+                console.log(JSON.stringify(vaultExport, null, 2));
+                console.log('%c---------------------------------------------', 'color: #444;');
+
+                /**
+                 * Return the object for direct access if needed
+                 */
+                return vaultExport;
             },
         });
 
