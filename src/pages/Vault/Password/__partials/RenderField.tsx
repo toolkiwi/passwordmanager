@@ -109,6 +109,7 @@ export default function RenderField(props: ComponentProps): ReactElement {
                         className={clsx(CN.field_value, {
                             [CN.field_value_empty]: isValueEmpty,
                             [CN.field_value_note]: props.type === 'note',
+                            truncate: props.type !== 'note',
                         })}
                     >
                         {!isValueEmpty
@@ -144,7 +145,7 @@ const CN = {
     field: 'p-5 border-b flex flex-row items-center relative max-sm:flex-col w-full max-sm:p-4',
     field_main: 'flex-1 flex flex-col gap-1.5 relative w-full',
     field_label: 'text-xs uppercase font-semibold text-neutral-500 truncate!',
-    field_value: 'text-foreground/80 font-semibold flex-1 truncate!',
+    field_value: 'text-foreground/80 font-semibold flex-1',
     field_value_note: 'text-foreground/50 font-normal! italic whitespace-break-spaces text-wrap',
     field_value_empty: 'text-foreground/25! font-normal!',
     field_tag: 'inline-flex flex-row items-center rounded-xl relative w-fit p-1 px-2',
