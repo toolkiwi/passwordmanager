@@ -22,7 +22,10 @@
         "unlock_vault": "解锁保险库",
         "create_the_vault": "创建保险库",
         "create_vault": "创建一个保险库",
-        "rights_reserved": "保留所有权利。"
+        "rights_reserved": "保留所有权利。",
+        "try_demo": "尝试演示保险库",
+        "demo_vault": "演示保险库",
+        "demo_password": "demo"
     },
     "tags": {
         "search_placeholder": "搜索标签...",

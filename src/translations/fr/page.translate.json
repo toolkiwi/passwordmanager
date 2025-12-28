@@ -22,7 +22,10 @@
         "unlock_vault": "Déverrouiller le coffre-fort",
         "create_the_vault": "Créer le coffre-fort",
         "create_vault": "Créer un coffre-fort",
-        "rights_reserved": "Tous droits réservés."
+        "rights_reserved": "Tous droits réservés.",
+        "try_demo": "Essayer un fichier vault de démo",
+        "demo_vault": "Coffre-fort de démonstration",
+        "demo_password": "demo"
     },
     "tags": {
         "search_placeholder": "Rechercher une étiquette...",

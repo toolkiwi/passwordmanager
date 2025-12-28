@@ -14,15 +14,18 @@
     },
     "index": {
         "default_vault_name": "Mein Tresor",
-        "password_manager": "Passwort-Manager",
-        "drag_ciphered_file": "Ziehe deine verschlüsselte Datei mit den Passwörtern hierher",
+        "password_manager": "Passwortmanager",
+        "drag_ciphered_file": "Ziehen Sie Ihre verschlüsselte Datei mit Ihren Passwörtern hierher",
         "or": "oder",
         "browse_files": "Dateien durchsuchen",
-        "enter_master_vault": "Master-Passwort für den Tresor eingeben",
+        "enter_master_vault": "Geben Sie das Masterpasswort des Tresors ein",
         "unlock_vault": "Tresor entsperren",
         "create_the_vault": "Tresor erstellen",
         "create_vault": "Einen Tresor erstellen",
-        "rights_reserved": "Alle Rechte vorbehalten."
+        "rights_reserved": "Alle Rechte vorbehalten.",
+        "try_demo": "Demo-Tresor ausprobieren",
+        "demo_vault": "Demo-Tresor",
+        "demo_password": "demo"
     },
     "tags": {
         "search_placeholder": "Etikett suchen...",

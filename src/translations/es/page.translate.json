@@ -13,16 +13,19 @@
         "password_master_desc": "Cuando tu cofre esté desbloqueado, puedes cambiar tu contraseña maestra en cualquier momento"
     },
     "index": {
-        "default_vault_name": "Mi cofre",
+        "default_vault_name": "Mi bóveda",
         "password_manager": "Gestor de contraseñas",
-        "drag_ciphered_file": "Arrastra tu archivo cifrado que contiene tus contraseñas",
+        "drag_ciphered_file": "Arrastre su archivo cifrado que contiene sus contraseñas",
         "or": "o",
-        "browse_files": "Explorar archivos",
-        "enter_master_vault": "Ingresa la contraseña maestra del cofre",
-        "unlock_vault": "Desbloquear el cofre",
-        "create_the_vault": "Crear el cofre",
-        "create_vault": "Crear un cofre",
-        "rights_reserved": "Todos los derechos reservados."
+        "browse_files": "Examinar archivos",
+        "enter_master_vault": "Ingrese la contraseña maestra de la bóveda",
+        "unlock_vault": "Desbloquear bóveda",
+        "create_the_vault": "Crear la bóveda",
+        "create_vault": "Crear una bóveda",
+        "rights_reserved": "Todos los derechos reservados.",
+        "try_demo": "Probar con bóveda de demostración",
+        "demo_vault": "Bóveda de demostración",
+        "demo_password": "demo"
     },
     "tags": {
         "search_placeholder": "Buscar una etiqueta...",

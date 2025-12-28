@@ -5,6 +5,7 @@ import { setVault } from '@/redux/features/vaultSlice.ts';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router';
 import FileUtils from '@/utils/fileUtils';
+import { DEMO_VAULT } from '@/utils/demoVault';
 import { TbFolderOpen } from 'react-icons/tb';
 import StyledButton from '@/components/styled/StyledButton';
 import StyledInput from '@/components/styled/form/StyledInput';
@@ -111,6 +112,21 @@ export const UnlockVault = () => {
             .catch((e: string) => setError(e));
     };
 
+    /**
+     * Handle demo vault loading
+     */
+    const handleLoadDemoVault = () => {
+        dispatch(setUnlocked(true));
+        dispatch(
+            setVault({
+                _d: DEMO_VAULT.vault,
+                _v: DEMO_VAULT.version,
+                _unsaved: false,
+            }),
+        );
+        navigate('/vault');
+    };
+
     return (
         <Fragment>
             {error && (
@@ -147,6 +163,17 @@ export const UnlockVault = () => {
                         </div>
                     </label>
                     <input type='file' id='ciphered-file' accept='text/ptk' hidden onChange={handleFileChange} />
+                    <div className='mt-8 flex flex-col gap-3'>
+                        <StyledButton
+                            button={{
+                                className: 'p-3 w-full',
+                                onClick: handleLoadDemoVault,
+                            }}
+                            variant='secondary'
+                        >
+                            {t('page:index.try_demo')}
+                        </StyledButton>
+                    </div>
                 </Fragment>
             ) : (
                 <form onSubmit={handleUnlockVault}>

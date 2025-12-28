@@ -13,16 +13,19 @@
         "password_master_desc": "ボールトがロック解除されているときに、マスターパスワードをいつでも変更できます"
     },
     "index": {
-        "default_vault_name": "自分のボールト",
+        "default_vault_name": "マイボルト",
         "password_manager": "パスワードマネージャー",
-        "drag_ciphered_file": "暗号化されたパスワードファイルをドラッグしてください",
+        "drag_ciphered_file": "パスワードを含む暗号化ファイルをドラッグします",
         "or": "または",
-        "browse_files": "ファイルを選択",
-        "enter_master_vault": "ボールトのマスターパスワードを入力",
-        "unlock_vault": "ボールトをロック解除",
-        "create_the_vault": "ボールトを作成",
-        "create_vault": "ボールトを作成する",
-        "rights_reserved": "全著作権所有。"
+        "browse_files": "ファイルを参照",
+        "enter_master_vault": "ボルトのマスターパスワードを入力",
+        "unlock_vault": "ボルトのロックを解除",
+        "create_the_vault": "ボルトを作成",
+        "create_vault": "ボルトを作成",
+        "rights_reserved": "著作権所有。",
+        "try_demo": "デモボルトを試す",
+        "demo_vault": "デモボルト",
+        "demo_password": "demo"
     },
     "tags": {
         "search_placeholder": "タグを検索...",

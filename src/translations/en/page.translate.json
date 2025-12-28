@@ -22,7 +22,10 @@
         "unlock_vault": "Unlock the vault",
         "create_the_vault": "Create the vault",
         "create_vault": "Create a vault",
-        "rights_reserved": "All rights reserved."
+        "rights_reserved": "All rights reserved.",
+        "try_demo": "Try with Demo Vault",
+        "demo_vault": "Demo Vault",
+        "demo_password": "demo"
     },
     "tags": {
         "search_placeholder": "Search for a tag...",

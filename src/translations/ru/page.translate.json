@@ -13,16 +13,19 @@
         "password_master_desc": "Когда ваше хранилище разблокировано, вы можете изменить свой основной пароль в любое время"
     },
     "index": {
-        "default_vault_name": "Моё хранилище",
+        "default_vault_name": "Мой сейф",
         "password_manager": "Менеджер паролей",
-        "drag_ciphered_file": "Перетащите ваш зашифрованный файл с паролями сюда",
+        "drag_ciphered_file": "Перетащите ваш зашифрованный файл с паролями",
         "or": "или",
         "browse_files": "Обзор файлов",
-        "enter_master_vault": "Введите основной пароль для хранилища",
+        "enter_master_vault": "Введите главный пароль хранилища",
         "unlock_vault": "Разблокировать хранилище",
         "create_the_vault": "Создать хранилище",
         "create_vault": "Создать хранилище",
-        "rights_reserved": "Все права защищены."
+        "rights_reserved": "Все права защищены.",
+        "try_demo": "Попробовать демохранилище",
+        "demo_vault": "Демонстрационное хранилище",
+        "demo_password": "demo"
     },
     "tags": {
         "search_placeholder": "Поиск тега...",
