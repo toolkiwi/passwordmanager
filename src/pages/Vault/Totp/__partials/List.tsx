@@ -222,7 +222,7 @@ export default function List({ data }: PropsComponent): ReactElement {
                                 </div>
 
                                 <div className={ListCN.actions} onClick={(e) => e.stopPropagation()}>
-                                    <CopyAction value={totpCodes[item.id] || ''} tooltip={t('common:copy_password')} />
+                                    <CopyAction value={totpCodes[item.id] || ''} tooltip={t('common:copy_totp')} />
                                     {item.totp && <TotpTimer remaining={itemRemaining} period={itemPeriod} size={32} />}
                                 </div>
                             </div>

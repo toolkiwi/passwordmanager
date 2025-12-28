@@ -21,6 +21,7 @@
     "copied": "Скопировано!",
     "copy": "Копировать",
     "copy_password": "Копировать пароль",
+    "copy_totp": "Скопировать код TOTP",
     "generate_password": "Генерировать пароль",
     "close_vault": "Закрыть хранилище",
     "recover_password": "Восстановить пароль",

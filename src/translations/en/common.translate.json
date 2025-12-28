@@ -21,6 +21,7 @@
     "copied": "Copied!",
     "copy": "Copy",
     "copy_password": "Copy password",
+    "copy_totp": "Copy TOTP code",
     "generate_password": "Generate password",
     "close_vault": "Close vault",
     "recover_password": "Recover password",

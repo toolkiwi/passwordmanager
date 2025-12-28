@@ -21,6 +21,7 @@
     "copied": "コピーしました！",
     "copy": "コピー",
     "copy_password": "パスワードをコピー",
+    "copy_totp": "TOTP コードをコピー",
     "generate_password": "パスワードを生成",
     "close_vault": "保管庫を閉じる",
     "recover_password": "パスワードを復元",

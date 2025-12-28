@@ -21,6 +21,7 @@
     "copied": "Gekopieerd!",
     "copy": "Kopiëren",
     "copy_password": "Wachtwoord kopiëren",
+    "copy_totp": "TOTP-code kopiëren",
     "generate_password": "Wachtwoord genereren",
     "close_vault": "Kluis sluiten",
     "recover_password": "Wachtwoord herstellen",

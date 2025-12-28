@@ -21,6 +21,7 @@
     "copied": "Kopiert!",
     "copy": "Kopieren",
     "copy_password": "Passwort kopieren",
+    "copy_totp": "TOTP-Code kopieren",
     "generate_password": "Passwort generieren",
     "close_vault": "Tresor schließen",
     "recover_password": "Passwort wiederherstellen",
