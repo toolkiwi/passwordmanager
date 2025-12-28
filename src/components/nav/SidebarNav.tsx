@@ -203,14 +203,12 @@ export default function SidebarNav() {
                 <LuLifeBuoy
                     className={clsx(
                         CN.listItemIcon,
-                        isCompact ? 'text-emerald-500!' : 'text-emerald-700! group-hover:text-emerald-500!',
+                        isCompact ? 'text-blue-400!' : 'text-blue-500! group-hover:text-blue-400!',
                     )}
                     size={17}
                 />
                 {!isCompact && (
-                    <span className='truncate text-emerald-700 group-hover:text-emerald-500'>
-                        {t('common:feedback')}
-                    </span>
+                    <span className='truncate text-blue-500 group-hover:text-blue-400'>{t('common:feedback')}</span>
                 )}
             </a>
         );
