@@ -6,46 +6,45 @@
 [![Contributors](https://img.shields.io/github/contributors/toolkiwi/passwordmanager)](https://github.com/toolkiwi/passwordmanager/graphs/contributors)
 [![Made with ❤️ by Toolkiwi](https://img.shields.io/badge/Made%20with%20%E2%9D%A4%EF%B8%8F%20by-Toolkiwi-red)](https://toolkiwi.com)
 
-**PTK** is a **serverless password manager** that runs entirely **offline** — all your data stays securely in your browser.
+**PTK** is a serverless password manager that runs entirely offline. Your data never leaves your browser, period.
 
-💾 **No cloud. No account. No tracking. Just security and simplicity.**
+No cloud storage. No user accounts. No tracking pixels. Just you, your passwords, and some solid encryption.
 
-You can try it out here:  
+Give it a spin here:  
 👉 [https://password.toolkiwi.com](https://password.toolkiwi.com)
 
-To explore a demo vault, use the password **`demo`** with the following file:  
+Want to see it in action first? Load up the demo vault using password **`demo`**:  
 📂 [Download Demo Vault (.ptk)](https://toolkiwi.com/wp-content/uploads/2025/05/Demo-Vault-05-05-2025-1416.ptk)
 
 ---
 
-## ✨ Features
+## ✨ What makes PTK different
 
-- 🔒 **100% local encryption** (AES-based) — no server, no external API  
-- 🧠 **TOTP support** — manage 2FA codes locally  
-- 💼 **Portable vaults** — export your data to an encrypted `.PTK` file  
-- 🌍 **Offline-first** — works without an internet connection  
-- 🧰 **Simple UI** — familiar experience, minimal friction  
-- 🧱 **Open Source** — transparent and auditable
-- 🐳 **Docker-ready** — self-host your own instance easily  
-
----
-
-## 💡 Use Cases
-
-PTK is designed to be **flexible and practical** for a wide range of situations:
-
-- **Personal password management:** Keep all your credentials safe, organized, and always accessible, even without internet.  
-- **Secure client sharing:** Send login credentials, notes, or project information securely by sharing a single encrypted `.PTK` file with a master password.  
-- **Work in sensitive environments:** With **no server and no cloud**, PTK ensures maximum privacy, making it ideal for governmental, corporate, or security-conscious workflows.  
-- **Offline-first convenience:** Manage your accounts, notes, and TOTP codes without relying on online services.  
-- **Portable and cross-platform:** Since everything runs in the browser or via Docker, you can use PTK on virtually any device.  
+- 🔒 **Everything stays local** — AES encryption happens right in your browser, no servers involved
+- 🧠 **Built-in 2FA codes** — manage your TOTP codes without juggling extra apps
+- 💼 **Take your vault anywhere** — export to an encrypted `.PTK` file you can open on any device
+- 🌍 **Works offline** — no internet? No problem
+- 🧰 **Dead simple interface** — we kept it clean and straightforward
+- 🧱 **Fully open source** — peek under the hood anytime you want
+- 🐳 **Self-host friendly** — spin up your own instance with Docker in seconds
 
 ---
 
-## 🚀 Try It Locally (Docker)
+## 💡 Who is this for?
 
-You can self-host PTK on your own machine or server using Docker:
+PTK works great whether you're tech-savvy or just want something that works:
 
+- **Managing personal passwords:** Keep everything organized and accessible, even when you're offline.
+- **Sharing credentials securely:** Need to send login info to a client or teammate? Just share an encrypted `.PTK` file and the master password.
+- **Working in security-conscious environments:** No servers means no attack surface. Perfect for government, corporate, or high-privacy scenarios.
+- **Going offline-first:** Manage passwords, notes, and 2FA codes without depending on the cloud.
+- **Staying portable:** Since it runs in your browser or via Docker, you can use PTK pretty much anywhere.
+
+---
+
+## 🚀 Running PTK locally with Docker
+
+Want to self-host? Here's how:
 ```bash
 docker run -d \
   -p 8080:80 \
@@ -53,17 +52,16 @@ docker run -d \
   shiftytab/passwordmanager:latest
 ```
 
-Then open:  
+Then head over to:  
 👉 [http://localhost:8080](http://localhost:8080)
 
-> 💡 You can change the port (`8080`) to any value you prefer.
+> Feel free to swap `8080` for whatever port you prefer.
 
 ---
 
-## 🧱 Manual Build
+## 🧱 Building from source
 
-If you prefer building manually:
-
+Prefer doing it yourself? No problem:
 ```bash
 git clone https://github.com/toolkiwi/passwordmanager.git
 cd passwordmanager
@@ -73,62 +71,61 @@ npm run build
 
 ---
 
-## 🧰 File Format
+## 🧰 How vault files work
 
-Your vault is saved in a `.PTK` file, an **AES-encrypted container** holding all your credentials and notes.
+Your vault lives in a `.PTK` file — basically an AES-encrypted container holding all your passwords and notes.
 
-To unlock it, simply open the file and enter your **master password**.
-
----
-
-## 🔄 Recommendations
-
-- Export your vault regularly  
-- Log out when you’re done  
-- Keep your `.PTK` file and master password safe, they’re your keys  
+To open it, just load the file and enter your master password. That's it.
 
 ---
 
-## 🗺️ Roadmap
+## 🔄 A few tips
 
-Follow the project’s progress and upcoming features:
+- Back up your vault regularly (seriously, do this)
+- Log out when you're done using it
+- Keep your `.PTK` file and master password somewhere safe — lose them and your data's gone for good
+
+---
+
+## 🗺️ What's coming next
+
+We're actively working on PTK. Check out what's cooking:
 
 📜 **Changelog:**  
 [https://changelog.toolkiwi.com/ptk](https://changelog.toolkiwi.com/ptk)  
 
-🗂️ **Trello Board:**  
+🗂️ **Feature roadmap:**  
 [https://trello.com/b/WZc2CZZ8/password-manager](https://trello.com/b/WZc2CZZ8/password-manager)
 
 ---
 
-## 💡 Philosophy
+## 💡 Why we built this
 
-> Ethical, transparent, free, serverless, and third-party-free web tools — accessible to everyone.
+We believe web tools should be ethical, transparent, free, and respectful of your privacy. No data mining, no third-party trackers, no bullshit.
 
-PTK is part of a broader initiative to create tools that **respect privacy and digital freedom**.
+PTK is part of our commitment to building software that puts you first.
 
 ---
 
-## 🧑‍💻 Contributing
+## 🧑‍💻 Want to contribute?
 
-Contributions are welcome!  
-Feel free to open issues, suggest features, or submit pull requests.
+We'd love your help! Whether it's reporting bugs, suggesting features, or submitting pull requests, all contributions are welcome.
 
 ---
 
 ## 📄 License
 
-This project is licensed under the **Apache 2.0 License**.  
-See [LICENSE](./LICENSE) or [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0) for details.
+PTK is licensed under the **Apache 2.0 License**.  
+Check out the [LICENSE](./LICENSE) file or the [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0) for the full details.
 
 ---
 
-### 🌟 Show your support
+### 🌟 Like what we're doing?
 
-If you like the project, consider:
-- ⭐ Starring the repository  
-- 🐋 Pulling the Docker image  
-- 💬 Sharing feedback on [GitHub](https://github.com/toolkiwi/passwordmanager/issues)
+Here's how you can help:
+- ⭐ Star the repo on GitHub
+- 🐋 Pull the Docker image and give it a try
+- 💬 Share your thoughts or report issues on [GitHub](https://github.com/toolkiwi/passwordmanager/issues)
 
 ---
 
