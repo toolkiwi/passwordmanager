@@ -13,20 +13,17 @@ No cloud storage. No user accounts. No tracking pixels. Just you, your passwords
 Give it a spin here:  
 👉 [https://password.toolkiwi.com](https://password.toolkiwi.com)
 
-Want to see it in action first? Load up the demo vault using password **`demo`**:  
-📂 [Download Demo Vault (.ptk)](https://toolkiwi.com/wp-content/uploads/2025/05/Demo-Vault-05-05-2025-1416.ptk)
-
 ---
 
-## ✨ What makes PTK different
+## ✨ What makes this Password ToolKiwi (PTK) different
 
-- 🔒 **Everything stays local** — AES encryption happens right in your browser, no servers involved
-- 🧠 **Built-in 2FA codes** — manage your TOTP codes without juggling extra apps
-- 💼 **Take your vault anywhere** — export to an encrypted `.PTK` file you can open on any device
-- 🌍 **Works offline** — no internet? No problem
-- 🧰 **Dead simple interface** — we kept it clean and straightforward
-- 🧱 **Fully open source** — peek under the hood anytime you want
-- 🐳 **Self-host friendly** — spin up your own instance with Docker in seconds
+- **Everything stays local** — AES encryption happens right in your browser, no servers involved
+- **Built-in 2FA codes** — manage your TOTP codes without juggling extra apps
+- **Take your vault anywhere** — export to an encrypted `.PTK` file you can open on any device
+- **Works offline** — no internet? No problem
+- **Dead simple interface** — we kept it clean and straightforward
+- **Fully open source** — peek under the hood anytime you want
+- **Self-host friendly** — spin up your own instance with Docker in seconds
 
 ---
 
@@ -52,8 +49,7 @@ docker run -d \
   shiftytab/passwordmanager:latest
 ```
 
-Then head over to:  
-👉 [http://localhost:8080](http://localhost:8080)
+Then head over to: [http://localhost:8080](http://localhost:8080)
 
 > Feel free to swap `8080` for whatever port you prefer.
 
@@ -87,7 +83,7 @@ To open it, just load the file and enter your master password. That's it.
 
 ---
 
-## 🗺️ What's coming next
+## What's coming next
 
 We're actively working on PTK. Check out what's cooking:
 
@@ -120,7 +116,7 @@ Check out the [LICENSE](./LICENSE) file or the [Apache License 2.0](https://www.
 
 ---
 
-### 🌟 Like what we're doing?
+### Like what we're doing?
 
 Here's how you can help:
 - ⭐ Star the repo on GitHub
