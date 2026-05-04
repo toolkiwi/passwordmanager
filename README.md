@@ -19,7 +19,7 @@ Give it a spin here: [https://password.toolkiwi.com](https://password.toolkiwi.c
 - **Everything stays local** — AES encryption happens right in your browser, no servers involved
 - **Built-in 2FA codes** — manage your TOTP codes without juggling extra apps
 - **Take your vault anywhere** — export to an encrypted `.PTK` file you can open on any device
-- **Works offline** — no internet? No problem
+- **Works offline** — no internet? No problem (PWA)
 - **Dead simple interface** — we kept it clean and straightforward
 - **Fully open source** — peek under the hood anytime you want
 - **Self-host friendly** — spin up your own instance with Docker in seconds
