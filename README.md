@@ -10,8 +10,7 @@
 
 No cloud storage. No user accounts. No tracking pixels. Just you, your passwords, and some solid encryption.
 
-Give it a spin here:  
-👉 [https://password.toolkiwi.com](https://password.toolkiwi.com)
+Give it a spin here: [https://password.toolkiwi.com](https://password.toolkiwi.com)
 
 ---
 
