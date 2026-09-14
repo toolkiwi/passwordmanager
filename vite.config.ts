@@ -13,6 +13,7 @@ export default defineConfig({
         VitePWA({
             registerType: 'autoUpdate',
             workbox: {
+                cleanupOutdatedCaches: true,
                 globPatterns: ['**/*{js,css,html,ico,png,svg}'],
                 runtimeCaching: [
                     {
