@@ -28,6 +28,8 @@ export const vaultSlice = createSlice({
                     passwords: [],
                     trash: [],
                     tags: [],
+                    keys: [],
+                    settings: { ...VAULT_SETTINGS_DEFAULT },
                     master: action.payload.master,
                     created_at: new Date().getTime() / 1000,
                 },
@@ -175,17 +177,79 @@ export const vaultSlice = createSlice({
 
             if (index !== -1) {
                 /**
-                 * Remove tag_id for all passwords
+                 * Remove tag_id for all passwords and keys
                  */
                 state._d.passwords.forEach((p) => {
                     if (p.tag_id === action.payload) {
                         delete p.tag_id;
                     }
                 });
+                state._d.keys?.forEach((k) => {
+                    if (k.tag_id === action.payload) {
+                        delete k.tag_id;
+                    }
+                });
                 /**
                  * Remove tag from state
                  */
                 state._d.tags.splice(index, 1);
+            }
+
+            return state;
+        },
+        addKey: (state: VaultInterface.State | null, action: PayloadAction<VaultInterface.Form.Key>) => {
+            if (!state?._d || !action.payload.title) return;
+            /**
+             * Create the keys array in state if it doesn't exist yet
+             */
+            if (!state._d.keys) state._d.keys = [];
+            /**
+             * Key schema
+             */
+            const payload: VaultInterface.Key = {
+                ...action.payload,
+                id: CommonUtils.generateShortUUID(),
+                created_at: new Date().getTime(),
+                updated_at: new Date().getTime(),
+            };
+            /**
+             * Add to state
+             */
+            state._d.keys.unshift(payload);
+            return state;
+        },
+        setKey: (
+            state: VaultInterface.State | null,
+            action: PayloadAction<{
+                id: VaultInterface.Key['id'];
+                data: VaultInterface.Form.Key;
+            }>,
+        ) => {
+            if (!state || !state._d || !state._d.keys) return;
+            /**
+             * Get the key index
+             */
+            const index: number = state._d.keys.findIndex((e) => e.id === action.payload.id);
+            /**
+             * If not exist return;
+             */
+            if (index !== -1) {
+                state._d.keys[index] = {
+                    ...state._d.keys[index],
+                    ...action.payload.data,
+                    updated_at: new Date().getTime(),
+                };
+            }
+
+            return state;
+        },
+        deleteKey: (state: VaultInterface.State | null, action: PayloadAction<VaultInterface.Key['id']>) => {
+            if (!state || !state._d || !state._d.keys) return;
+
+            const index = state._d.keys.findIndex((e) => e.id === action.payload);
+
+            if (index !== -1) {
+                state._d.keys.splice(index, 1);
             }
 
             return state;
@@ -214,6 +278,9 @@ export const {
     addTag,
     setTag,
     deleteTag,
+    addKey,
+    setKey,
+    deleteKey,
     setUnsaved,
 } = vaultSlice.actions;
 /**

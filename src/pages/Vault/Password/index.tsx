@@ -4,7 +4,7 @@ import { useNavigate, useParams } from 'react-router';
 import { type ReactElement, useEffect, useState, useCallback, Fragment } from 'react';
 import PageHead from '@/components/PageHead';
 import CommonUtils from '@/utils/commonUtils';
-import RenderField from './__partials/RenderField';
+import RenderField from '@/components/RenderField';
 import ActionButton from '@/components/styled/ActionButton';
 import { TbEye, TbEyeOff } from 'react-icons/tb';
 import StyledButton from '@/components/styled/StyledButton';

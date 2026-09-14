@@ -19,6 +19,7 @@ export namespace VaultInterface {
         trash: Password[];
         passwords: Password[];
         tags?: Tag[];
+        keys?: Key[];
         totp?: TOTP;
         created_at: number;
     }
@@ -49,6 +50,29 @@ export namespace VaultInterface {
         created_at: Date | number | string;
         updated_at: Date | number | string;
     }
+
+    /**
+     * Interface for a stored key (SSH, API token, PGP...)
+     */
+    export interface Key {
+        id: string;
+        title: string;
+        type: KeyType;
+        host: string;
+        username: string;
+        private_key: string;
+        public_key: string;
+        passphrase: string;
+        note: string;
+        tag_id?: VaultInterface.Tag['id'];
+        created_at: Date | number | string;
+        updated_at: Date | number | string;
+    }
+
+    /**
+     * Available key types
+     */
+    export type KeyType = 'SSH' | 'API' | 'PGP' | 'OTHER';
     /**
      * Interface for TOTP (Time-based One-Time Password) configuration
      */
@@ -75,6 +99,17 @@ export namespace VaultInterface {
         export interface Tag {
             title: string;
             color?: string;
+        }
+        export interface Key {
+            title: string;
+            type: VaultInterface.KeyType;
+            host: string;
+            username: string;
+            private_key: string;
+            public_key: string;
+            passphrase: string;
+            note: string;
+            tag_id: VaultInterface.Tag['id'];
         }
     }
 }
