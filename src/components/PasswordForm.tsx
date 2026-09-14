@@ -20,7 +20,7 @@ import StyledCheckbox from './styled/form/StyledCheckbox';
 import { ComboBox } from './ComboBox';
 import clsx from 'clsx';
 import { usePasswordFormValidation } from '@/hooks/usePasswordFormValidation';
-import { TOTP_DEFAUL } from '@/constants/Form';
+import { TOTP_DEFAULT } from '@/constants/Form';
 
 interface PropsComponent {
     default?: VaultInterface.Form.Password;
@@ -128,7 +128,7 @@ export default function PasswordForm(props: PropsComponent): ReactElement {
                  * Update isCreated state and reset form
                  */
                 setIsCreated(true);
-                setForm(FORM_DEFAULT_SETTINGS);
+                handleReset();
                 break;
             case 'edit':
                 if (!props.password_id) return;
@@ -150,8 +150,8 @@ export default function PasswordForm(props: PropsComponent): ReactElement {
     /**
      * Set default form on reset
      */
-    const handleReset = (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
+    const handleReset = (e?: React.FormEvent<HTMLFormElement>) => {
+        e?.preventDefault();
         setForm(FORM_DEFAULT_SETTINGS);
     };
 
@@ -178,10 +178,10 @@ export default function PasswordForm(props: PropsComponent): ReactElement {
                     return {
                         ...prevState,
                         totp: {
-                            secret: prevState.totp?.secret ?? TOTP_DEFAUL.secret,
-                            algorithm: prevState.totp?.algorithm ?? TOTP_DEFAUL.algorithm,
-                            digits: prevState.totp?.digits ?? TOTP_DEFAUL.digits,
-                            period: prevState.totp?.period ?? TOTP_DEFAUL.period,
+                            secret: prevState.totp?.secret ?? TOTP_DEFAULT.secret,
+                            algorithm: prevState.totp?.algorithm ?? TOTP_DEFAULT.algorithm,
+                            digits: prevState.totp?.digits ?? TOTP_DEFAULT.digits,
+                            period: prevState.totp?.period ?? TOTP_DEFAULT.period,
                         },
                     };
                 } else {
