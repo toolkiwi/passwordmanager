@@ -5,12 +5,23 @@
         "create_password": "Nieuw wachtwoord aanmaken",
         "settings": "Kluisinstellingen",
         "tags": "Mijn labels",
-        "totp": "Mijn TOTP-codes"
+        "totp": "Mijn TOTP-codes",
+        "keys": "Mijn sleutels",
+        "create_key": "Nieuwe sleutel aanmaken"
     },
     "settings": {
         "change_icon": "Pictogram wijzigen",
         "vault_title_desc": "Pas de titel van je kluis aan",
-        "password_master_desc": "Wanneer je kluis is ontgrendeld, kun je je master-wachtwoord op elk moment wijzigen"
+        "password_master_desc": "Wanneer je kluis is ontgrendeld, kun je je master-wachtwoord op elk moment wijzigen",
+        "security": "Beveiliging",
+        "security_desc": "Vergrendel je kluis automatisch om hem te beschermen wanneer je weg bent",
+        "autolock_inactivity": "Vergrendelen na inactiviteit",
+        "autolock_inactivity_desc": "Vergrendelt de kluis na {{minutes}} minuten zonder activiteit.",
+        "autolock_on_leave": "Vergrendelen bij het verlaten van de pagina",
+        "autolock_on_leave_desc": "Vergrendelt de kluis zodra je van tabblad wisselt of het venster minimaliseert.",
+        "autolock_on_reload": "Vergrendelen bij het herladen van de pagina",
+        "autolock_on_reload_desc": "Vraagt telkens opnieuw om het master-wachtwoord wanneer de pagina wordt herladen.",
+        "no_autolock_warning": "Er is geen enkele automatische vergrendelingsoptie ingeschakeld. Je kluis wordt nooit meer versleuteld of met een wachtwoord beveiligd, tenzij je hem handmatig sluit."
     },
     "index": {
         "default_vault_name": "Mijn kluis",
@@ -32,6 +43,25 @@
         "create_tag": "Nieuw label aanmaken",
         "create_introduction": "Maak een label aan om je wachtwoorden gemakkelijk te zoeken en te organiseren. Kies een titel en een kleur voor je label.",
         "delete_tag": "Weet je zeker dat je dit label wilt verwijderen? (deze actie is definitief)"
+    },
+    "keys": {
+        "search_placeholder": "Zoek een sleutel...",
+        "create_introduction": "Bewaar je SSH-sleutels, API-tokens en PGP-sleutels veilig in je kluis. Alleen de titel en de privésleutel zijn verplicht.",
+        "type": "Sleuteltype",
+        "types": {
+            "ssh": "SSH-sleutel",
+            "api": "API-sleutel",
+            "pgp": "PGP-sleutel",
+            "other": "Andere"
+        },
+        "host": "Host",
+        "private_key": "Privésleutel",
+        "private_key_placeholder": "Plak hier je privésleutel of je token",
+        "public_key": "Openbare sleutel",
+        "public_key_placeholder": "Plak hier je openbare sleutel (optioneel)",
+        "passphrase": "Wachtwoordzin",
+        "copy_private_key": "Privésleutel kopiëren",
+        "copy_public_key": "Openbare sleutel kopiëren"
     },
     "form": {
         "enable_totp": "TOTP inschakelen",

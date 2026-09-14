@@ -24,6 +24,7 @@
     "copy_totp": "Copier le code TOTP",
     "generate_password": "Générer un mot de passe",
     "close_vault": "Fermer le vault",
+    "lock_vault_now": "Verrouiller maintenant",
     "recover_password": "Récupérer le mot de passe",
     "save_vault": "Enregistrer le vault",
     "save_vault_tp": "Exporter le vault en tant que fichier .ptk",
@@ -39,5 +40,14 @@
     "exit_when_vault_ciphered_confirm": "Ce coffre est chiffré. Si vous quittez sans l'avoir exporté, vous perdrez toutes les données non sauvegardées. Voulez-vous vraiment quitter ?",
     "leave": "Quitter",
     "vault_ciphered_message": "Ce coffre est chiffré. Entrez le mot de passe maître pour l'ouvrir.",
-    "feedback": "Aidez-nous à nous améliorer !"
+    "feedback": "Aidez-nous à nous améliorer !",
+    "sort_by": "Trier par",
+    "sort": {
+        "recent": "Plus récents d'abord",
+        "oldest": "Plus anciens d'abord",
+        "title_asc": "Titre (A-Z)",
+        "title_desc": "Titre (Z-A)",
+        "updated": "Modifiés récemment"
+    },
+    "key_not_found": "Aucune clé n’a été trouvée"
 }

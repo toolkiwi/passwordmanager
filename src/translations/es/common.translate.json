@@ -24,6 +24,7 @@
     "copy_totp": "Copiar código TOTP",
     "generate_password": "Generar contraseña",
     "close_vault": "Cerrar el cofre",
+    "lock_vault_now": "Bloquear ahora",
     "recover_password": "Recuperar contraseña",
     "save_vault": "Guardar el cofre",
     "save_vault_tp": "Exportar el cofre como archivo .ptk",
@@ -39,5 +40,14 @@
     "exit_when_vault_ciphered_confirm": "Esta bóveda está cifrada. Si sales sin exportarla, perderás cualquier dato no guardado. ¿Realmente quieres salir?",
     "leave": "Salir",
     "vault_ciphered_message": "Esta bóveda está cifrada. Introduce la contraseña maestra para abrirla.",
-    "feedback": "¡Ayúdanos a mejorar!"
+    "feedback": "¡Ayúdanos a mejorar!",
+    "sort_by": "Ordenar por",
+    "sort": {
+        "recent": "Más recientes primero",
+        "oldest": "Más antiguos primero",
+        "title_asc": "Título (A-Z)",
+        "title_desc": "Título (Z-A)",
+        "updated": "Modificados recientemente"
+    },
+    "key_not_found": "No se encontró ninguna clave"
 }

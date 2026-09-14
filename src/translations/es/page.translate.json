@@ -5,12 +5,23 @@
         "create_password": "Crear una nueva contraseña",
         "settings": "Configuraciones del cofre",
         "tags": "Mis etiquetas",
-        "totp": "Mis códigos TOTP"
+        "totp": "Mis códigos TOTP",
+        "keys": "Mis claves",
+        "create_key": "Crear una nueva clave"
     },
     "settings": {
         "change_icon": "Cambiar icono",
         "vault_title_desc": "Personaliza el título de tu cofre",
-        "password_master_desc": "Cuando tu cofre esté desbloqueado, puedes cambiar tu contraseña maestra en cualquier momento"
+        "password_master_desc": "Cuando tu cofre esté desbloqueado, puedes cambiar tu contraseña maestra en cualquier momento",
+        "security": "Seguridad",
+        "security_desc": "Bloquea automáticamente tu cofre para protegerlo mientras estás ausente",
+        "autolock_inactivity": "Bloquear tras inactividad",
+        "autolock_inactivity_desc": "Bloquea el cofre después de {{minutes}} minutos sin actividad.",
+        "autolock_on_leave": "Bloquear al salir de la página",
+        "autolock_on_leave_desc": "Bloquea el cofre en cuanto cambias de pestaña o minimizas la ventana.",
+        "autolock_on_reload": "Bloquear al recargar la página",
+        "autolock_on_reload_desc": "Vuelve a solicitar la contraseña maestra cada vez que se recarga la página.",
+        "no_autolock_warning": "Ninguna opción de bloqueo automático está activada. Tu cofre nunca volverá a cifrarse ni a estar protegido por contraseña a menos que lo cierres manualmente."
     },
     "index": {
         "default_vault_name": "Mi bóveda",
@@ -32,6 +43,25 @@
         "create_tag": "Crear una nueva etiqueta",
         "create_introduction": "Cree una etiqueta para buscar y organizar fácilmente sus contraseñas. Elija un título y un color para su etiqueta.",
         "delete_tag": "¿Está seguro de que desea eliminar esta etiqueta? (acción definitiva)"
+    },
+    "keys": {
+        "search_placeholder": "Buscar una clave...",
+        "create_introduction": "Guarda tus claves SSH, tokens de API y claves PGP de forma segura en tu cofre. Solo el título y la clave privada son obligatorios.",
+        "type": "Tipo de clave",
+        "types": {
+            "ssh": "Clave SSH",
+            "api": "Clave de API",
+            "pgp": "Clave PGP",
+            "other": "Otra"
+        },
+        "host": "Host",
+        "private_key": "Clave privada",
+        "private_key_placeholder": "Pega aquí tu clave privada o tu token",
+        "public_key": "Clave pública",
+        "public_key_placeholder": "Pega aquí tu clave pública (opcional)",
+        "passphrase": "Frase de contraseña",
+        "copy_private_key": "Copiar la clave privada",
+        "copy_public_key": "Copiar la clave pública"
     },
     "form": {
         "enable_totp": "Activar TOTP",

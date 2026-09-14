@@ -5,5 +5,10 @@
         "confirm_delete": "¿Estás seguro de que quieres eliminar la contraseña?",
         "confirm_delete_sub": "La contraseña se moverá a la papelera"
     },
-    "tag_created": "Etiqueta creada con éxito"
+    "tag_created": "Etiqueta creada con éxito",
+    "key": {
+        "created": "¡La clave ha sido creada!",
+        "confirm_delete": "¿Está seguro de que desea eliminar esta clave?",
+        "confirm_delete_sub": "Esta acción es definitiva, la clave no se moverá a la papelera"
+    }
 }

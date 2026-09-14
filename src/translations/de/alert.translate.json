@@ -5,5 +5,10 @@
         "confirm_delete": "Möchten Sie das Passwort wirklich löschen?",
         "confirm_delete_sub": "Das Passwort wird in den Papierkorb verschoben"
     },
-    "tag_created": "Etikett erfolgreich erstellt"
+    "tag_created": "Etikett erfolgreich erstellt",
+    "key": {
+        "created": "Der Schlüssel wurde erstellt!",
+        "confirm_delete": "Sind Sie sicher, dass Sie diesen Schlüssel löschen möchten?",
+        "confirm_delete_sub": "Diese Aktion ist endgültig, der Schlüssel wird nicht in den Papierkorb verschoben"
+    }
 }

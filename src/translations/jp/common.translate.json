@@ -24,6 +24,7 @@
     "copy_totp": "TOTP コードをコピー",
     "generate_password": "パスワードを生成",
     "close_vault": "保管庫を閉じる",
+    "lock_vault_now": "今すぐロック",
     "recover_password": "パスワードを復元",
     "save_vault": "保管庫を保存",
     "save_vault_tp": ".ptkファイルとして保管庫をエクスポート",
@@ -39,5 +40,14 @@
     "exit_when_vault_ciphered_confirm": "この保管庫は暗号化されています。エクスポートせずに終了すると、保存されていないデータはすべて失われます。本当に終了しますか？",
     "leave": "退出",
     "vault_ciphered_message": "この保管庫は暗号化されています。開くにはマスターパスワードを入力してください。",
-    "feedback": "改善にご協力ください！"
+    "feedback": "改善にご協力ください！",
+    "sort_by": "並べ替え",
+    "sort": {
+        "recent": "新しい順",
+        "oldest": "古い順",
+        "title_asc": "タイトル（A-Z）",
+        "title_desc": "タイトル（Z-A）",
+        "updated": "最近更新された順"
+    },
+    "key_not_found": "キーが見つかりません"
 }

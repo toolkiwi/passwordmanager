@@ -5,5 +5,10 @@
         "confirm_delete": "Êtes-vous sûr de vouloir supprimer le mot de passe ?",
         "confirm_delete_sub": "Le mot de passe sera déplacé dans votre corbeille"
     },
-    "tag_created": "Étiquette créée avec succès"
+    "tag_created": "Étiquette créée avec succès",
+    "key": {
+        "created": "La clé a été créée !",
+        "confirm_delete": "Êtes-vous sûr de vouloir supprimer cette clé ?",
+        "confirm_delete_sub": "Cette action est définitive, la clé ne sera pas déplacée dans la corbeille"
+    }
 }

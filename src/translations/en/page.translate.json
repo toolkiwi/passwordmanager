@@ -5,12 +5,23 @@
         "create_password": "Create a new password",
         "settings": "Vault settings",
         "tags": "My tags",
-        "totp": "My TOTP codes"
+        "totp": "My TOTP codes",
+        "keys": "My keys",
+        "create_key": "Create a new key"
     },
     "settings": {
         "change_icon": "Change icon",
         "vault_title_desc": "Customize your vault's title",
-        "password_master_desc": "When your vault is unlocked, you can change your master password at any time"
+        "password_master_desc": "When your vault is unlocked, you can change your master password at any time",
+        "security": "Security",
+        "security_desc": "Lock your vault automatically to protect it while you are away",
+        "autolock_inactivity": "Lock after inactivity",
+        "autolock_inactivity_desc": "Lock the vault after {{minutes}} minutes without any activity.",
+        "autolock_on_leave": "Lock when leaving the page",
+        "autolock_on_leave_desc": "Lock the vault as soon as you switch tab or minimize the window.",
+        "autolock_on_reload": "Lock on page reload",
+        "autolock_on_reload_desc": "Require the master password again whenever the page is reloaded.",
+        "no_autolock_warning": "No auto-lock option is enabled. Your vault will never be encrypted or password-protected again unless you close it manually."
     },
     "index": {
         "default_vault_name": "My vault",
@@ -32,6 +43,25 @@
         "create_tag": "Create a new tag",
         "create_introduction": "Create a tag to easily search and organize your passwords. Choose a title and a color for your tag.",
         "delete_tag": "Are you sure you want to delete this tag? (this action is permanent)"
+    },
+    "keys": {
+        "search_placeholder": "Search for a key...",
+        "create_introduction": "Store your SSH keys, API tokens and PGP keys safely inside your vault. Only the title and the private key are required.",
+        "type": "Key type",
+        "types": {
+            "ssh": "SSH key",
+            "api": "API key",
+            "pgp": "PGP key",
+            "other": "Other"
+        },
+        "host": "Host",
+        "private_key": "Private key",
+        "private_key_placeholder": "Paste your private key or your token here",
+        "public_key": "Public key",
+        "public_key_placeholder": "Paste your public key here (optional)",
+        "passphrase": "Passphrase",
+        "copy_private_key": "Copy private key",
+        "copy_public_key": "Copy public key"
     },
     "form": {
         "enable_totp": "Enable TOTP",

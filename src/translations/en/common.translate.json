@@ -24,6 +24,7 @@
     "copy_totp": "Copy TOTP code",
     "generate_password": "Generate password",
     "close_vault": "Close vault",
+    "lock_vault_now": "Lock now",
     "recover_password": "Recover password",
     "save_vault": "Save vault",
     "save_vault_tp": "Export vault as .ptk file",
@@ -39,5 +40,14 @@
     "exit_when_vault_ciphered_confirm": "This vault is encrypted. If you leave without exporting it, you will lose any unsaved data. Do you really want to leave?",
     "leave": "Leave",
     "vault_ciphered_message": "This vault is encrypted. Enter the master password to open it.",
-    "feedback": "Help us improve!"
+    "feedback": "Help us improve!",
+    "sort_by": "Sort by",
+    "sort": {
+        "recent": "Newest first",
+        "oldest": "Oldest first",
+        "title_asc": "Title (A-Z)",
+        "title_desc": "Title (Z-A)",
+        "updated": "Recently updated"
+    },
+    "key_not_found": "No key found"
 }

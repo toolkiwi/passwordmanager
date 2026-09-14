@@ -5,12 +5,23 @@
         "create_password": "新しいパスワードを作成",
         "settings": "ボールト設定",
         "tags": "自分のタグ",
-        "totp": "TOTPコード"
+        "totp": "TOTPコード",
+        "keys": "マイキー",
+        "create_key": "新しいキーを作成"
     },
     "settings": {
         "change_icon": "アイコンを変更",
         "vault_title_desc": "ボールトのタイトルをカスタマイズ",
-        "password_master_desc": "ボールトがロック解除されているときに、マスターパスワードをいつでも変更できます"
+        "password_master_desc": "ボールトがロック解除されているときに、マスターパスワードをいつでも変更できます",
+        "security": "セキュリティ",
+        "security_desc": "離席中にボールトを保護するために自動でロックします",
+        "autolock_inactivity": "未操作後にロック",
+        "autolock_inactivity_desc": "{{minutes}} 分間操作がないとボールトをロックします。",
+        "autolock_on_leave": "ページを離れたときにロック",
+        "autolock_on_leave_desc": "タブを切り替えたりウィンドウを最小化した直後にボールトをロックします。",
+        "autolock_on_reload": "ページの再読み込み時にロック",
+        "autolock_on_reload_desc": "ページを再読み込むたびにマスターパスワードを再入力させます。",
+        "no_autolock_warning": "自動ロックのオプションが1つも有効になっていません。手動で閉じない限り、ボールトは今後一切暗号化やパスワード保護されません。"
     },
     "index": {
         "default_vault_name": "マイボルト",
@@ -32,6 +43,25 @@
         "create_tag": "新しいタグを作成",
         "create_introduction": "タグを作成して、パスワードを簡単に検索・整理しましょう。タグのタイトルと色を選択してください。",
         "delete_tag": "このタグを削除してもよろしいですか？（この操作は元に戻せません）"
+    },
+    "keys": {
+        "search_placeholder": "キーを検索...",
+        "create_introduction": "SSHキー、APIトークン、PGPキーをボールト内に安全に保管します。必須項目はタイトルと秘密鍵のみです。",
+        "type": "キーの種類",
+        "types": {
+            "ssh": "SSHキー",
+            "api": "APIキー",
+            "pgp": "PGPキー",
+            "other": "その他"
+        },
+        "host": "ホスト",
+        "private_key": "秘密鍵",
+        "private_key_placeholder": "秘密鍵またはトークンをここに貼り付けてください",
+        "public_key": "公開鍵",
+        "public_key_placeholder": "公開鍵をここに貼り付けてください（任意）",
+        "passphrase": "パスフレーズ",
+        "copy_private_key": "秘密鍵をコピー",
+        "copy_public_key": "公開鍵をコピー"
     },
     "form": {
         "enable_totp": "TOTPを有効にする",

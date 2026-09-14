@@ -24,6 +24,7 @@
     "copy_totp": "复制 TOTP 代码",
     "generate_password": "生成密码",
     "close_vault": "关闭保管库",
+    "lock_vault_now": "立即锁定",
     "recover_password": "恢复密码",
     "save_vault": "保存保管库",
     "save_vault_tp": "将保管库导出为.ptk文件",
@@ -39,5 +40,14 @@
     "exit_when_vault_ciphered_confirm": "此保险库已加密。如果在未导出情况下退出，您将丢失所有未保存的数据。确定要退出吗？",
     "leave": "退出",
     "vault_ciphered_message": "此保险库已加密。请输入主密码以打开。",
-    "feedback": "帮助我们改进！"
+    "feedback": "帮助我们改进！",
+    "sort_by": "排序方式",
+    "sort": {
+        "recent": "最新优先",
+        "oldest": "最旧优先",
+        "title_asc": "标题（A-Z）",
+        "title_desc": "标题（Z-A）",
+        "updated": "最近修改"
+    },
+    "key_not_found": "未找到密钥"
 }

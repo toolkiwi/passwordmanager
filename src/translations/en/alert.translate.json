@@ -5,5 +5,10 @@
         "confirm_delete": "Are you sure you want to delete the password?",
         "confirm_delete_sub": "The password will be moved to your trash"
     },
-    "tag_created": "Tag created successfully"
+    "tag_created": "Tag created successfully",
+    "key": {
+        "created": "The key has been created!",
+        "confirm_delete": "Are you sure you want to delete this key?",
+        "confirm_delete_sub": "This action is permanent, the key will not be moved to the trash"
+    }
 }

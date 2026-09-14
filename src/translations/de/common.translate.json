@@ -24,6 +24,7 @@
     "copy_totp": "TOTP-Code kopieren",
     "generate_password": "Passwort generieren",
     "close_vault": "Tresor schließen",
+    "lock_vault_now": "Jetzt sperren",
     "recover_password": "Passwort wiederherstellen",
     "save_vault": "Tresor speichern",
     "save_vault_tp": "Tresor als .ptk-Datei exportieren",
@@ -39,5 +40,14 @@
     "exit_when_vault_ciphered_confirm": "Dieser Tresor ist verschlüsselt. Wenn Sie ihn verlassen, ohne ihn exportiert zu haben, gehen alle nicht gespeicherten Daten verloren. Möchten Sie wirklich fortfahren?",
     "leave": "Beenden",
     "vault_ciphered_message": "Dieser Tresor ist verschlüsselt. Bitte geben Sie das Master-Passwort ein, um ihn zu öffnen.",
-    "feedback": "Hilf uns besser zu werden!"
+    "feedback": "Hilf uns besser zu werden!",
+    "sort_by": "Sortieren nach",
+    "sort": {
+        "recent": "Neueste zuerst",
+        "oldest": "Älteste zuerst",
+        "title_asc": "Titel (A-Z)",
+        "title_desc": "Titel (Z-A)",
+        "updated": "Kürzlich geändert"
+    },
+    "key_not_found": "Kein Schlüssel gefunden"
 }

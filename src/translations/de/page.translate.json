@@ -5,12 +5,23 @@
         "create_password": "Neues Passwort erstellen",
         "settings": "Tresor-Einstellungen",
         "tags": "Meine Etiketten",
-        "totp": "Meine TOTP-Codes"
+        "totp": "Meine TOTP-Codes",
+        "keys": "Meine Schlüssel",
+        "create_key": "Neuen Schlüssel erstellen"
     },
     "settings": {
         "change_icon": "Symbol ändern",
         "vault_title_desc": "Passe den Titel deines Tresors an",
-        "password_master_desc": "Wenn dein Tresor entsperrt ist, kannst du dein Master-Passwort jederzeit ändern"
+        "password_master_desc": "Wenn dein Tresor entsperrt ist, kannst du dein Master-Passwort jederzeit ändern",
+        "security": "Sicherheit",
+        "security_desc": "Sperre deinen Tresor automatisch, um ihn bei Abwesenheit zu schützen",
+        "autolock_inactivity": "Nach Inaktivität sperren",
+        "autolock_inactivity_desc": "Sperrt den Tresor nach {{minutes}} Minuten ohne Aktivität.",
+        "autolock_on_leave": "Beim Verlassen der Seite sperren",
+        "autolock_on_leave_desc": "Sperrt den Tresor, sobald du den Tab wechselst oder das Fenster minimierst.",
+        "autolock_on_reload": "Beim Neuladen der Seite sperren",
+        "autolock_on_reload_desc": "Verlangt bei jedem Neuladen der Seite erneut das Master-Passwort.",
+        "no_autolock_warning": "Keine Auto-Sperr-Option ist aktiviert. Dein Tresor wird nie mehr verschlüsselt oder durch ein Passwort geschützt, solange du ihn nicht manuell schließt."
     },
     "index": {
         "default_vault_name": "Mein Tresor",
@@ -32,6 +43,25 @@
         "create_tag": "Neues Etikett erstellen",
         "create_introduction": "Erstellen Sie ein Etikett, um Ihre Passwörter einfach zu durchsuchen und zu organisieren. Wählen Sie einen Titel und eine Farbe für das Etikett.",
         "delete_tag": "Sind Sie sicher, dass Sie dieses Etikett löschen möchten? (diese Aktion ist endgültig)"
+    },
+    "keys": {
+        "search_placeholder": "Schlüssel suchen...",
+        "create_introduction": "Bewahre deine SSH-Schlüssel, API-Token und PGP-Schlüssel sicher in deinem Tresor auf. Nur der Titel und der private Schlüssel sind erforderlich.",
+        "type": "Schlüsseltyp",
+        "types": {
+            "ssh": "SSH-Schlüssel",
+            "api": "API-Schlüssel",
+            "pgp": "PGP-Schlüssel",
+            "other": "Andere"
+        },
+        "host": "Host",
+        "private_key": "Privater Schlüssel",
+        "private_key_placeholder": "Füge hier deinen privaten Schlüssel oder dein Token ein",
+        "public_key": "Öffentlicher Schlüssel",
+        "public_key_placeholder": "Füge hier deinen öffentlichen Schlüssel ein (optional)",
+        "passphrase": "Passphrase",
+        "copy_private_key": "Privaten Schlüssel kopieren",
+        "copy_public_key": "Öffentlichen Schlüssel kopieren"
     },
     "form": {
         "enable_totp": "TOTP aktivieren",

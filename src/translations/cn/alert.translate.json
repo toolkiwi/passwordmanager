@@ -5,5 +5,10 @@
         "confirm_delete": "您确定要删除此密码吗？",
         "confirm_delete_sub": "该密码将被移入回收站"
     },
-    "tag_created": "标签创建成功"
+    "tag_created": "标签创建成功",
+    "key": {
+        "created": "密钥已创建！",
+        "confirm_delete": "您确定要删除此密钥吗？",
+        "confirm_delete_sub": "此操作无法撤销，密钥不会被移到回收站"
+    }
 }

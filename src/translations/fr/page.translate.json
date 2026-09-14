@@ -5,12 +5,23 @@
         "create_password": "Créer un nouveau mot de passe",
         "settings": "Paramètres du coffre-fort",
         "tags": "Mes étiquettes",
-        "totp": "Mes codes TOTP"
+        "totp": "Mes codes TOTP",
+        "keys": "Mes clés",
+        "create_key": "Créer une nouvelle clé"
     },
     "settings": {
         "change_icon": "Changer d’icône",
         "vault_title_desc": "Personnalisez le titre de votre coffre-fort",
-        "password_master_desc": "Lorsque votre coffre-fort est déverrouillé, vous pouvez modifier votre mot de passe maître à tout moment."
+        "password_master_desc": "Lorsque votre coffre-fort est déverrouillé, vous pouvez modifier votre mot de passe maître à tout moment.",
+        "security": "Sécurité",
+        "security_desc": "Verrouillez automatiquement votre coffre-fort pour le protéger en votre absence",
+        "autolock_inactivity": "Verrouiller après inactivité",
+        "autolock_inactivity_desc": "Verrouille le coffre-fort après {{minutes}} minutes sans activité.",
+        "autolock_on_leave": "Verrouiller en quittant la page",
+        "autolock_on_leave_desc": "Verrouille le coffre-fort dès que vous changez d’onglet ou réduisez la fenêtre.",
+        "autolock_on_reload": "Verrouiller au rechargement de la page",
+        "autolock_on_reload_desc": "Redemande le mot de passe maître à chaque rechargement de la page.",
+        "no_autolock_warning": "Aucune option de verrouillage automatique n’est activée. Votre coffre-fort ne sera jamais chiffré ni protégé par un mot de passe tant que vous ne le verrouillez pas manuellement."
     },
     "index": {
         "default_vault_name": "Mon coffre-fort",
@@ -32,6 +43,25 @@
         "create_tag": "Créer une nouvelle étiquette",
         "create_introduction": "Créez une étiquette pour rechercher et organiser facilement vos mots de passe. Choisissez un titre et une couleur pour votre étiquette.",
         "delete_tag": "Êtes-vous sûr de vouloir supprimer cette étiquette ? (action définitive)"
+    },
+    "keys": {
+        "search_placeholder": "Rechercher une clé...",
+        "create_introduction": "Conservez vos clés SSH, vos jetons d’API et vos clés PGP en sécurité dans votre coffre-fort. Seuls le titre et la clé privée sont obligatoires.",
+        "type": "Type de clé",
+        "types": {
+            "ssh": "Clé SSH",
+            "api": "Clé d’API",
+            "pgp": "Clé PGP",
+            "other": "Autre"
+        },
+        "host": "Hôte",
+        "private_key": "Clé privée",
+        "private_key_placeholder": "Collez ici votre clé privée ou votre jeton",
+        "public_key": "Clé publique",
+        "public_key_placeholder": "Collez ici votre clé publique (facultatif)",
+        "passphrase": "Phrase secrète",
+        "copy_private_key": "Copier la clé privée",
+        "copy_public_key": "Copier la clé publique"
     },
     "form": {
         "enable_totp": "Activer TOTP",

@@ -24,6 +24,7 @@
     "copy_totp": "TOTP-code kopiëren",
     "generate_password": "Wachtwoord genereren",
     "close_vault": "Kluis sluiten",
+    "lock_vault_now": "Nu vergrendelen",
     "recover_password": "Wachtwoord herstellen",
     "save_vault": "Kluis opslaan",
     "save_vault_tp": "Kluis exporteren als .ptk-bestand",
@@ -40,5 +41,14 @@
     "exit_when_vault_ciphered_confirm": "Deze kluis is versleuteld. Als u deze verlaat zonder te exporteren, verliest u alle niet-opgeslagen gegevens. Wilt u echt verlaten?",
     "leave": "Verlaten",
     "vault_ciphered_message": "Deze kluis is versleuteld. Voer het hoofdwachtwoord in om deze te openen.",
-    "feedback": "Help ons beter te worden!"
+    "feedback": "Help ons beter te worden!",
+    "sort_by": "Sorteren op",
+    "sort": {
+        "recent": "Nieuwste eerst",
+        "oldest": "Oudste eerst",
+        "title_asc": "Titel (A-Z)",
+        "title_desc": "Titel (Z-A)",
+        "updated": "Onlangs gewijzigd"
+    },
+    "key_not_found": "Geen sleutel gevonden"
 }

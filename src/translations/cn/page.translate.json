@@ -5,12 +5,23 @@
         "create_password": "创建新密码",
         "settings": "保险库设置",
         "tags": "我的标签",
-        "totp": "身份验证器"
+        "totp": "身份验证器",
+        "keys": "我的密钥",
+        "create_key": "创建新密钥"
     },
     "settings": {
         "change_icon": "更改图标",
         "vault_title_desc": "自定义您的保险库标题",
-        "password_master_desc": "当您的保险库已解锁时，您可以随时更改主密码"
+        "password_master_desc": "当您的保险库已解锁时，您可以随时更改主密码",
+        "security": "安全",
+        "security_desc": "自动锁定保险库，在您离开时保护它",
+        "autolock_inactivity": "无操作后锁定",
+        "autolock_inactivity_desc": "在 {{minutes}} 分钟无任何操作后锁定保险库。",
+        "autolock_on_leave": "离开页面时锁定",
+        "autolock_on_leave_desc": "一旦您切换标签页或最小化窗口，立即锁定保险库。",
+        "autolock_on_reload": "重新加载页面时锁定",
+        "autolock_on_reload_desc": "每次重新加载页面时都需要重新输入主密码。",
+        "no_autolock_warning": "未启用任何自动锁定选项。除非您手动关闭，否则您的保险库将永远不会被加密或密码保护。"
     },
     "index": {
         "default_vault_name": "我的保险库",
@@ -32,6 +43,25 @@
         "create_tag": "创建新标签",
         "create_introduction": "创建一个标签，以便轻松搜索和整理您的密码。请选择一个标题和颜色。",
         "delete_tag": "您确定要删除此标签吗？（此操作无法撤销）"
+    },
+    "keys": {
+        "search_placeholder": "搜索密钥...",
+        "create_introduction": "将您的 SSH 密钥、API 令牌和 PGP 密钥安全地保存在保险库中。仅标题和私钥为必填项。",
+        "type": "密钥类型",
+        "types": {
+            "ssh": "SSH 密钥",
+            "api": "API 密钥",
+            "pgp": "PGP 密钥",
+            "other": "其他"
+        },
+        "host": "主机",
+        "private_key": "私钥",
+        "private_key_placeholder": "在此粘贴您的私钥或令牌",
+        "public_key": "公钥",
+        "public_key_placeholder": "在此粘贴您的公钥（可选）",
+        "passphrase": "密码短语",
+        "copy_private_key": "复制私钥",
+        "copy_public_key": "复制公钥"
     },
     "form": {
         "enable_totp": "启用 TOTP",
