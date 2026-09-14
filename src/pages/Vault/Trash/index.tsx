@@ -10,12 +10,18 @@ import { trashClearAll } from '@/redux/features/vaultSlice';
 import type { StoreDispatch, StoreState } from '@/redux/StoreRedux';
 import StyledButton from '@/components/styled/StyledButton';
 import CommonUtils from '@/utils/commonUtils';
+import { SORT_DEFAULT, type SortOption } from '@/constants/Sort';
 
 export default function TrashPage() {
     /**
      * Text search to filter passwords
      */
     const [search, setSearch] = useState<string>('');
+
+    /**
+     * Sort option applied to the list
+     */
+    const [sort, setSort] = useState<SortOption>(SORT_DEFAULT);
 
     /**
      * Get password from vault state
@@ -52,10 +58,12 @@ export default function TrashPage() {
     /**
      * Filter passwords by string
      */
-    const SearchFilter =
+    const SearchFilter = CommonUtils.sortItems(
         DATA?.filter((i) =>
             [i.title, i.password, i.login, i.note].some((v) => v.toLowerCase().includes(search.trim().toLowerCase())),
-        ) || [];
+        ) || [],
+        sort,
+    );
 
     return (
         <div className={CN.page_container}>
@@ -73,7 +81,7 @@ export default function TrashPage() {
                     </StyledButton>
                 }
             />
-            <ListHeader onSearch={setSearch} />
+            <ListHeader onSearch={setSearch} onSort={setSort} sort={sort} />
             <ListPasswords data={SearchFilter} layout='trash' />
         </div>
     );

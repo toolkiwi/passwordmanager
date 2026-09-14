@@ -1,6 +1,7 @@
 import EmptyList from '@/components/list/EmptyList';
 import ListHeader from '@/components/list/Header';
 import PageHead from '@/components/PageHead';
+import CreateButton from '@/components/CreateButton';
 import { StoreState } from '@/redux/StoreRedux';
 
 import { type ReactElement, useState } from 'react';
@@ -8,6 +9,7 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import TagsList from './__partials/TagsList';
 import CommonUtils from '@/utils/commonUtils';
+import { SORT_DEFAULT, type SortOption } from '@/constants/Sort';
 
 export default function Index(): ReactElement {
     /**
@@ -19,6 +21,10 @@ export default function Index(): ReactElement {
      */
     const [search, setSearch] = useState<string>('');
     /**
+     * Sort option applied to the list
+     */
+    const [sort, setSort] = useState<SortOption>(SORT_DEFAULT);
+    /**
      * Instance of translation hook
      */
     const { t } = useTranslation();
@@ -26,10 +32,12 @@ export default function Index(): ReactElement {
     /**
      * Filter passwords by string
      */
-    const SearchFilter =
+    const SearchFilter = CommonUtils.sortItems(
         Vault?.tags?.filter((i) =>
             [i.title, i.color].some((v) => v.toLowerCase().includes(search.trim().toLowerCase())),
-        ) || [];
+        ) || [],
+        sort,
+    );
 
     /**
      * Set document title
@@ -38,10 +46,14 @@ export default function Index(): ReactElement {
 
     return (
         <div className='page-container'>
-            <PageHead title={t('page:titles.tags')} />
+            <PageHead
+                title={t('page:titles.tags')}
+                afterTitle={<CreateButton to='create' label={t('page:tags.create_tag')} />}
+            />
             <ListHeader
                 onSearch={setSearch}
-                settings={['create']}
+                onSort={setSort}
+                sort={sort}
                 searchPlaceholder={t('page:tags.search_placeholder')}
             />
             {!SearchFilter || SearchFilter.length === 0 ? (

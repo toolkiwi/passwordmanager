@@ -1,11 +1,10 @@
 import React, { useCallback } from 'react';
 import StyledInput from '@/components/styled/form/StyledInput';
-import StyledButton from '@/components/styled/StyledButton';
-import { useNavigate } from 'react-router';
-import { HiPlus } from 'react-icons/hi2';
 import { useTranslation } from 'react-i18next';
 import { VaultInterface } from '@/interfaces/VaultInterface';
 import TagSelect from '../tags/TagSelect';
+import SortSelect from './SortSelect';
+import { SORT_DEFAULT, type SortOption } from '@/constants/Sort';
 import { useSelector } from 'react-redux';
 import { StoreState } from '@/redux/StoreRedux';
 
@@ -13,15 +12,19 @@ interface PropsComponent {
     onSearch: React.Dispatch<React.SetStateAction<string>>;
     onFilterTag?: React.Dispatch<VaultInterface.Tag['id']>;
     filterTag?: VaultInterface.Tag['id'] | undefined;
+    onSort?: React.Dispatch<React.SetStateAction<SortOption>>;
+    sort?: SortOption;
     searchPlaceholder?: string;
-    settings?: ['create'];
 }
 
-export default function ListHeader({ onSearch, onFilterTag, filterTag, settings, searchPlaceholder }: PropsComponent) {
-    /**
-     * Instance of useNavigate hook
-     */
-    const navigate = useNavigate();
+export default function ListHeader({
+    onSearch,
+    onFilterTag,
+    filterTag,
+    onSort,
+    sort,
+    searchPlaceholder,
+}: PropsComponent) {
     /**
      * Instance vault data
      */
@@ -30,27 +33,6 @@ export default function ListHeader({ onSearch, onFilterTag, filterTag, settings,
      * Instance translation hook
      */
     const { t } = useTranslation();
-
-    /**
-     * Renders the left-side button
-     */
-    const RenderLeft = useCallback(() => {
-        if (settings?.includes('create')) {
-            return (
-                <StyledButton
-                    variant='secondary'
-                    button={{
-                        'data-tooltip-content': t('common:add_password'),
-                        'data-tooltip-place': 'bottom',
-                        className: CN.add_button,
-                        onClick: () => navigate('create'),
-                    }}
-                >
-                    <HiPlus size={22} color='inherit' />
-                </StyledButton>
-            );
-        }
-    }, [settings, navigate]);
 
     /**
      * Renders the right-side button
@@ -72,12 +54,23 @@ export default function ListHeader({ onSearch, onFilterTag, filterTag, settings,
     }, [Vault, onFilterTag, filterTag]);
 
     /**
+     * Renders the sort selector
+     */
+    const RenderSort = useCallback(() => {
+        if (!onSort) return;
+        return (
+            <div className={CN.sort_wrapper}>
+                <SortSelect value={sort ?? SORT_DEFAULT} onChange={onSort} />
+            </div>
+        );
+    }, [onSort, sort]);
+
+    /**
      * Render Header
      */
     return (
         <div className={CN.container}>
             <div className={CN.header}>
-                <RenderLeft />
                 <StyledInput
                     input={{
                         placeholder: searchPlaceholder ?? t('common:search'),
@@ -85,6 +78,7 @@ export default function ListHeader({ onSearch, onFilterTag, filterTag, settings,
                     }}
                 />
                 <RenderRight />
+                <RenderSort />
             </div>
         </div>
     );
@@ -96,5 +90,5 @@ export default function ListHeader({ onSearch, onFilterTag, filterTag, settings,
 const CN = {
     container: 'p-5 border-b',
     header: 'flex flex-row items-center flex-wrap gap-2',
-    add_button: 'flex items-center justify-center h-13 max-sm:h-[45px] aspect-square',
+    sort_wrapper: 'flex-row items-center w-full sm:w-[200px]',
 };

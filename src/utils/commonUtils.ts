@@ -1,6 +1,7 @@
 import { createAvatar } from '@dicebear/core';
 import { identicon, initials } from '@dicebear/collection';
 import { VaultInterface } from '@/interfaces/VaultInterface';
+import type { SortOption } from '@/constants/Sort';
 
 class CommonUtils {
     /**
@@ -125,6 +126,37 @@ class CommonUtils {
     public static DocumentTitle(title: string) {
         document.title = `ToolKiwi PM - ${title}`;
         return;
+    }
+
+    /**
+     * Sort any vault item list (passwords, keys...) with the selected option
+     */
+    public static sortItems<
+        T extends {
+            title: string;
+            created_at: Date | number | string;
+            updated_at: Date | number | string;
+        },
+    >(items: T[], sort: SortOption): T[] {
+        /**
+         * Convert every supported date format to a comparable timestamp
+         */
+        const timestamp = (value: Date | number | string): number => new Date(value).getTime() || 0;
+
+        return [...items].sort((a, b) => {
+            switch (sort) {
+                case 'oldest':
+                    return timestamp(a.created_at) - timestamp(b.created_at);
+                case 'title_asc':
+                    return a.title.localeCompare(b.title);
+                case 'title_desc':
+                    return b.title.localeCompare(a.title);
+                case 'updated':
+                    return timestamp(b.updated_at) - timestamp(a.updated_at);
+                default:
+                    return timestamp(b.created_at) - timestamp(a.created_at);
+            }
+        });
     }
 
     /**

@@ -8,6 +8,7 @@ import type { StoreState } from '@/redux/StoreRedux';
 import List from './__partials/List';
 import { VaultInterface } from '@/interfaces/VaultInterface';
 import CommonUtils from '@/utils/commonUtils';
+import { SORT_DEFAULT, type SortOption } from '@/constants/Sort';
 
 export default function Index(): ReactElement {
     /**
@@ -18,6 +19,10 @@ export default function Index(): ReactElement {
      * Tag filter to filter passwords by tag
      */
     const [filterTag, setFilterTag] = useState<VaultInterface.Tag['id'] | undefined>(undefined);
+    /**
+     * Sort option applied to the list
+     */
+    const [sort, setSort] = useState<SortOption>(SORT_DEFAULT);
     /**
      * Get password from vault state
      */
@@ -30,10 +35,12 @@ export default function Index(): ReactElement {
     /**
      * Filter passwords by string
      */
-    const SearchFilter =
+    const SearchFilter = CommonUtils.sortItems(
         DATA?.filter((i) => (filterTag ? i.tag_id === filterTag : true)).filter((i) =>
             [i.title, i.password, i.login, i.note].some((v) => v.toLowerCase().includes(search.trim().toLowerCase())),
-        ) || [];
+        ) || [],
+        sort,
+    );
     /**
      * Set document title
      */
@@ -45,7 +52,13 @@ export default function Index(): ReactElement {
     return (
         <div className={CN.page_container}>
             <PageHead title={t('page:titles.totp')} />
-            <ListHeader onSearch={setSearch} onFilterTag={setFilterTag} filterTag={filterTag} />
+            <ListHeader
+                onSearch={setSearch}
+                onFilterTag={setFilterTag}
+                filterTag={filterTag}
+                onSort={setSort}
+                sort={sort}
+            />
             <List data={SearchFilter} />
         </div>
     );
