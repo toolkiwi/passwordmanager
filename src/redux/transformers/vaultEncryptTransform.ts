@@ -18,6 +18,15 @@ const VaultEncryptTransform = createTransform<VaultInterface.State, VaultInterfa
             } as VaultInterface.State;
         }
 
+        /**
+         * If the user disabled lock on reload, keep the vault fully decrypted in storage
+         */
+        if (data._d.settings?.autolock_on_reload === false) {
+            return {
+                ...inboundState,
+            } as VaultInterface.State;
+        }
+
         try {
             const password = data._d?.master;
             const plaintext = JSON.stringify({

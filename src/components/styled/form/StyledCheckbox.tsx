@@ -18,7 +18,7 @@ export default function StyledCheckbox({
 
     return (
         <div
-            className={`flex flex-row items-center gap-3 border hover:bg-foreground/2 rounded-lg p-2 cursor-pointer select-none ${wrapperClassName ? wrapperClassName : ''}`}
+            className={`flex flex-row items-center gap-3 border hover:bg-foreground/2 rounded-lg p-4 cursor-pointer select-none ${wrapperClassName ? wrapperClassName : ''}`}
             onClick={() => onChange(!checked)}
         >
             <div className='w-5 h-5 rounded-md border border-foreground/10! flex items-center justify-center cursor-pointer'>

@@ -11,7 +11,7 @@ const VaultChangeMiddleware: Middleware = (store) => {
 
     return (next) => (action) => {
         // @ts-expect-error: Can't catch the right type from redux persist
-        if (!action.type.startsWith('vault/') || action.type === 'vault/setUnsaved') {
+        if (!action.type.startsWith('vault/') || ['vault/setUnsaved', 'vault/lockVault'].includes(action.type)) {
             return next(action);
         }
 

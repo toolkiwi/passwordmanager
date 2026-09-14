@@ -6,6 +6,7 @@ import { type ReactElement, useEffect } from 'react';
 import ConsoleCommandUtils from '@/utils/consoleCommandUtils';
 import { Tooltip } from 'react-tooltip';
 import useIsMobile from '@/hooks/useIsMobile';
+import useAutoLock from '@/hooks/useAutoLock';
 import clsx from 'clsx';
 import UnlockVaultScreen from '@/components/UnlockVaultScreen';
 
@@ -28,6 +29,11 @@ export default function DashboardLayout(): ReactElement | null {
      * Insatance of useIsMobile hook
      */
     const isMobile = useIsMobile();
+
+    /**
+     * Instance of useAutoLock hook
+     */
+    useAutoLock();
 
     /**
      * On App.unlocked update

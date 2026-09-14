@@ -1,7 +1,9 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, current, PayloadAction } from '@reduxjs/toolkit';
+import CryptoJS from 'crypto-js';
 import { VaultInterface } from '../../interfaces/VaultInterface';
 import CommonUtils from '../../utils/commonUtils';
 import { getRandomTagColor } from '@/constants/TagColors';
+import { VAULT_SETTINGS_DEFAULT } from '@/constants/Vault';
 
 /**
  * Initial State
@@ -50,6 +52,28 @@ export const vaultSlice = createSlice({
         resetVault: (state: VaultInterface.State | null) => {
             state = initialState;
             return state;
+        },
+        /**
+         * Encrypt the vault back into its cipher so the master password is required again
+         */
+        lockVault: (state: VaultInterface.State | null) => {
+            if (!state?._d?.master || state._cipher) return;
+
+            const data = current(state);
+            const ciphertext = CryptoJS.AES.encrypt(
+                JSON.stringify({ ...data, _cipher: null }),
+                data._d!.master,
+            ).toString();
+
+            return {
+                ...data,
+                _d: {
+                    name: data._d!.name,
+                    logo: data._d!.logo,
+                    algo: data._d!.algo,
+                },
+                _cipher: ciphertext,
+            } as VaultInterface.State;
         },
         addPassword: (state: VaultInterface.State | null, action: PayloadAction<VaultInterface.Form.Password>) => {
             if (!state) return;
@@ -270,6 +294,7 @@ export const {
     setVault,
     setVaultData,
     resetVault,
+    lockVault,
     addPassword,
     setPassword,
     deletePassword,

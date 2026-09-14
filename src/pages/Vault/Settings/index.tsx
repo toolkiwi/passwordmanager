@@ -2,7 +2,7 @@ import PageHead from '@/components/PageHead';
 import { useSelector } from 'react-redux';
 import type { StoreState } from '@/redux/StoreRedux';
 import StyledButton from '@/components/styled/StyledButton';
-import { TbArrowBackUp, TbEye, TbEyeClosed } from 'react-icons/tb';
+import { TbArrowBackUp, TbEye, TbEyeClosed, TbAlertTriangle } from 'react-icons/tb';
 import StyledInput from '@/components/styled/form/StyledInput';
 import Alert from '@/components/Alert';
 import { ChangeEvent, useEffect, useState } from 'react';
@@ -15,11 +15,16 @@ import { useTranslation } from 'react-i18next';
 import CommonUtils from '@/utils/commonUtils';
 import ActionButton from '@/components/styled/ActionButton';
 import FormCN from '@/styles/CN/FormCN';
+import StyledCheckbox from '@/components/styled/form/StyledCheckbox';
+import clsx from 'clsx';
+import type { VaultInterface } from '@/interfaces/VaultInterface';
+import { AUTOLOCK_INACTIVITY_DELAY, VAULT_SETTINGS_DEFAULT } from '@/constants/Vault';
 
 interface FormInterface {
     name: string;
     logo: string | number;
     master: string;
+    settings: VaultInterface.Settings;
 }
 
 export default function Index() {
@@ -44,6 +49,7 @@ export default function Index() {
         name: Vault!.name,
         logo: Vault!.logo,
         master: Vault!.master,
+        settings: { ...VAULT_SETTINGS_DEFAULT, ...Vault!.settings },
     };
 
     /**
@@ -76,6 +82,15 @@ export default function Index() {
     };
 
     /**
+     * Update a single vault setting inside form state
+     */
+    const handleUpdateSetting = (field: keyof VaultInterface.Settings, value: boolean) => {
+        setForm((state: FormInterface) => {
+            return { ...state, settings: { ...state.settings, [field]: value } };
+        });
+    };
+
+    /**
      * On form submit
      */
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -90,6 +105,7 @@ export default function Index() {
                 name: form.name,
                 logo: form.logo,
                 master: form.master.length > 0 ? form.master : Vault.master,
+                settings: form.settings,
             }),
         );
         /**
@@ -227,6 +243,49 @@ export default function Index() {
                                 }
                             />
                         </div>
+                        <div className={CN.input_group}>
+                            <label className={FormCN.label}>{t('page:settings.security')}</label>
+                            <p className={FormCN.sub_label}>{t('page:settings.security_desc')}</p>
+                            <div className={CN.checkbox_group}>
+                                <StyledCheckbox
+                                    title={t('page:settings.autolock_inactivity')}
+                                    subtitle={t('page:settings.autolock_inactivity_desc', {
+                                        minutes: AUTOLOCK_INACTIVITY_DELAY / 60000,
+                                    })}
+                                    value={form.settings.autolock_inactivity}
+                                    onChange={(checked) => handleUpdateSetting('autolock_inactivity', checked)}
+                                    wrapperClassName={clsx(
+                                        form.settings.autolock_inactivity && 'bg-foreground/5! border-foreground/5!',
+                                    )}
+                                />
+                                <StyledCheckbox
+                                    title={t('page:settings.autolock_on_leave')}
+                                    subtitle={t('page:settings.autolock_on_leave_desc')}
+                                    value={form.settings.autolock_on_leave}
+                                    onChange={(checked) => handleUpdateSetting('autolock_on_leave', checked)}
+                                    wrapperClassName={clsx(
+                                        form.settings.autolock_on_leave && 'bg-foreground/5! border-foreground/5!',
+                                    )}
+                                />
+                                <StyledCheckbox
+                                    title={t('page:settings.autolock_on_reload')}
+                                    subtitle={t('page:settings.autolock_on_reload_desc')}
+                                    value={form.settings.autolock_on_reload}
+                                    onChange={(checked) => handleUpdateSetting('autolock_on_reload', checked)}
+                                    wrapperClassName={clsx(
+                                        form.settings.autolock_on_reload && 'bg-foreground/5! border-foreground/5!',
+                                    )}
+                                />
+                                {!form.settings.autolock_inactivity
+                                    && !form.settings.autolock_on_leave
+                                    && !form.settings.autolock_on_reload && (
+                                        <div className={CN.warning}>
+                                            <TbAlertTriangle size={18} className='text-yellow-500 shrink-0' />
+                                            <p>{t('page:settings.no_autolock_warning')}</p>
+                                        </div>
+                                    )}
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div className={CN.footer}>
@@ -261,4 +320,7 @@ const CN = {
     footer: 'mt-5 flex flex-row items-center gap-5 p-5 border-t ',
     buttonFlex: 'flex-1 p-3',
     input_group: 'flex flex-col gap-2 flex-1',
+    checkbox_group: 'flex flex-col gap-3 mt-1',
+    warning:
+        'flex flex-row items-start gap-2.5 p-3 rounded-lg bg-yellow-500/5 border border-yellow-500/15 text-foreground/60 text-sm',
 };

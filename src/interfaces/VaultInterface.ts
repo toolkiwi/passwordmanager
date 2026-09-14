@@ -21,7 +21,17 @@ export namespace VaultInterface {
         tags?: Tag[];
         keys?: Key[];
         totp?: TOTP;
+        settings?: Settings;
         created_at: number;
+    }
+
+    /**
+     * Interface for the vault settings stored inside the vault data
+     */
+    export interface Settings {
+        autolock_inactivity: boolean;
+        autolock_on_leave: boolean;
+        autolock_on_reload: boolean;
     }
 
     /**
