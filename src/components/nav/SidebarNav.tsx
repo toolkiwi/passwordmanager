@@ -185,34 +185,6 @@ export default function SidebarNav() {
             </div>
         </div>
     );
-    /**
-     * Render feedback button
-     */
-    const RenderFeedbackButton = () => {
-        if (!isOnline) return null;
-
-        return (
-            <a
-                href='https://bit.ly/4q7dUQL'
-                target='_blank'
-                rel='noopener noreferrer'
-                className={clsx(isCompact ? CN.listItemCompact : CN.listItem)}
-                {...getTooltipProps(t('common:feedback'))}
-                onClick={() => dispatch(setShowSidebar(false))}
-            >
-                <LuHeart
-                    className={clsx(
-                        CN.listItemIcon,
-                        isCompact ? 'text-orange-600!' : 'text-orange-700 group-hover:text-orange-500!',
-                    )}
-                    size={16}
-                />
-                {!isCompact && (
-                    <span className='truncate text-orange-700 group-hover:text-orange-500'>{t('common:feedback')}</span>
-                )}
-            </a>
-        );
-    };
 
     /**
      * Render navigation items
@@ -233,7 +205,6 @@ export default function SidebarNav() {
                     {!isCompact && <span>{t(translationKey)}</span>}
                 </NavLink>
             ))}
-            <RenderFeedbackButton />
         </div>
     );
 
