@@ -56,7 +56,7 @@ export const vaultSlice = createSlice({
                 ...action.payload,
                 id: CommonUtils.generateShortUUID(),
                 created_at: new Date().getTime(),
-                updated_at: new Date().getDate(),
+                updated_at: new Date().getTime(),
             };
             state._d?.passwords.unshift(payload);
             return state;
@@ -79,7 +79,7 @@ export const vaultSlice = createSlice({
             if (index !== -1) {
                 state._d.passwords[index] = {
                     ...state?._d?.passwords[index],
-                    updated_at: new Date().getDate(),
+                    updated_at: new Date().getTime(),
                     ...action.payload.data,
                 };
             }
@@ -95,7 +95,7 @@ export const vaultSlice = createSlice({
                 state._d.passwords.splice(index, 1);
                 state._d.trash.unshift({
                     ...action.payload,
-                    updated_at: new Date().getDate(),
+                    updated_at: new Date().getTime(),
                 });
             }
 
@@ -110,7 +110,7 @@ export const vaultSlice = createSlice({
                 state._d.trash.splice(index, 1);
                 state._d.passwords.unshift({
                     ...action.payload,
-                    updated_at: new Date().getDate(),
+                    updated_at: new Date().getTime(),
                 });
             }
 
@@ -135,7 +135,7 @@ export const vaultSlice = createSlice({
                 color: action.payload.color ?? getRandomTagColor(),
                 id: CommonUtils.generateShortUUID(10),
                 created_at: new Date().getTime(),
-                updated_at: new Date().getDate(),
+                updated_at: new Date().getTime(),
             };
             /**
              * Add to state
@@ -162,7 +162,7 @@ export const vaultSlice = createSlice({
                 state._d.tags[index] = {
                     ...state?._d?.tags[index],
                     ...action.payload.data,
-                    updated_at: new Date().getDate(),
+                    updated_at: new Date().getTime(),
                 };
             }
 
