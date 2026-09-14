@@ -2,19 +2,19 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useNavigate } from 'react-router';
 import { useTranslation } from 'react-i18next';
-import { LuKeyRound, LuLock, LuLogOut, LuSave, LuTags, LuTrash2, LuHeart } from 'react-icons/lu';
+import { LuKeyRound, LuLock, LuLogOut, LuSave, LuTags, LuTrash2, LuKeySquare } from 'react-icons/lu';
 import clsx from 'clsx';
 
 import type { StoreDispatch, StoreState } from '@/redux/StoreRedux';
-import { resetVault, setUnsaved } from '@/redux/features/vaultSlice';
+import { resetVault, setUnsaved, lockVault } from '@/redux/features/vaultSlice';
 import { setUnlocked } from '@/redux/features/appSlice';
 import { setShowSidebar } from '@/redux/features/tempSlice';
 import useIsMobile from '@/hooks/useIsMobile';
-import useOnlineStatus from '@/hooks/useOnlineStatus';
 import CommonUtils from '@/utils/commonUtils';
 import StyledButton from '../styled/StyledButton';
 import FileUtils from '@/utils/fileUtils';
-import { TbDatabaseExclamation } from 'react-icons/tb';
+import { TbDatabaseExclamation, TbLock, TbCommand, TbArrowBigUp } from 'react-icons/tb';
+import { LOCK_VAULT_SHORTCUT_KEY, CLOSE_VAULT_SHORTCUT_KEY } from '@/constants/Vault';
 
 /**
  * Navigation items for the sidebar
@@ -36,11 +36,21 @@ const NAV_ITEMS = [
         translationKey: 'page:titles.totp',
     },
     {
+        to: '/vault/keys',
+        icon: LuKeySquare,
+        translationKey: 'page:titles.keys',
+    },
+    {
         to: '/vault/trash',
         icon: LuTrash2,
         translationKey: 'page:titles.trash',
     },
 ] as const;
+
+/**
+ * Used to display the right modifier icon in shortcut hints (⌘ on macOS, Ctrl elsewhere)
+ */
+const IS_MAC = typeof navigator !== 'undefined' && /mac/i.test(navigator.userAgent);
 
 export default function SidebarNav() {
     /**
@@ -74,11 +84,6 @@ export default function SidebarNav() {
     const isMobile = useIsMobile();
 
     /**
-     * Instance useOnlineStatus hook
-     */
-    const isOnline = useOnlineStatus();
-
-    /**
      * State to track if screen is below 900px (but not mobile)
      */
     const [isCompact, setIsCompact] = useState(false);
@@ -103,6 +108,13 @@ export default function SidebarNav() {
 
         dispatch(resetVault());
         dispatch(setUnlocked(false));
+    };
+
+    /**
+     * Lock the vault immediately, the master password will be asked back
+     */
+    const handleLockNow = () => {
+        dispatch(lockVault());
     };
 
     /**
@@ -149,6 +161,29 @@ export default function SidebarNav() {
 
         return () => window.removeEventListener('resize', handleResize);
     }, [isMobile]);
+
+    /**
+     * Global keyboard shortcuts to lock (Ctrl/Cmd+Shift+L) or close (Ctrl/Cmd+Shift+X) the vault from anywhere
+     */
+    useEffect(() => {
+        const handleKeyDown = (e: KeyboardEvent) => {
+            if (!(e.ctrlKey || e.metaKey) || !e.shiftKey) return;
+
+            const key = e.key.toLowerCase();
+
+            if (key === LOCK_VAULT_SHORTCUT_KEY) {
+                e.preventDefault();
+                handleLockNow();
+            } else if (key === CLOSE_VAULT_SHORTCUT_KEY) {
+                e.preventDefault();
+                handleLogout();
+            }
+        };
+
+        window.addEventListener('keydown', handleKeyDown);
+
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    }, [dispatch, Vault._unsaved, t]);
 
     /**
      * Render the vault header section
@@ -201,11 +236,29 @@ export default function SidebarNav() {
                     onClick={() => dispatch(setShowSidebar(false))}
                     {...getTooltipProps(t(translationKey))}
                 >
-                    <Icon className={clsx(CN.listItemIcon, isCompact && 'text-foreground!')} size={16} />
-                    {!isCompact && <span>{t(translationKey)}</span>}
+                    {({ isActive }) => (
+                        <>
+                            <Icon
+                                className={clsx(CN.listItemIcon, (isCompact || isActive) && 'text-foreground!')}
+                                size={16}
+                            />
+                            {!isCompact && <span>{t(translationKey)}</span>}
+                        </>
+                    )}
                 </NavLink>
             ))}
         </div>
+    );
+
+    /**
+     * Render a subtle keyboard shortcut hint made of the modifier icons and the key letter
+     */
+    const RenderShortcutHint = ({ shortcutKey }: { shortcutKey: string }) => (
+        <span className={CN.shortcut}>
+            {IS_MAC ? <TbCommand size={13} /> : <span className={CN.shortcutKey}>Ctrl</span>}
+            <TbArrowBigUp size={13} />
+            <span className={CN.shortcutKey}>{shortcutKey.toUpperCase()}</span>
+        </span>
     );
 
     /**
@@ -216,11 +269,28 @@ export default function SidebarNav() {
             <button
                 type='button'
                 className={clsx(isCompact ? CN.listItemCompact : CN.listItem, 'border border-neutral-800')}
+                onClick={handleLockNow}
+                {...getTooltipProps(t('common:lock_vault_now'))}
+            >
+                <RenderShortcutHint shortcutKey={LOCK_VAULT_SHORTCUT_KEY} />
+                {!isCompact && (
+                    <>
+                        <span className={CN.listItemLabel}>{t('common:lock_vault_now')}</span>
+                    </>
+                )}
+            </button>
+            <button
+                type='button'
+                className={clsx(isCompact ? CN.listItemCompact : CN.listItem, 'border border-neutral-800')}
                 onClick={handleLogout}
                 {...getTooltipProps(t('common:close_vault'))}
             >
-                <LuLogOut className={clsx(CN.listItemIcon, isCompact && 'text-foreground!')} size={16} />
-                {!isCompact && <span>{t('common:close_vault')}</span>}
+                <RenderShortcutHint shortcutKey={CLOSE_VAULT_SHORTCUT_KEY} />
+                {!isCompact && (
+                    <>
+                        <span className={CN.listItemLabel}>{t('common:close_vault')}</span>
+                    </>
+                )}
             </button>
         </div>
     );
@@ -331,12 +401,18 @@ const CN = {
     listCompact: 'w-full flex flex-col items-center flex-1 gap-5 px-2',
 
     listItem:
-        'h-14 w-full rounded-xl hover:bg-foreground/5 cursor-pointer flex flex-row items-center justify-start transition-all group gap-2 px-4 text-foreground/80 hover:text-foreground',
+        'h-14 w-full rounded-xl hover:bg-foreground/5 cursor-pointer flex flex-row items-center justify-start transition-all group gap-3 px-4 text-foreground/80 hover:text-foreground',
     listItemCompact:
         'h-14 w-14 rounded-xl hover:bg-foreground/5 cursor-pointer flex flex-col items-center justify-center transition-all group px-2 text-foreground/80 hover:text-foreground border',
     listItemActive: 'bg-foreground/10! text-foreground!',
     listItemCompactActive: 'bg-foreground/10! text-foreground!',
-    listItemIcon: 'text-foreground/20',
+    listItemIcon: 'text-neutral-600 group-hover:text-foreground transition-all',
+    listItemLabel: 'flex-1 text-left truncate',
+    /**
+     * Shortcut hint style
+     */
+    shortcut: 'flex flex-row items-center gap-0.5 shrink-0 text-neutral-600 p-1.5 rounded-md border border-neutral-400',
+    shortcutKey: 'text-[10px] font-semibold uppercase',
     /**
      * Button style
      */

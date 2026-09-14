@@ -20,3 +20,14 @@ export const AUTOLOCK_INACTIVITY_DELAY = 10 * 60 * 1000;
  */
 export const AUTOLOCK_ACTIVITY_EVENTS = ['mousemove', 'mousedown', 'keydown', 'touchstart', 'scroll', 'wheel'] as const;
 
+/**
+ * Keyboard shortcut used to lock the vault instantly (Ctrl/Cmd + Shift + L)
+ */
+export const LOCK_VAULT_SHORTCUT_KEY = 'l';
+
+/**
+ * Keyboard shortcut used to close the vault instantly (Ctrl/Cmd + Shift + X)
+ * Avoid "Q": Cmd+Shift+Q is reserved by macOS to log out and never reaches the browser
+ */
+export const CLOSE_VAULT_SHORTCUT_KEY = 'x';
+
